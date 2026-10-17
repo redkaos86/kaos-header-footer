@@ -94,7 +94,7 @@ class KAOSHF_Elementor {
 	}
 
 	public static function before_render( $element ) {
-		if ( ! KAOSHF_Fx::enabled() || class_exists( '\Elementor\Plugin' ) && \Elementor\Plugin::$instance->editor->is_edit_mode() ) {
+		if ( ! KAOSHF_Fx::enabled() || ( class_exists( '\Elementor\Plugin' ) && \Elementor\Plugin::$instance->editor->is_edit_mode() ) ) {
 			return;
 		}
 		$settings = $element->get_settings_for_display();

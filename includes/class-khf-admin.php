@@ -120,9 +120,12 @@ class KAOSHF_Admin {
 					'minimal' => KAOSHF_Presets::bar_defaults( 'minimal' ),
 					'grid'    => KAOSHF_Presets::bar_defaults( 'grid' ),
 				),
-				'fonts'      => array_map( function ( $f ) {
-					return $f[0];
-				}, KAOSHF_Presets::fonts() ),
+				'fonts'      => array_map(
+					function ( $f ) {
+						return $f[0];
+					},
+					KAOSHF_Presets::fonts()
+				),
 				'burgers'    => KAOSHF_Presets::burgers(),
 				'bp'         => array( 'tablet' => (int) $settings['bp_tablet'], 'mobile' => (int) $settings['bp_mobile'] ),
 			);

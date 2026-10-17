@@ -264,9 +264,9 @@ class KAOSHF_Presets {
 	private static function social_label( $host ) {
 		$map = array(
 			'instagram.com' => 'Instagram', 'facebook.com' => 'Facebook', 'x.com' => 'X', 'twitter.com' => 'X',
-			'linkedin.com'  => 'LinkedIn',  'youtube.com'  => 'YouTube',  'youtu.be' => 'YouTube', 'tiktok.com' => 'TikTok',
-			'pinterest.com' => 'Pinterest', 'wa.me'        => 'WhatsApp', 'whatsapp.com' => 'WhatsApp', 't.me' => 'Telegram',
-			'github.com'    => 'GitHub',    'behance.net'  => 'Behance',  'dribbble.com' => 'Dribbble', 'spotify.com' => 'Spotify',
+			'linkedin.com' => 'LinkedIn', 'youtube.com' => 'YouTube', 'youtu.be' => 'YouTube', 'tiktok.com' => 'TikTok',
+			'pinterest.com' => 'Pinterest', 'wa.me' => 'WhatsApp', 'whatsapp.com' => 'WhatsApp', 't.me' => 'Telegram',
+			'github.com' => 'GitHub', 'behance.net' => 'Behance', 'dribbble.com' => 'Dribbble', 'spotify.com' => 'Spotify',
 		);
 		if ( isset( $map[ $host ] ) ) {
 			return $map[ $host ];

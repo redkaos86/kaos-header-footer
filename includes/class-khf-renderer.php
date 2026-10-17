@@ -104,9 +104,8 @@ class KAOSHF_Renderer {
 					$extra['fg1'] = 'var(--khf-fg)';
 				}
 			}
-			if ( 'floating' === $o['preset_header'] ) {
-				// The "pill" has its own glass: the outer element stays transparent.
-			} elseif ( $fx['blur'] > 0 && '' === $fx['bg1'] && empty( $fx['glass'] ) && ! KAOSHF_Fx::is_gradient( $o['color_bg'] ) ) {
+			// The floating "pill" has its own glass: the outer element stays transparent, so nothing is added for it.
+			if ( 'floating' !== $o['preset_header'] && $fx['blur'] > 0 && '' === $fx['bg1'] && empty( $fx['glass'] ) && ! KAOSHF_Fx::is_gradient( $o['color_bg'] ) ) {
 				$extra['bg1'] = 'color-mix(in srgb,var(--khf-bg) 82%,transparent)';
 			}
 			$fx['shrink'] = 0; // The presets handle the height with their own measures.
@@ -548,7 +547,7 @@ class KAOSHF_Renderer {
 			if ( $tpl ) {
 				$post = $tpl; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited -- needed for Divi/shortcodes, restored below.
 				setup_postdata( $post );
-				$html = apply_filters( 'the_content', $tpl->post_content );
+				$html = apply_filters( 'the_content', $tpl->post_content ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound -- WordPress core filter.
 				$post = $prev; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
 				if ( $prev ) {
 					setup_postdata( $prev );
