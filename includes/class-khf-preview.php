@@ -50,9 +50,16 @@ class KAOSHF_Preview {
 
 		$opts = KAOSHF_Options::get( $id );
 		if ( $draft ) {
-			$saved = get_transient( self::draft_key( $id ) );
-			if ( is_array( $saved ) ) {
-				$opts = $saved;
+			// The editor posts the unsaved draft straight to the preview: nothing has to be stored in between.
+			// phpcs:ignore WordPress.Security.NonceVerification.Missing, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- nonce checked above; the JSON is decoded and sanitized by KAOSHF_Options::sanitize().
+			$posted = isset( $_POST['kaoshf_opts'] ) ? json_decode( wp_unslash( $_POST['kaoshf_opts'] ), true ) : null;
+			if ( is_array( $posted ) ) {
+				$opts = KAOSHF_Options::sanitize( $posted );
+			} else {
+				$saved = get_transient( self::draft_key( $id ) );
+				if ( is_array( $saved ) ) {
+					$opts = $saved;
+				}
 			}
 		}
 

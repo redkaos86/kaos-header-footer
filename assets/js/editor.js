@@ -101,8 +101,30 @@
 		previewTimer = setTimeout(loadPreview, now ? 0 : 450);
 	}
 
+	/** Submits the unsaved draft straight to the preview page, inside the iframe (no stored copy in between). */
+	function postPreview(done) {
+		var form = h('form', { method: 'post', action: S.liveUrl + '&draft=1', target: 'khe-preview', style: 'display:none' },
+			h('input', { type: 'hidden', name: 'kaoshf_opts', value: JSON.stringify(S.opts) }));
+		document.body.appendChild(form);
+		done();
+		form.submit();
+		setTimeout(function () { form.remove(); }, 1000);
+	}
+
 	function loadPreview() {
 		$.busy.classList.add('is-on');
+		if (S.liveUrl) {
+			var y0 = 0;
+			try { y0 = $.iframe.contentWindow.pageYOffset || 0; } catch (e) { y0 = 0; }
+			postPreview(function () {
+				$.iframe.addEventListener('load', function onLoad() {
+					$.iframe.removeEventListener('load', onLoad);
+					$.busy.classList.remove('is-on');
+					try { $.iframe.contentWindow.scrollTo(0, y0); } catch (e) { /* same origin */ }
+				});
+			});
+			return;
+		}
 		api('/templates/' + S.id + '/draft', { method: 'POST', body: { opts: S.opts } }).then(function (r) {
 			var win = $.iframe.contentWindow;
 			var y = 0;
@@ -1362,7 +1384,7 @@
 		$.left = h('aside', { class: 'khe-left' });
 		$.right = h('aside', { class: 'khe-right' });
 		$.busy = h('span', { class: 'khe-busy' });
-		$.iframe = h('iframe', { title: __( 'Preview', 'kaos-header-footer' ), src: 'about:blank' });
+		$.iframe = h('iframe', { title: __( 'Preview', 'kaos-header-footer' ), name: 'khe-preview', src: 'about:blank' });
 		$.frame = h('div', { class: 'khe-frame' }, $.iframe, $.busy);
 		$.center = h('div', { class: 'khe-center' }, $.frame);
 
