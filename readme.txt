@@ -5,7 +5,7 @@ Requires at least: 6.8
 Tested up to: 7.1
 Requires PHP: 7.4
 Requires Plugins: elementor
-Stable tag: 0.9.0
+Stable tag: 0.9.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -96,6 +96,13 @@ Yes. The interface is in English with a complete Italian translation, and the st
 
 == Changelog ==
 
+= 0.9.1 =
+* The menu button no longer takes the look of the theme's own buttons: with some themes it could turn blue when tapped, or show up on desktop.
+* The "reveal" footer no longer shows at the sides of the content with themes that have a narrow content column, such as Hello Elementor.
+* GeneratePress: the theme footer is now hidden when a KaosH&F footer is active.
+* If the font download fails, it is retried at most every 30 minutes instead of on every page view.
+* Updates from GitHub, signed, outside WordPress.org.
+
 = 0.9.0 =
 * Fonts are now hosted on your own site by default, so visitors never contact a third party. Bunny Fonts and Google Fonts remain available in the settings.
 * The interface is now in English with a complete Italian translation.
@@ -109,6 +116,9 @@ Yes. The interface is in English with a complete Italian translation, and the st
 * Footer parity with the header: custom grid, top dividers, bottom bar, link effects, back-to-top arrow and an admin bar shortcut.
 
 == Upgrade Notice ==
+
+= 0.9.1 =
+Fixes the menu button and the reveal footer with some themes.
 
 = 0.9.0 =
 Fonts are now downloaded to your site the next time you save a template. Until then the preview may load them from Bunny Fonts.

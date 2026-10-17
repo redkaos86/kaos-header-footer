@@ -1,4 +1,4 @@
-.khf-burger{display:flex;z-index:3}
+.khf-header .khf-burger{display:flex;z-index:3}
 .khf-logo{position:relative;z-index:3}
 .khf-cta--bar{display:none}
 .khf-cta--in-nav{display:inline-flex}
