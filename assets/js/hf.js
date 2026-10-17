@@ -1,4 +1,4 @@
-/* Kaos Header & Footer — mobile menu and "reveal" footer (vanilla JS) */
+/* KaosH&F — mobile menu and "reveal" footer (vanilla JS) */
 (function () {
 	'use strict';
 

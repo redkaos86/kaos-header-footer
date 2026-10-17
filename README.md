@@ -1,4 +1,4 @@
-# Kaos Header & Footer
+# KaosH&F
 
 Headers and footers for Elementor: emotional presets or layouts designed in Elementor, with sticky, glass and reveal effects.
 

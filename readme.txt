@@ -1,4 +1,4 @@
-=== Kaos Header & Footer ===
+=== KaosH&F ===
 Contributors: drkaos86
 Tags: header, footer, elementor, sticky header, scroll effects
 Requires at least: 6.8
@@ -13,7 +13,7 @@ Headers and footers for Elementor: emotional presets or layouts designed in Elem
 
 == Description ==
 
-Kaos Header & Footer builds the header and the footer of your site in two ways: pick an emotional preset and customize it, or design the layout yourself in Elementor and let the plugin add the scroll effects.
+KaosH&F builds the header and the footer of your site in two ways: pick an emotional preset and customize it, or design the layout yourself in Elementor and let the plugin add the scroll effects.
 
 **Headers**
 
@@ -50,6 +50,7 @@ By default the plugin makes no requests to third parties from your visitors' bro
 
 * **Google Fonts** (fonts.googleapis.com, fonts.gstatic.com): with the default "Hosted on this site" font mode, the font files you choose are downloaded once to your server when you save a template, and visitors never contact Google. With the "Google Fonts" mode the stylesheet is loaded directly from Google. Privacy policy: https://policies.google.com/privacy
 * **Bunny Fonts** (fonts.bunny.net): only when selected in the plugin settings, and to preview fonts in the editor before they are downloaded. Privacy policy: https://bunny.net/privacy
+* **GitHub** (api.github.com and its download servers): to check for and download signed plugin updates, at most every few hours. No site data is sent. Privacy policy: https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement
 * **Apple Maps and Google Maps** (maps.apple.com, www.google.com/maps): the address in a footer or menu can be a link. Nothing is loaded in advance: the map app opens only if the visitor taps the address, and only then are the address and the visitor's device exposed to the service they choose. You can turn the link off for each template. Privacy policies: https://www.apple.com/legal/privacy/ and https://policies.google.com/privacy
 
 == Installation ==

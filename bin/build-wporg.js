@@ -40,6 +40,13 @@ run(TAR, ['-xf', tar, '-C', tmp]);
 fs.unlinkSync(tar);
 const dir = path.join(tmp, 'kaos-header-footer');
 
+// No updates from GitHub: WordPress.org does not allow plugins to have their own update system.
+fs.unlinkSync(path.join(dir, 'includes', 'class-khf-updater.php'));
+const main2 = path.join(dir, 'kaos-header-footer.php');
+fs.writeFileSync(main2, fs.readFileSync(main2, 'utf8').replace(/^ \* Update URI:.*\r?\n/m, '').replace(", 'updater' ) as", " ) as").replace(/^\t\tKAOSHF_Updater::init\(\);\r?\n/m, ''));
+const readmeFile = path.join(dir, 'readme.txt');
+fs.writeFileSync(readmeFile, fs.readFileSync(readmeFile, 'utf8').replace(/^\* \*\*GitHub\*\*.*\r?\n/m, ''));
+
 // No bundled translations: they arrive from translate.wordpress.org.
 fs.rmSync(path.join(dir, 'languages'), { recursive: true, force: true });
 const php = path.join(dir, 'kaos-header-footer.php');
@@ -47,7 +54,7 @@ fs.writeFileSync(php, fs.readFileSync(php, 'utf8').replace(/^ \* Domain Path:.*\
 const admin = path.join(dir, 'includes', 'class-khf-admin.php');
 fs.writeFileSync(admin, fs.readFileSync(admin, 'utf8').replace(/(wp_set_script_translations\( '[\w-]+', 'kaos-header-footer'), KAOSHF_DIR \. 'languages' \)/g, '$1 )'));
 
-for (const [file, re] of [['kaos-header-footer.php', /load_plugin_textdomain|Domain Path/], ['includes/class-khf-admin.php', /'languages'/]]) {
+for (const [file, re] of [['kaos-header-footer.php', /load_plugin_textdomain|Domain Path|Update URI|updater|Updater/], ['readme.txt', /\*\*GitHub\*\*/], ['includes/class-khf-admin.php', /'languages'/]]) {
 	if (re.test(fs.readFileSync(path.join(dir, file), 'utf8'))) {
 		throw new Error('Cleanup failed in ' + file);
 	}

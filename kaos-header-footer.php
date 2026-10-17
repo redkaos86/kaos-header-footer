@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:       Kaos Header & Footer
+ * Plugin Name:       KaosH&F
  * Description:       Headers and footers for Elementor: emotional presets or layouts designed in Elementor, scroll effects (sticky, smart, transparent, glass, floating island…) and a "reveal" footer.
  * Version:           0.9.0
  * Requires at least: 6.8
@@ -8,6 +8,7 @@
  * Requires Plugins:  elementor
  * Author:            DrKaos
  * License:           GPL-2.0-or-later
+ * Update URI:        https://github.com/redkaos86/kaos-header-footer
  * Text Domain:       kaos-header-footer
  * Domain Path:       /languages
  */
@@ -19,7 +20,7 @@ define( 'KAOSHF_FILE', __FILE__ );
 define( 'KAOSHF_DIR', plugin_dir_path( __FILE__ ) );
 define( 'KAOSHF_URL', plugin_dir_url( __FILE__ ) );
 
-foreach ( array( 'fx', 'options', 'fonts', 'presets', 'cpt', 'conditions', 'integrations', 'renderer', 'preview', 'rest', 'admin', 'adminbar', 'elementor' ) as $kaoshf_file ) {
+foreach ( array( 'fx', 'options', 'fonts', 'presets', 'cpt', 'conditions', 'integrations', 'renderer', 'preview', 'rest', 'admin', 'adminbar', 'elementor', 'updater' ) as $kaoshf_file ) {
 	require_once KAOSHF_DIR . 'includes/class-khf-' . $kaoshf_file . '.php';
 }
 unset( $kaoshf_file );
@@ -47,6 +48,7 @@ final class KAOSHF_Plugin {
 	}
 
 	public static function init() {
+		KAOSHF_Updater::init();
 		self::migrate();
 		KAOSHF_CPT::init();
 		KAOSHF_Integrations::init();

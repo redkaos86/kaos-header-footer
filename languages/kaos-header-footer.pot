@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kaos Header & Footer 0.9.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/kaos-header-footer\n"
-"POT-Creation-Date: 2026-10-17 08:24+0000\n"
-"PO-Revision-Date: 2026-10-17 08:24+0000\n"
+"POT-Creation-Date: 2026-10-17 09:04+0000\n"
+"PO-Revision-Date: 2026-10-17 09:04+0000\n"
 "Last-Translator: DrKaos\n"
 "Language-Team: LANGUAGE\n"
 "Language: \n"
@@ -1960,23 +1960,23 @@ msgstr ""
 msgid "Dashboard"
 msgstr ""
 
-#: includes/class-khf-admin.php:141
+#: includes/class-khf-admin.php:144
 msgid "Insufficient permissions."
 msgstr ""
 
-#: includes/class-khf-admin.php:144
+#: includes/class-khf-admin.php:147
 msgid "Loading the editor…"
 msgstr ""
 
-#: includes/class-khf-admin.php:147
+#: includes/class-khf-admin.php:150
 msgid "Loading…"
 msgstr ""
 
-#: includes/class-khf-admin.php:168
+#: includes/class-khf-admin.php:171
 msgid "Hide the Kaos header"
 msgstr ""
 
-#: includes/class-khf-admin.php:169
+#: includes/class-khf-admin.php:172
 msgid "Hide the Kaos footer"
 msgstr ""
 
@@ -2670,7 +2670,7 @@ msgstr ""
 msgid "Preview not allowed."
 msgstr ""
 
-#: includes/class-khf-renderer.php:512
+#: includes/class-khf-renderer.php:511
 msgid "Empty template: press \"Edit with Elementor\" to design it."
 msgstr ""
 
@@ -2698,9 +2698,67 @@ msgstr ""
 msgid "The file is not a valid KaosH&F template."
 msgstr ""
 
+#: includes/class-khf-updater.php:106
+msgid "the latest GitHub release does not contain the signed zip."
+msgstr ""
+
+#: includes/class-khf-updater.php:109
+msgid "the GitHub token in wp-config.php is invalid or expired."
+msgstr ""
+
+#: includes/class-khf-updater.php:111
+msgid "GitHub has temporarily limited requests from this server: it will try again later."
+msgstr ""
+
+#: includes/class-khf-updater.php:113
+msgid "no release found on GitHub (if the repository is private, a token is needed in wp-config.php)."
+msgstr ""
+
+#. translators: %d: HTTP status code.
+#: includes/class-khf-updater.php:116
+#, php-format
+msgid "unexpected response from GitHub (%d)."
+msgstr ""
+
+#: includes/class-khf-updater.php:197
+msgid "Invalid download address."
+msgstr ""
+
+#. translators: %d: HTTP status code.
+#: includes/class-khf-updater.php:213
+#, php-format
+msgid "Download from GitHub failed (%d)."
+msgstr ""
+
+#: includes/class-khf-updater.php:231
+msgid "Unknown update package."
+msgstr ""
+
+#: includes/class-khf-updater.php:235
+msgid "Downloading the update from GitHub…"
+msgstr ""
+
+#: includes/class-khf-updater.php:250
+msgid "The package signature is not valid: update cancelled for security."
+msgstr ""
+
+#: includes/class-khf-updater.php:253
+msgid "Package signature verified."
+msgstr ""
+
+#: includes/class-khf-updater.php:285
+msgid "Check for updates"
+msgstr ""
+
+#. translators: %s: description of the update problem.
+#: includes/class-khf-updater.php:288
+#, php-format
+msgid "Updates: %s"
+msgstr ""
+
 #. Plugin Name of the plugin
 #: kaos-header-footer.php
-msgid "Kaos Header & Footer"
+msgid "KaosH&F"
 msgstr ""
 
 #. Description of the plugin

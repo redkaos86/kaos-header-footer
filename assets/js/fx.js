@@ -1,4 +1,4 @@
-/* Kaos Header & Footer — scroll effects engine (vanilla JS, no dependencies) */
+/* KaosH&F — scroll effects engine (vanilla JS, no dependencies) */
 (function () {
 	'use strict';
 

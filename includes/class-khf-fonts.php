@@ -166,7 +166,7 @@ class KAOSHF_Fonts {
 	 * @param array $fonts family => weights.
 	 * @return string URL of the local CSS, '' if the download failed.
 	 */
-	public static function prepare_local( $fonts ) {
+	public static function prepare_local( $fonts, $retry = false ) {
 		if ( ! $fonts ) {
 			return '';
 		}
@@ -174,6 +174,23 @@ class KAOSHF_Fonts {
 		if ( file_exists( $p['css'] ) ) {
 			return $p['css_url'];
 		}
+		// A failed download is not retried on every page view: wait half an hour.
+		$fail_key = 'kaoshf_fonts_fail_' . substr( md5( $p['css'] ), 0, 12 );
+		if ( $retry ) {
+			delete_transient( $fail_key );
+		}
+		if ( get_transient( $fail_key ) ) {
+			return '';
+		}
+		$url = self::download_local( $fonts, $p );
+		if ( '' === $url ) {
+			set_transient( $fail_key, 1, 30 * MINUTE_IN_SECONDS );
+		}
+		return $url;
+	}
+
+	/** Downloads the font files and writes the local CSS; returns its URL or '' on any failure. */
+	private static function download_local( $fonts, $p ) {
 		$css = '';
 		foreach ( $fonts as $family => $weights ) {
 			$css .= self::fetch_css( $family, $weights );
@@ -230,7 +247,7 @@ class KAOSHF_Fonts {
 		if ( preg_match( '~@import|<|expression\(~i', $out ) ) {
 			return '';
 		}
-		file_put_contents( $p['css'], "/* Kaos Header & Footer: locally hosted fonts */\n" . $out ); // phpcs:ignore WordPress.WP.AlternativeFunctions
+		file_put_contents( $p['css'], "/* KaosH&F: locally hosted fonts */\n" . $out ); // phpcs:ignore WordPress.WP.AlternativeFunctions
 		return $p['css_url'];
 	}
 
@@ -264,6 +281,6 @@ class KAOSHF_Fonts {
 		if ( 'local' !== self::mode() ) {
 			return;
 		}
-		self::prepare_local( self::collect( array( $opts ) ) );
+		self::prepare_local( self::collect( array( $opts ) ), true );
 	}
 }

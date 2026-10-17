@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kaos Header & Footer 0.9.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/kaos-header-footer\n"
-"POT-Creation-Date: 2026-10-17 08:24+0000\n"
-"PO-Revision-Date: 2026-10-17 08:24+0000\n"
+"POT-Creation-Date: 2026-10-17 09:04+0000\n"
+"PO-Revision-Date: 2026-10-17 09:04+0000\n"
 "Last-Translator: DrKaos\n"
 "Language-Team: it_IT\n"
 "Language: it_IT\n"
@@ -1960,23 +1960,23 @@ msgstr "Impossibile aprire il template:"
 msgid "Dashboard"
 msgstr "Bacheca"
 
-#: includes/class-khf-admin.php:141
+#: includes/class-khf-admin.php:144
 msgid "Insufficient permissions."
 msgstr "Permessi insufficienti."
 
-#: includes/class-khf-admin.php:144
+#: includes/class-khf-admin.php:147
 msgid "Loading the editor…"
 msgstr "Caricamento dell'editor…"
 
-#: includes/class-khf-admin.php:147
+#: includes/class-khf-admin.php:150
 msgid "Loading…"
 msgstr "Caricamento…"
 
-#: includes/class-khf-admin.php:168
+#: includes/class-khf-admin.php:171
 msgid "Hide the Kaos header"
 msgstr "Nascondi l'header Kaos"
 
-#: includes/class-khf-admin.php:169
+#: includes/class-khf-admin.php:172
 msgid "Hide the Kaos footer"
 msgstr "Nascondi il footer Kaos"
 
@@ -2670,7 +2670,7 @@ msgstr "Creiamo qualcosa di bellissimo, insieme."
 msgid "Preview not allowed."
 msgstr "Anteprima non autorizzata."
 
-#: includes/class-khf-renderer.php:512
+#: includes/class-khf-renderer.php:511
 msgid "Empty template: press \"Edit with Elementor\" to design it."
 msgstr "Template vuoto: premi \"Modifica con Elementor\" per disegnarlo."
 
@@ -2698,10 +2698,68 @@ msgstr "(copia)"
 msgid "The file is not a valid KaosH&F template."
 msgstr "Il file non è un template KaosH&F valido."
 
+#: includes/class-khf-updater.php:106
+msgid "the latest GitHub release does not contain the signed zip."
+msgstr "l'ultima release su GitHub non contiene lo zip firmato."
+
+#: includes/class-khf-updater.php:109
+msgid "the GitHub token in wp-config.php is invalid or expired."
+msgstr "il token GitHub in wp-config.php non è valido o è scaduto."
+
+#: includes/class-khf-updater.php:111
+msgid "GitHub has temporarily limited requests from this server: it will try again later."
+msgstr "GitHub ha limitato temporaneamente le richieste da questo server: riproverà più tardi."
+
+#: includes/class-khf-updater.php:113
+msgid "no release found on GitHub (if the repository is private, a token is needed in wp-config.php)."
+msgstr "nessuna release trovata su GitHub (se il repository è privato serve un token in wp-config.php)."
+
+#. translators: %d: HTTP status code.
+#: includes/class-khf-updater.php:116
+#, php-format
+msgid "unexpected response from GitHub (%d)."
+msgstr "risposta inattesa da GitHub (%d)."
+
+#: includes/class-khf-updater.php:197
+msgid "Invalid download address."
+msgstr "Indirizzo di download non valido."
+
+#. translators: %d: HTTP status code.
+#: includes/class-khf-updater.php:213
+#, php-format
+msgid "Download from GitHub failed (%d)."
+msgstr "Download da GitHub non riuscito (%d)."
+
+#: includes/class-khf-updater.php:231
+msgid "Unknown update package."
+msgstr "Pacchetto di aggiornamento sconosciuto."
+
+#: includes/class-khf-updater.php:235
+msgid "Downloading the update from GitHub…"
+msgstr "Scarico l'aggiornamento da GitHub…"
+
+#: includes/class-khf-updater.php:250
+msgid "The package signature is not valid: update cancelled for security."
+msgstr "La firma del pacchetto non è valida: aggiornamento annullato per sicurezza."
+
+#: includes/class-khf-updater.php:253
+msgid "Package signature verified."
+msgstr "Firma del pacchetto verificata."
+
+#: includes/class-khf-updater.php:285
+msgid "Check for updates"
+msgstr "Controlla aggiornamenti"
+
+#. translators: %s: description of the update problem.
+#: includes/class-khf-updater.php:288
+#, php-format
+msgid "Updates: %s"
+msgstr "Aggiornamenti: %s"
+
 #. Plugin Name of the plugin
 #: kaos-header-footer.php
-msgid "Kaos Header & Footer"
-msgstr "Kaos Header & Footer"
+msgid "KaosH&F"
+msgstr "KaosH&F"
 
 #. Description of the plugin
 #: kaos-header-footer.php

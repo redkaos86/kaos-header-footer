@@ -192,7 +192,7 @@ class KAOSHF_Renderer {
 		$known = array(
 			'hello-elementor' => array( '#site-header, .site-header', '#site-footer, .site-footer' ),
 			'astra'          => array( '#masthead', '#colophon' ),
-			'generatepress'  => array( '#masthead', '#colophon' ),
+			'generatepress'  => array( '#masthead', '.site-footer' ),
 			'kadence'        => array( '#masthead', '#colophon' ),
 			'oceanwp'        => array( '#site-header', '#footer-widgets, #footer-bottom' ),
 			'blocksy'        => array( '#header', '#footer' ),
