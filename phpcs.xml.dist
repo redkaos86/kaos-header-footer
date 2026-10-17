@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<ruleset name="Kaos Header &amp; Footer">
+	<description>WordPress coding and security standards for Kaos Header &amp; Footer.</description>
+
+	<file>.</file>
+	<exclude-pattern>/vendor/*</exclude-pattern>
+	<exclude-pattern>/node_modules/*</exclude-pattern>
+	<exclude-pattern>/branding/*</exclude-pattern>
+	<exclude-pattern>/dist/*</exclude-pattern>
+	<exclude-pattern>*.js</exclude-pattern>
+	<exclude-pattern>*.css</exclude-pattern>
+
+	<arg name="extensions" value="php"/>
+	<arg name="colors"/>
+	<arg value="sp"/>
+
+	<!-- Warnings are shown but do not fail the check: only errors do. -->
+	<config name="ignore_warnings_on_exit" value="1"/>
+
+	<config name="minimum_wp_version" value="6.5"/>
+	<config name="testVersion" value="7.4-"/>
+
+	<rule ref="WordPress-Extra">
+		<!-- Class files are named "class-khf-*.php" on purpose. -->
+		<exclude name="WordPress.Files.FileName.InvalidClassFileName"/>
+		<!-- Array keys are aligned by hand. -->
+		<exclude name="WordPress.Arrays.MultipleStatementAlignment"/>
+		<exclude name="Generic.Formatting.MultipleStatementAlignment"/>
+		<exclude name="Universal.Arrays.DisallowShortArraySyntax"/>
+		<!-- Short lists written on one line: formatting only. -->
+		<exclude name="WordPress.Arrays.ArrayDeclarationSpacing"/>
+	</rule>
+
+	<rule ref="WordPress.WP.I18n">
+		<properties>
+			<property name="text_domain" type="array">
+				<element value="kaos-hf"/>
+			</property>
+		</properties>
+	</rule>
+
+	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+		<properties>
+			<property name="prefixes" type="array">
+				<element value="khf"/>
+				<element value="KHF"/>
+			</property>
+		</properties>
+	</rule>
+
+	<rule ref="PHPCompatibilityWP"/>
+</ruleset>

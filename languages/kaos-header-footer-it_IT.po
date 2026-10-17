@@ -1,0 +1,2728 @@
+# Copyright (C) DrKaos
+# This file is distributed under the GPL-2.0-or-later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Kaos Header & Footer 0.9.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/kaos-header-footer\n"
+"POT-Creation-Date: 2026-10-17 07:24+0000\n"
+"PO-Revision-Date: 2026-10-17 07:24+0000\n"
+"Last-Translator: DrKaos\n"
+"Language-Team: it_IT\n"
+"Language: it_IT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Domain: kaos-header-footer\n"
+
+#: assets/js/admin-list.js:31 assets/js/editor.js:57
+msgid "Error"
+msgstr "Errore"
+
+#: assets/js/admin-list.js:89 assets/js/editor.js:885
+msgid "Close"
+msgstr "Chiudi"
+
+#: assets/js/admin-list.js:106 assets/js/admin-list.js:274 assets/js/admin-list.js:369 includes/class-khf-presets.php:344
+msgid "Cancel"
+msgstr "Annulla"
+
+#: assets/js/admin-list.js:107
+msgid "Confirm"
+msgstr "Conferma"
+
+#: assets/js/admin-list.js:117
+msgid "Search headers and footers…"
+msgstr "Cerca header e footer…"
+
+#: assets/js/admin-list.js:117
+msgid "Search"
+msgstr "Cerca"
+
+#: assets/js/admin-list.js:124 assets/js/admin-list.js:369
+msgid "Settings"
+msgstr "Impostazioni"
+
+#: assets/js/admin-list.js:125
+msgid "Import"
+msgstr "Importa"
+
+#: assets/js/admin-list.js:126
+msgid "New"
+msgstr "Nuovo"
+
+#: assets/js/admin-list.js:129
+msgid "All"
+msgstr "Tutti"
+
+#: assets/js/admin-list.js:129 assets/js/admin-list.js:173 assets/js/admin-list.js:267 assets/js/editor.js:1299 assets/js/editor.js:1322
+msgid "Header"
+msgstr "Header"
+
+#: assets/js/admin-list.js:129 assets/js/admin-list.js:173 assets/js/admin-list.js:267 assets/js/editor.js:776 assets/js/editor.js:1299 assets/js/editor.js:1322
+msgid "Footer"
+msgstr "Footer"
+
+#: assets/js/admin-list.js:139
+msgid "Elementor is not active: you can use the presets, but you cannot design headers and footers with Elementor or use the \"Kaos Sticky\" panel."
+msgstr "Elementor non è attivo: puoi usare i preset, ma non disegnare header e footer con Elementor né usare il pannello \"Kaos Sticky\"."
+
+#: assets/js/admin-list.js:143
+msgid "A template is active when it is switched on and its display rules match the page. If several templates match, the one with the highest priority wins. For effects on a single Elementor element: Advanced tab → Kaos Sticky."
+msgstr "Un template è attivo quando è acceso e le sue regole di visualizzazione corrispondono alla pagina. Se più template corrispondono, vince quello con priorità più alta. Per gli effetti su un singolo elemento Elementor: scheda Avanzate → Kaos Sticky."
+
+#: assets/js/admin-list.js:150 assets/js/admin-list.js:274
+msgid "New template"
+msgstr "Nuovo template"
+
+#: assets/js/admin-list.js:150
+msgid "Header or footer, from scratch"
+msgstr "Header o footer, da zero"
+
+#: assets/js/admin-list.js:158
+msgid "No results for \""
+msgstr "Nessun risultato per \""
+
+#: assets/js/admin-list.js:169 assets/js/admin-list.js:176
+msgid "Edit"
+msgstr "Modifica"
+
+#: assets/js/admin-list.js:178
+msgid "Preview on the site"
+msgstr "Anteprima sul sito"
+
+#: assets/js/admin-list.js:179
+msgid "Duplicate"
+msgstr "Duplica"
+
+#: assets/js/admin-list.js:180
+msgid "Export JSON"
+msgstr "Esporta JSON"
+
+#: assets/js/admin-list.js:181 assets/js/admin-list.js:310
+msgid "Delete"
+msgstr "Elimina"
+
+#: assets/js/admin-list.js:184
+msgid "Preview…"
+msgstr "Anteprima…"
+
+#: assets/js/admin-list.js:195
+msgid "Turn on or off"
+msgstr "Attiva o disattiva"
+
+#: assets/js/admin-list.js:197 assets/js/editor.js:1324
+msgid "Active"
+msgstr "Attivo"
+
+#: assets/js/admin-list.js:197 assets/js/editor.js:1324
+msgid "Inactive"
+msgstr "Spento"
+
+#: assets/js/admin-list.js:206 assets/js/editor.js:1365
+msgid "Preview"
+msgstr "Anteprima"
+
+#: assets/js/admin-list.js:238
+msgid "Could not load the templates:"
+msgstr "Impossibile caricare i template:"
+
+#: assets/js/admin-list.js:245
+msgid "E.g. Main header"
+msgstr "Es. Header principale"
+
+#: assets/js/admin-list.js:265
+msgid "Name"
+msgstr "Nome"
+
+#: assets/js/admin-list.js:266
+msgid "Type"
+msgstr "Tipo"
+
+#: assets/js/admin-list.js:267
+msgid "Header at the top of the page"
+msgstr "Testata in cima alla pagina"
+
+#: assets/js/admin-list.js:267
+msgid "Page footer"
+msgstr "Piè di pagina"
+
+#: assets/js/admin-list.js:268
+msgid "How you build it"
+msgstr "Come lo costruisci"
+
+#: assets/js/admin-list.js:270 assets/js/editor.js:703
+msgid "Emotional preset"
+msgstr "Preset emozionale"
+
+#: assets/js/admin-list.js:270
+msgid "Start from a ready-made design and customize it"
+msgstr "Parti da un design pronto e personalizzalo"
+
+#: assets/js/admin-list.js:271
+msgid "With Elementor"
+msgstr "Con Elementor"
+
+#: assets/js/admin-list.js:271
+msgid "You design it freely in Elementor"
+msgstr "Lo disegni liberamente in Elementor"
+
+#: assets/js/admin-list.js:271
+msgid "Elementor is not active"
+msgstr "Elementor non è attivo"
+
+#: assets/js/admin-list.js:274
+msgid "Create and open the editor"
+msgstr "Crea e apri l'editor"
+
+#: assets/js/admin-list.js:286
+msgid "Template turned on"
+msgstr "Template attivato"
+
+#: assets/js/admin-list.js:286
+msgid "Template turned off"
+msgstr "Template spento"
+
+#: assets/js/admin-list.js:293
+msgid "Template duplicated"
+msgstr "Template duplicato"
+
+#: assets/js/admin-list.js:305
+msgid "Content designed with Elementor is not included: export it from Elementor."
+msgstr "Il contenuto disegnato con Elementor non è incluso: esportalo da Elementor."
+
+#: assets/js/admin-list.js:310
+msgid "Delete the template?"
+msgstr "Eliminare il template?"
+
+#: assets/js/admin-list.js:310
+msgid "\" will be permanently deleted."
+msgstr "\" verrà eliminato definitivamente."
+
+#: assets/js/admin-list.js:313
+msgid "Template deleted"
+msgstr "Template eliminato"
+
+#: assets/js/admin-list.js:338
+msgid "Hosted on this site (recommended)"
+msgstr "Ospitati su questo sito (consigliato)"
+
+#: assets/js/admin-list.js:338
+msgid "Bunny Fonts (European CDN, no tracking)"
+msgstr "Bunny Fonts (CDN europea, senza tracciamento)"
+
+#: assets/js/admin-list.js:338
+msgid "Google Fonts (direct link)"
+msgstr "Google Fonts (collegamento diretto)"
+
+#: assets/js/admin-list.js:339
+msgid "How fonts are loaded"
+msgstr "Come si caricano i caratteri"
+
+#: assets/js/admin-list.js:339
+msgid "With \"Hosted on this site\" the font files are downloaded once to your server when you save a template, and visitors never contact a third party."
+msgstr "Con \"Ospitati su questo sito\" i file dei caratteri vengono scaricati una volta sul tuo server quando salvi un template, e i visitatori non contattano terzi."
+
+#: assets/js/admin-list.js:343
+msgid "Theme header and footer"
+msgstr "Header e footer del tema"
+
+#: assets/js/admin-list.js:344
+msgid "Hide the theme header"
+msgstr "Nascondi l'header del tema"
+
+#: assets/js/admin-list.js:344
+msgid "When a Kaos header is active on the page."
+msgstr "Quando un header Kaos è attivo sulla pagina."
+
+#: assets/js/admin-list.js:345
+msgid "CSS selectors of the theme header"
+msgstr "Selettori CSS dell'header del tema"
+
+#: assets/js/admin-list.js:346
+msgid "Hide the theme footer"
+msgstr "Nascondi il footer del tema"
+
+#: assets/js/admin-list.js:346
+msgid "When a Kaos footer is active on the page."
+msgstr "Quando un footer Kaos è attivo sulla pagina."
+
+#: assets/js/admin-list.js:347
+msgid "CSS selectors of the theme footer"
+msgstr "Selettori CSS del footer del tema"
+
+#: assets/js/admin-list.js:348
+msgid "Leave the selectors empty for automatic detection (Hello Elementor, Astra, GeneratePress, Kadence, OceanWP, Blocksy, block themes, Elementor Theme Builder)."
+msgstr "Lascia vuoti i selettori per il rilevamento automatico (Hello Elementor, Astra, GeneratePress, Kadence, OceanWP, Blocksy, temi a blocchi, Theme Builder di Elementor)."
+
+#: assets/js/admin-list.js:349
+msgid "Page container (footer reveal)"
+msgstr "Contenitore della pagina (footer reveal)"
+
+#: assets/js/admin-list.js:350
+msgid "Breakpoints and layers"
+msgstr "Breakpoint e livelli"
+
+#: assets/js/admin-list.js:351
+msgid "Tablet up to (px)"
+msgstr "Tablet fino a (px)"
+
+#: assets/js/admin-list.js:351
+msgid "Mobile up to (px)"
+msgstr "Mobile fino a (px)"
+
+#: assets/js/admin-list.js:351
+msgid "Mobile menu of the presets (px)"
+msgstr "Menu mobile dei preset (px)"
+
+#: assets/js/admin-list.js:352 assets/js/editor.js:1108
+msgid "Fonts"
+msgstr "Caratteri"
+
+#: assets/js/admin-list.js:354
+msgid "Navigation"
+msgstr "Navigazione"
+
+#: assets/js/admin-list.js:355
+msgid "Offset sticky headers in anchors"
+msgstr "Compensa gli header sticky nelle ancore"
+
+#: assets/js/admin-list.js:355
+msgid "Links to #section stop below the header."
+msgstr "I link a #sezione si fermano sotto l'header."
+
+#: assets/js/admin-list.js:356
+msgid "Extra anchor margin (px)"
+msgstr "Margine extra ancore (px)"
+
+#: assets/js/admin-list.js:357
+msgid "Smooth scrolling"
+msgstr "Scorrimento fluido"
+
+#: assets/js/admin-list.js:357
+msgid "Respects the system \"reduce motion\" setting."
+msgstr "Rispetta \"riduci movimento\" del sistema."
+
+#: assets/js/admin-list.js:358
+msgid "\"Back to top\" button"
+msgstr "Pulsante \"Torna su\""
+
+#: assets/js/admin-list.js:358
+msgid "Appears after scrolling the page."
+msgstr "Compare dopo aver scorso la pagina."
+
+#: assets/js/admin-list.js:359
+msgid "Appears after (px)"
+msgstr "Compare dopo (px)"
+
+#: assets/js/admin-list.js:359 assets/js/editor.js:879 assets/js/editor.js:964 assets/js/editor.js:1066 assets/js/editor.js:1093
+msgid "Size (px)"
+msgstr "Dimensione (px)"
+
+#: assets/js/admin-list.js:359 assets/js/editor.js:1086
+msgid "Distance from the edge (px)"
+msgstr "Distanza dal bordo (px)"
+
+#: assets/js/admin-list.js:359 assets/js/editor.js:1094
+msgid "Rounding (%)"
+msgstr "Arrotondamento (%)"
+
+#: assets/js/admin-list.js:361 assets/js/editor.js:669 assets/js/editor.js:719 assets/js/editor.js:778 assets/js/editor.js:828 assets/js/editor.js:845
+msgid "Right"
+msgstr "Destra"
+
+#: assets/js/admin-list.js:361 assets/js/editor.js:669 assets/js/editor.js:719 assets/js/editor.js:778 assets/js/editor.js:828 assets/js/editor.js:845
+msgid "Left"
+msgstr "Sinistra"
+
+#: assets/js/admin-list.js:365 assets/js/editor.js:346 assets/js/editor.js:1083
+msgid "Position"
+msgstr "Posizione"
+
+#: assets/js/admin-list.js:366 assets/js/editor.js:1095 assets/js/editor.js:1122 assets/js/editor.js:1149
+msgid "Background"
+msgstr "Sfondo"
+
+#: assets/js/admin-list.js:367 assets/js/editor.js:877 assets/js/editor.js:888 assets/js/editor.js:1091
+msgid "Icon"
+msgstr "Icona"
+
+#: assets/js/admin-list.js:369 assets/js/editor.js:1321 assets/js/editor.js:1350
+msgid "Save"
+msgstr "Salva"
+
+#: assets/js/admin-list.js:376
+msgid "Settings saved"
+msgstr "Impostazioni salvate"
+
+#: assets/js/admin-list.js:387
+msgid "The file is not a valid JSON."
+msgstr "Il file non è un JSON valido."
+
+#: assets/js/admin-list.js:389 includes/class-khf-rest.php:225
+msgid "Template imported"
+msgstr "Template importato"
+
+#: assets/js/editor.js:146
+msgid "Saved"
+msgstr "Salvato"
+
+#: assets/js/editor.js:191
+msgid "Opacity"
+msgstr "Opacità"
+
+#: assets/js/editor.js:207
+msgid "Reset"
+msgstr "Ripristina"
+
+#: assets/js/editor.js:227
+msgid "Choose an image"
+msgstr "Scegli un'immagine"
+
+#: assets/js/editor.js:238 assets/js/editor.js:520
+msgid "Choose"
+msgstr "Scegli"
+
+#: assets/js/editor.js:246 assets/js/editor.js:350 assets/js/editor.js:521
+msgid "Remove"
+msgstr "Rimuovi"
+
+#: assets/js/editor.js:253 includes/class-khf-presets.php:14
+msgid "Sunset"
+msgstr "Tramonto"
+
+#: assets/js/editor.js:254 includes/class-khf-presets.php:15
+msgid "Ocean"
+msgstr "Oceano"
+
+#: assets/js/editor.js:255 includes/class-khf-presets.php:22
+msgid "Aurora"
+msgstr "Aurora"
+
+#: assets/js/editor.js:256
+msgid "Candy"
+msgstr "Caramella"
+
+#: assets/js/editor.js:257 includes/class-khf-presets.php:27
+msgid "Neon"
+msgstr "Neon"
+
+#: assets/js/editor.js:258
+msgid "Gold"
+msgstr "Oro"
+
+#: assets/js/editor.js:259 includes/class-khf-presets.php:17
+msgid "Forest"
+msgstr "Foresta"
+
+#: assets/js/editor.js:260
+msgid "Rainbow"
+msgstr "Arcobaleno"
+
+#: assets/js/editor.js:314
+msgid "Solid color"
+msgstr "Tinta unita"
+
+#: assets/js/editor.js:321 assets/js/editor.js:370
+msgid "Gradient"
+msgstr "Gradiente"
+
+#: assets/js/editor.js:336 includes/class-khf-fx.php:199
+msgid "Linear"
+msgstr "Lineare"
+
+#: assets/js/editor.js:336
+msgid "Radial"
+msgstr "Radiale"
+
+#: assets/js/editor.js:336
+msgid "Conic"
+msgstr "Conico"
+
+#: assets/js/editor.js:338
+msgid "Angle"
+msgstr "Angolo"
+
+#: assets/js/editor.js:344 assets/js/editor.js:726
+msgid "Color"
+msgstr "Colore"
+
+#: assets/js/editor.js:345
+msgid "Color value"
+msgstr "Valore colore"
+
+#: assets/js/editor.js:346
+msgid "Position %"
+msgstr "Posizione %"
+
+#: assets/js/editor.js:350
+msgid "Remove color"
+msgstr "Rimuovi colore"
+
+#: assets/js/editor.js:361
+msgid "Add color"
+msgstr "Aggiungi colore"
+
+#: assets/js/editor.js:366
+msgid "Reverse"
+msgstr "Inverti"
+
+#: assets/js/editor.js:374
+msgid "Ready-made gradients"
+msgstr "Gradienti pronti"
+
+#: assets/js/editor.js:444
+msgid "Choose the colors in the Colors section"
+msgstr "Scegli i colori nella sezione Colori"
+
+#: assets/js/editor.js:458 assets/js/editor.js:781 assets/js/editor.js:802 assets/js/editor.js:859 assets/js/editor.js:965 assets/js/editor.js:1067
+msgid "Light"
+msgstr "Leggero"
+
+#: assets/js/editor.js:459
+msgid "Clear"
+msgstr "Chiaro"
+
+#: assets/js/editor.js:460
+msgid "Dark"
+msgstr "Scuro"
+
+#: assets/js/editor.js:461 includes/class-khf-presets.php:35
+msgid "Ice"
+msgstr "Ghiaccio"
+
+#: assets/js/editor.js:462
+msgid "Liquid"
+msgstr "Liquido"
+
+#: assets/js/editor.js:478
+msgid "Starting styles"
+msgstr "Stili di partenza"
+
+#: assets/js/editor.js:479
+msgid "They set the sliders; then customize them as you like."
+msgstr "Impostano i cursori: poi personalizzali a piacere."
+
+#: assets/js/editor.js:495
+msgid "Image or video for each item"
+msgstr "Immagine o video per ogni voce"
+
+#: assets/js/editor.js:497
+msgid "The selected menu has no items: add them from Appearance → Menus."
+msgstr "Il menu scelto non ha voci: aggiungile da Aspetto → Menu."
+
+#: assets/js/editor.js:512
+msgid "Image or video for \""
+msgstr "Immagine o video per \""
+
+#: assets/js/editor.js:601
+msgid "— Automatic / none —"
+msgstr "— Automatico / nessuno —"
+
+#: assets/js/editor.js:622 assets/js/editor.js:994
+msgid "Structure"
+msgstr "Struttura"
+
+#: assets/js/editor.js:624
+msgid "Content"
+msgstr "Contenuti"
+
+#: assets/js/editor.js:626
+msgid "Menu and images"
+msgstr "Menu e immagini"
+
+#: assets/js/editor.js:627
+msgid "Icon and menu window"
+msgstr "Icona e finestra del menu"
+
+#: assets/js/editor.js:629
+msgid "Grid and cells"
+msgstr "Griglia e celle"
+
+#: assets/js/editor.js:630
+msgid "Bottom bar"
+msgstr "Barra inferiore"
+
+#: assets/js/editor.js:631
+msgid "Footer links"
+msgstr "Link del footer"
+
+#: assets/js/editor.js:633
+msgid "Typography"
+msgstr "Tipografia"
+
+#: assets/js/editor.js:635
+msgid "Back to top arrow"
+msgstr "Freccia torna su"
+
+#: assets/js/editor.js:636 assets/js/editor.js:887 includes/class-khf-fx.php:89
+msgid "Colors"
+msgstr "Colori"
+
+#: assets/js/editor.js:637
+msgid "Scroll effects"
+msgstr "Effetti di scroll"
+
+#: assets/js/editor.js:638
+msgid "Where to show it"
+msgstr "Dove mostrarlo"
+
+#: assets/js/editor.js:645
+msgid "Designed with Elementor"
+msgstr "Disegnato con Elementor"
+
+#: assets/js/editor.js:647
+msgid "Below, choose where to show it and the effects. You design the layout in Elementor: the preview shows the last saved content."
+msgstr "Qui sotto scegli dove mostrarlo e gli effetti. Il layout lo disegni in Elementor: l'anteprima mostra l'ultimo contenuto salvato."
+
+#: assets/js/editor.js:648
+msgid "Elementor is not active: activate it to edit this template."
+msgstr "Elementor non è attivo: attivalo per modificare questo template."
+
+#: assets/js/editor.js:649
+msgid "Edit with Elementor"
+msgstr "Modifica con Elementor"
+
+#: assets/js/editor.js:650
+msgid "Reload preview"
+msgstr "Ricarica anteprima"
+
+#: assets/js/editor.js:668 assets/js/editor.js:758 assets/js/editor.js:895 assets/js/editor.js:1012
+msgid "Logo"
+msgstr "Logo"
+
+#: assets/js/editor.js:668 assets/js/editor.js:1012
+msgid "Menu 1"
+msgstr "Menu 1"
+
+#: assets/js/editor.js:668 assets/js/editor.js:768 assets/js/editor.js:1012
+msgid "Menu 2"
+msgstr "Menu 2"
+
+#: assets/js/editor.js:668 assets/js/editor.js:895 assets/js/editor.js:1148
+msgid "Button"
+msgstr "Pulsante"
+
+#: assets/js/editor.js:669 assets/js/editor.js:719 assets/js/editor.js:874 assets/js/editor.js:962 assets/js/editor.js:997 assets/js/editor.js:1032
+msgid "Center"
+msgstr "Centro"
+
+#: assets/js/editor.js:688
+msgid "Order in the zone"
+msgstr "Ordine nella zona"
+
+#: assets/js/editor.js:688
+msgid "Shift horizontally (px)"
+msgstr "Sposta in orizzontale (px)"
+
+#: assets/js/editor.js:691
+msgid "Arrangement"
+msgstr "Disposizione"
+
+#: assets/js/editor.js:692
+msgid "For each element: the zone, the order inside the zone (-9…9) and how many pixels to shift it right (+) or left (−). On mobile only the logo and the menu icon remain."
+msgstr "Per ogni elemento: la zona, l'ordine dentro la zona (-9…9) e di quanti pixel spostarlo a destra (+) o a sinistra (−). Su mobile restano logo e icona del menu."
+
+#: assets/js/editor.js:693 assets/js/editor.js:1049
+msgid "Element"
+msgstr "Elemento"
+
+#: assets/js/editor.js:693 assets/js/editor.js:1049
+msgid "Zone"
+msgstr "Zona"
+
+#: assets/js/editor.js:693 assets/js/editor.js:1042 assets/js/editor.js:1049
+msgid "Order"
+msgstr "Ordine"
+
+#: assets/js/editor.js:693 assets/js/editor.js:1042 assets/js/editor.js:1049
+msgid "Shift px"
+msgstr "Sposta px"
+
+#: assets/js/editor.js:695
+msgid "Space between zones (px)"
+msgstr "Spazio tra le zone (px)"
+
+#: assets/js/editor.js:695
+msgid "The minimum distance between left, center and right."
+msgstr "La distanza minima tra sinistra, centro e destra."
+
+#: assets/js/editor.js:696
+msgid "Space between items in the same zone (px)"
+msgstr "Spazio tra gli elementi della stessa zona (px)"
+
+#: assets/js/editor.js:702
+msgid "Build"
+msgstr "Costruzione"
+
+#: assets/js/editor.js:703
+msgid "How it is built"
+msgstr "Come è costruito"
+
+#: assets/js/editor.js:712 assets/js/editor.js:731
+msgid "Design"
+msgstr "Design"
+
+#: assets/js/editor.js:713 assets/js/editor.js:732
+msgid "Layout"
+msgstr "Layout"
+
+#: assets/js/editor.js:714 assets/js/editor.js:733
+msgid "Mood"
+msgstr "Atmosfera"
+
+#: assets/js/editor.js:714 assets/js/editor.js:733
+msgid "Sets background, text and accent in one go."
+msgstr "Imposta in un colpo sfondo, testo e accento."
+
+#: assets/js/editor.js:716
+msgid "Entrance and details"
+msgstr "Ingresso e dettagli"
+
+#: assets/js/editor.js:717
+msgid "Entrance mode"
+msgstr "Modalità di ingresso"
+
+#: assets/js/editor.js:717
+msgid "Normal (at the bottom of the page)"
+msgstr "Normale (in fondo alla pagina)"
+
+#: assets/js/editor.js:717
+msgid "Reveal: the content slides away and uncovers the footer"
+msgstr "Reveal: il contenuto scorre via e svela il footer"
+
+#: assets/js/editor.js:717
+msgid "Reveal + parallax and fade"
+msgstr "Reveal + parallasse e dissolvenza"
+
+#: assets/js/editor.js:718
+msgid "Entrance effect"
+msgstr "Effetto di entrata"
+
+#: assets/js/editor.js:718 assets/js/editor.js:808 assets/js/editor.js:826 assets/js/editor.js:881 assets/js/editor.js:1001 assets/js/editor.js:1070
+msgid "None"
+msgstr "Nessuna"
+
+#: assets/js/editor.js:718
+msgid "Zoom in (from small to normal)"
+msgstr "Zoom in (dal piccolo al normale)"
+
+#: assets/js/editor.js:718
+msgid "Zoom out (from large to normal)"
+msgstr "Zoom out (dal grande al normale)"
+
+#: assets/js/editor.js:718
+msgid "Zoom in from top to bottom"
+msgstr "Zoom in dall'alto verso il basso"
+
+#: assets/js/editor.js:718
+msgid "Zoom in from bottom to top"
+msgstr "Zoom in dal basso verso l'alto"
+
+#: assets/js/editor.js:718
+msgid "Zoom in from the left"
+msgstr "Zoom in da sinistra"
+
+#: assets/js/editor.js:718
+msgid "Zoom in from the right"
+msgstr "Zoom in da destra"
+
+#: assets/js/editor.js:718
+msgid "Fade up from below"
+msgstr "Dissolvenza dal basso"
+
+#: assets/js/editor.js:718
+msgid "It combines with the entrance mode and follows the page scroll. If you pick one, it replaces the parallax."
+msgstr "Si combina con la modalità di ingresso e segue lo scorrimento della pagina. Se ne scegli uno, sostituisce la parallasse."
+
+#: assets/js/editor.js:719
+msgid "Text alignment on smartphones"
+msgstr "Allineamento del testo su smartphone"
+
+#: assets/js/editor.js:719
+msgid "Applies up to 700 px wide."
+msgstr "Vale fino a 700 px di larghezza."
+
+#: assets/js/editor.js:720
+msgid "Animated background gradient"
+msgstr "Gradiente di sfondo animato"
+
+#: assets/js/editor.js:723
+msgid "Top divider"
+msgstr "Divisore superiore"
+
+#: assets/js/editor.js:724
+msgid "Shape"
+msgstr "Forma"
+
+#: assets/js/editor.js:725 assets/js/editor.js:748
+msgid "Height (px)"
+msgstr "Altezza (px)"
+
+#: assets/js/editor.js:726
+msgid "Empty = page color. Use the picker's transparency (or the opacity below) to make it transparent."
+msgstr "Vuoto = colore della pagina. Con la trasparenza del selettore (o l'opacità sotto) lo rendi trasparente."
+
+#: assets/js/editor.js:727
+msgid "Opacity (%)"
+msgstr "Opacità (%)"
+
+#: assets/js/editor.js:728
+msgid "Flip horizontally"
+msgstr "Specchia in orizzontale"
+
+#: assets/js/editor.js:736
+msgid "Menu 1 on the left, logo in the center, menu 2 on the right with the button. Choose the two menus in Content."
+msgstr "Menu 1 a sinistra, logo al centro, menu 2 a destra con il pulsante. Scegli i due menu in Contenuti."
+
+#: assets/js/editor.js:742
+msgid "Spacing and width"
+msgstr "Spazi e larghezza"
+
+#: assets/js/editor.js:743
+msgid "Content width (px)"
+msgstr "Larghezza del contenuto (px)"
+
+#: assets/js/editor.js:743
+msgid "0 = automatic (1280). Lower = a tighter group."
+msgstr "0 = automatica (1280). Più basso = gruppo più raccolto."
+
+#: assets/js/editor.js:744 assets/js/editor.js:962
+msgid "Alignment"
+msgstr "Allineamento"
+
+#: assets/js/editor.js:744
+msgid "At the edges"
+msgstr "Ai bordi"
+
+#: assets/js/editor.js:744
+msgid "Grouped in the center"
+msgstr "Raggruppato al centro"
+
+#: assets/js/editor.js:744
+msgid "\"Grouped\" brings the two menus close to the logo, all in the center."
+msgstr "\"Raggruppato\" avvicina i due menu al logo, tutto al centro."
+
+#: assets/js/editor.js:745
+msgid "Space around the logo (px)"
+msgstr "Spazio attorno al logo (px)"
+
+#: assets/js/editor.js:747 assets/js/editor.js:848
+msgid "Height"
+msgstr "Altezza"
+
+#: assets/js/editor.js:749
+msgid "Shrink on scroll"
+msgstr "Rimpicciolisci allo scroll"
+
+#: assets/js/editor.js:750
+msgid "Reduced height (px)"
+msgstr "Altezza ridotta (px)"
+
+#: assets/js/editor.js:759
+msgid "Logo height (px)"
+msgstr "Altezza del logo (px)"
+
+#: assets/js/editor.js:760
+msgid "Logo text"
+msgstr "Testo del logo"
+
+#: assets/js/editor.js:760
+msgid "Used if you don't choose an image. Empty = site name."
+msgstr "Usato se non scegli un'immagine. Vuoto = nome del sito."
+
+#: assets/js/editor.js:763
+msgid "Logo after scroll"
+msgstr "Logo dopo lo scroll"
+
+#: assets/js/editor.js:763
+msgid "Replaces the logo when the page scrolls. Empty = stays the same."
+msgstr "Sostituisce il logo quando la pagina scorre. Vuoto = resta lo stesso."
+
+#: assets/js/editor.js:766
+msgid "Column 1 menu"
+msgstr "Menu colonna 1"
+
+#: assets/js/editor.js:766
+msgid "Column 2 menu"
+msgstr "Menu colonna 2"
+
+#: assets/js/editor.js:766
+msgid "Column 3 menu"
+msgstr "Menu colonna 3"
+
+#: assets/js/editor.js:767 assets/js/editor.js:774 assets/js/editor.js:884 assets/js/editor.js:895 assets/js/editor.js:959 includes/class-khf-presets.php:360
+msgid "Menu"
+msgstr "Menu"
+
+#: assets/js/editor.js:767
+msgid "Automatic = the first menu of the site."
+msgstr "Automatico = il primo menu del sito."
+
+#: assets/js/editor.js:768
+msgid "The second menu of the \"Split\" and \"Custom\" layouts."
+msgstr "Il secondo menu dei layout \"Diviso\" e \"Personalizzato\"."
+
+#: assets/js/editor.js:770
+msgid "Button (text)"
+msgstr "Pulsante (testo)"
+
+#: assets/js/editor.js:771
+msgid "Button (link)"
+msgstr "Pulsante (link)"
+
+#: assets/js/editor.js:772
+msgid "Phrase / tagline"
+msgstr "Frase / tagline"
+
+#: assets/js/editor.js:772
+msgid "The emotional phrase of the footer."
+msgstr "La frase emozionale del footer."
+
+#: assets/js/editor.js:772
+msgid "Shown in the full-screen menu."
+msgstr "Compare nel menu a schermo intero."
+
+#: assets/js/editor.js:774
+msgid "Identity"
+msgstr "Identità"
+
+#: assets/js/editor.js:774
+msgid "Call to action"
+msgstr "Invito all'azione"
+
+#: assets/js/editor.js:777
+msgid "Big headline"
+msgstr "Titolo grande"
+
+#: assets/js/editor.js:777
+msgid "For \"Big call to action\" and for the grid. You can use <br>, <em>, <strong>."
+msgstr "Per \"Grande invito\" e per la griglia. Puoi usare <br>, <em>, <strong>."
+
+#: assets/js/editor.js:778
+msgid "Big headline alignment"
+msgstr "Allineamento del titolo grande"
+
+#: assets/js/editor.js:778
+msgid "Centered"
+msgstr "Centrato"
+
+#: assets/js/editor.js:778
+msgid "Also applies to the phrase and the button under the headline."
+msgstr "Vale anche per la frase e il pulsante sotto al titolo."
+
+#: assets/js/editor.js:779
+msgid "Big headline font"
+msgstr "Carattere del titolo grande"
+
+#: assets/js/editor.js:779
+msgid "Empty = the headings font."
+msgstr "Vuoto = il carattere dei titoli."
+
+#: assets/js/editor.js:780
+msgid "Big headline size (px)"
+msgstr "Dimensione del titolo grande (px)"
+
+#: assets/js/editor.js:780 assets/js/editor.js:858
+msgid "0 = large, based on the screen."
+msgstr "0 = grande, in base allo schermo."
+
+#: assets/js/editor.js:781
+msgid "Big headline weight"
+msgstr "Peso del titolo grande"
+
+#: assets/js/editor.js:781 assets/js/editor.js:802 assets/js/editor.js:859 assets/js/editor.js:965 assets/js/editor.js:1067
+msgid "Default"
+msgstr "Predefinito"
+
+#: assets/js/editor.js:781 assets/js/editor.js:802 assets/js/editor.js:859 assets/js/editor.js:965 assets/js/editor.js:1067
+msgid "Normal"
+msgstr "Normale"
+
+#: assets/js/editor.js:781 assets/js/editor.js:802 assets/js/editor.js:859 assets/js/editor.js:965 assets/js/editor.js:1067
+msgid "Semi-bold"
+msgstr "Semi-grassetto"
+
+#: assets/js/editor.js:781 assets/js/editor.js:802 assets/js/editor.js:859 assets/js/editor.js:965 assets/js/editor.js:1067
+msgid "Bold"
+msgstr "Grassetto"
+
+#: assets/js/editor.js:781 assets/js/editor.js:802 assets/js/editor.js:965
+msgid "Extra"
+msgstr "Extra"
+
+#: assets/js/editor.js:781
+msgid "Black"
+msgstr "Nero"
+
+#: assets/js/editor.js:782 assets/js/editor.js:867
+msgid "Social links (one URL per line)"
+msgstr "Social (un URL per riga)"
+
+#: assets/js/editor.js:783 assets/js/editor.js:868
+msgid "Social links style"
+msgstr "Aspetto dei social"
+
+#: assets/js/editor.js:783 assets/js/editor.js:868
+msgid "Icons only"
+msgstr "Solo icone"
+
+#: assets/js/editor.js:783 assets/js/editor.js:868 assets/js/editor.js:1091 includes/class-khf-presets.php:162
+msgid "Text only"
+msgstr "Solo testo"
+
+#: assets/js/editor.js:783 assets/js/editor.js:868 assets/js/editor.js:1096
+msgid "Icon and text"
+msgstr "Icona e testo"
+
+#: assets/js/editor.js:784 assets/js/editor.js:861
+msgid "Email"
+msgstr "Email"
+
+#: assets/js/editor.js:785 assets/js/editor.js:862
+msgid "Phone"
+msgstr "Telefono"
+
+#: assets/js/editor.js:786 assets/js/editor.js:863
+msgid "Address"
+msgstr "Indirizzo"
+
+#: assets/js/editor.js:787 assets/js/editor.js:864
+msgid "Clickable address (opens maps)"
+msgstr "Indirizzo cliccabile (apre le mappe)"
+
+#: assets/js/editor.js:787
+msgid "On a phone it asks whether to open it with Maps or Google Maps."
+msgstr "Dal telefono chiede se aprirlo con Mappe o con Google Maps."
+
+#: assets/js/editor.js:788 assets/js/editor.js:865
+msgid "Google Maps link (optional)"
+msgstr "Link di Google Maps (facoltativo)"
+
+#: assets/js/editor.js:788
+msgid "Empty = it is built from the address."
+msgstr "Vuoto = lo costruisce dall'indirizzo."
+
+#: assets/js/editor.js:789 assets/js/editor.js:1012
+msgid "Copyright"
+msgstr "Copyright"
+
+#: assets/js/editor.js:789
+msgid "Use {year} for the current year."
+msgstr "Usa {year} per l'anno corrente."
+
+#: assets/js/editor.js:800
+msgid "Text and spacing of items"
+msgstr "Testo e spazi delle voci"
+
+#: assets/js/editor.js:801
+msgid "Text size (px)"
+msgstr "Dimensione del testo (px)"
+
+#: assets/js/editor.js:801
+msgid "0 = same as the theme."
+msgstr "0 = come il tema."
+
+#: assets/js/editor.js:802 assets/js/editor.js:965 assets/js/editor.js:1067
+msgid "Weight"
+msgstr "Peso"
+
+#: assets/js/editor.js:802 assets/js/editor.js:859 assets/js/editor.js:965 assets/js/editor.js:1067 includes/class-khf-fx.php:118
+msgid "Medium"
+msgstr "Medio"
+
+#: assets/js/editor.js:803 assets/js/editor.js:1068
+msgid "All uppercase"
+msgstr "Tutto maiuscolo"
+
+#: assets/js/editor.js:804
+msgid "Space between items (px)"
+msgstr "Spazio tra le voci (px)"
+
+#: assets/js/editor.js:805
+msgid "Columns in the full-screen menu"
+msgstr "Colonne nel menu a schermo intero"
+
+#: assets/js/editor.js:807
+msgid "Separators between items"
+msgstr "Separatori tra le voci"
+
+#: assets/js/editor.js:808
+msgid "Separator"
+msgstr "Separatore"
+
+#: assets/js/editor.js:808 assets/js/editor.js:1070
+msgid "Bar  |"
+msgstr "Barra  |"
+
+#: assets/js/editor.js:808 assets/js/editor.js:1070
+msgid "Dot  •"
+msgstr "Punto  •"
+
+#: assets/js/editor.js:808 assets/js/editor.js:1070
+msgid "Slash  /"
+msgstr "Slash  /"
+
+#: assets/js/editor.js:808 assets/js/editor.js:1070
+msgid "Dash  —"
+msgstr "Trattino  —"
+
+#: assets/js/editor.js:809
+msgid "Separator color"
+msgstr "Colore del separatore"
+
+#: assets/js/editor.js:811
+msgid "Submenu"
+msgstr "Sottomenu"
+
+#: assets/js/editor.js:812 assets/js/editor.js:878 assets/js/editor.js:1001 assets/js/editor.js:1090
+msgid "Style"
+msgstr "Stile"
+
+#: assets/js/editor.js:812
+msgid "Dropdown"
+msgstr "A tendina"
+
+#: assets/js/editor.js:812
+msgid "Column panel (mega menu)"
+msgstr "Pannello a colonne (mega menu)"
+
+#: assets/js/editor.js:812
+msgid "In the mega menu, second-level items become columns and third-level items become lists."
+msgstr "Nel mega menu le voci di secondo livello diventano le colonne e quelle di terzo livello le liste."
+
+#: assets/js/editor.js:813
+msgid "Panel width (px)"
+msgstr "Larghezza del pannello (px)"
+
+#: assets/js/editor.js:814
+msgid "Small arrow on items with a submenu"
+msgstr "Freccetta sulle voci con sottomenu"
+
+#: assets/js/editor.js:815 assets/js/editor.js:1153
+msgid "Submenu background"
+msgstr "Sfondo del sottomenu"
+
+#: assets/js/editor.js:816 assets/js/editor.js:1154
+msgid "Submenu text"
+msgstr "Testo del sottomenu"
+
+#: assets/js/editor.js:817 assets/js/editor.js:1164
+msgid "Column headings"
+msgstr "Titoli delle colonne"
+
+#: assets/js/editor.js:818
+msgid "Lines between columns"
+msgstr "Linee tra le colonne"
+
+#: assets/js/editor.js:820
+msgid "Hover effect"
+msgstr "Effetto al passaggio"
+
+#: assets/js/editor.js:821
+msgid "Item effect"
+msgstr "Effetto sulle voci"
+
+#: assets/js/editor.js:822
+msgid "Effect color"
+msgstr "Colore dell'effetto"
+
+#: assets/js/editor.js:822
+msgid "Line, fill, glow… Empty = accent color."
+msgstr "Linea, riempimento, alone… Vuoto = colore accento."
+
+#: assets/js/editor.js:823 includes/class-khf-fx.php:190
+msgid "Duration (ms)"
+msgstr "Durata (ms)"
+
+#: assets/js/editor.js:825
+msgid "Images on hover"
+msgstr "Immagini al passaggio"
+
+#: assets/js/editor.js:826
+msgid "Show an image or a video"
+msgstr "Mostra un'immagine o un video"
+
+#: assets/js/editor.js:826
+msgid "Card that follows the cursor"
+msgstr "Scheda che segue il cursore"
+
+#: assets/js/editor.js:826
+msgid "Panel (full-screen menu) / card under the header"
+msgstr "Pannello (menu a schermo intero) / scheda sotto l'header"
+
+#: assets/js/editor.js:827
+msgid "The image changes every time you hover a menu item."
+msgstr "L'immagine cambia ogni volta che passi su una voce del menu."
+
+#: assets/js/editor.js:828
+msgid "Full-screen panel: side"
+msgstr "Pannello a schermo intero: lato"
+
+#: assets/js/editor.js:829
+msgid "Panel: width (%)"
+msgstr "Pannello: larghezza (%)"
+
+#: assets/js/editor.js:830
+msgid "Full-height panel, no margins"
+msgstr "Pannello a tutta altezza, senza margini"
+
+#: assets/js/editor.js:831
+msgid "Cursor card: width (px)"
+msgstr "Scheda sul cursore: larghezza (px)"
+
+#: assets/js/editor.js:840 assets/js/editor.js:841
+msgid "% of the screen"
+msgstr "% dello schermo"
+
+#: assets/js/editor.js:843
+msgid "Menu window"
+msgstr "Finestra del menu"
+
+#: assets/js/editor.js:844
+msgid "Size"
+msgstr "Dimensione"
+
+#: assets/js/editor.js:844
+msgid "Full screen"
+msgstr "Schermo intero"
+
+#: assets/js/editor.js:844 assets/js/editor.js:1081 includes/class-khf-presets.php:37
+msgid "Custom"
+msgstr "Personalizzata"
+
+#: assets/js/editor.js:844
+msgid "How the menu opens when you press the icon."
+msgstr "Come si apre il menu quando premi l'icona."
+
+#: assets/js/editor.js:845
+msgid "Opens from"
+msgstr "Si apre da"
+
+#: assets/js/editor.js:846
+msgid "Width"
+msgstr "Larghezza"
+
+#: assets/js/editor.js:847
+msgid "Width unit"
+msgstr "Unità della larghezza"
+
+#: assets/js/editor.js:848
+msgid "0 = the full available height."
+msgstr "0 = tutta l'altezza disponibile."
+
+#: assets/js/editor.js:849
+msgid "Height unit"
+msgstr "Unità dell'altezza"
+
+#: assets/js/editor.js:850 assets/js/editor.js:1004
+msgid "Rounded corners (px)"
+msgstr "Angoli arrotondati (px)"
+
+#: assets/js/editor.js:851
+msgid "Distance from the edges (px)"
+msgstr "Distanza dai bordi (px)"
+
+#: assets/js/editor.js:851
+msgid "With a distance the panel becomes a floating card."
+msgstr "Con una distanza il pannello diventa una scheda che fluttua."
+
+#: assets/js/editor.js:852
+msgid "Dim the page (%)"
+msgstr "Oscura la pagina (%)"
+
+#: assets/js/editor.js:852
+msgid "A click on the dimmed background closes the menu."
+msgstr "Un clic sullo sfondo oscurato chiude il menu."
+
+#: assets/js/editor.js:853
+msgid "Window background"
+msgstr "Sfondo della finestra"
+
+#: assets/js/editor.js:854
+msgid "Window text"
+msgstr "Testo della finestra"
+
+#: assets/js/editor.js:856
+msgid "Full-screen menu content"
+msgstr "Contenuti del menu a schermo intero"
+
+#: assets/js/editor.js:857
+msgid "Small title above the menu"
+msgstr "Titoletto sopra il menu"
+
+#: assets/js/editor.js:857
+msgid "Discover the pages"
+msgstr "Scopri le pagine"
+
+#: assets/js/editor.js:858
+msgid "Item size (px)"
+msgstr "Dimensione delle voci (px)"
+
+#: assets/js/editor.js:859
+msgid "Item weight"
+msgstr "Peso delle voci"
+
+#: assets/js/editor.js:860
+msgid "Show contacts, social links and legal link"
+msgstr "Mostra contatti, social e link legale"
+
+#: assets/js/editor.js:866
+msgid "Contacts small title"
+msgstr "Titoletto contatti"
+
+#: assets/js/editor.js:866
+msgid "Contact us"
+msgstr "Contattaci"
+
+#: assets/js/editor.js:869
+msgid "Social links small title"
+msgstr "Titoletto social"
+
+#: assets/js/editor.js:869 assets/js/editor.js:901
+msgid "Follow us"
+msgstr "Seguici"
+
+#: assets/js/editor.js:870
+msgid "Legal link (text)"
+msgstr "Link legale (testo)"
+
+#: assets/js/editor.js:870
+msgid "Privacy and Terms"
+msgstr "Privacy e Termini"
+
+#: assets/js/editor.js:871
+msgid "Legal link (address)"
+msgstr "Link legale (indirizzo)"
+
+#: assets/js/editor.js:873
+msgid "On smartphones"
+msgstr "Su smartphone"
+
+#: assets/js/editor.js:874
+msgid "Text alignment"
+msgstr "Allineamento del testo"
+
+#: assets/js/editor.js:874
+msgid "Applies to menu items, contacts and social links when the full-screen menu opens on a phone."
+msgstr "Vale per voci del menu, contatti e social quando il menu a schermo intero si apre sul telefono."
+
+#: assets/js/editor.js:875
+msgid "Panel image"
+msgstr "Immagine del pannello"
+
+#: assets/js/editor.js:875
+msgid "Show it as a faded background"
+msgstr "Mostrala come sfondo, sfumata"
+
+#: assets/js/editor.js:875
+msgid "Don't show it"
+msgstr "Non mostrarla"
+
+#: assets/js/editor.js:875
+msgid "A phone has no room for the side panel: the photo becomes the background behind the text."
+msgstr "Sul telefono manca lo spazio per il pannello laterale: la foto diventa lo sfondo dietro al testo."
+
+#: assets/js/editor.js:878
+msgid "It animates into an X (or changes) when the menu opens."
+msgstr "Si anima in una X (o cambia) quando il menu si apre."
+
+#: assets/js/editor.js:880
+msgid "Thickness (px)"
+msgstr "Spessore (px)"
+
+#: assets/js/editor.js:881
+msgid "Background shape"
+msgstr "Forma dello sfondo"
+
+#: assets/js/editor.js:881
+msgid "Circle"
+msgstr "Cerchio"
+
+#: assets/js/editor.js:881
+msgid "Rounded rectangle"
+msgstr "Rettangolo arrotondato"
+
+#: assets/js/editor.js:881
+msgid "Square"
+msgstr "Quadrato"
+
+#: assets/js/editor.js:883
+msgid "Text next to the icon"
+msgstr "Testo accanto all'icona"
+
+#: assets/js/editor.js:884
+msgid "Label"
+msgstr "Etichetta"
+
+#: assets/js/editor.js:884
+msgid "Optional. With the \"Text only\" style it is the only element."
+msgstr "Opzionale. Con lo stile \"Solo testo\" è l'unico elemento."
+
+#: assets/js/editor.js:885
+msgid "Label when the menu is open"
+msgstr "Etichetta a menu aperto"
+
+#: assets/js/editor.js:889
+msgid "Shape background"
+msgstr "Sfondo della forma"
+
+#: assets/js/editor.js:895
+msgid "Empty"
+msgstr "Vuota"
+
+#: assets/js/editor.js:895 assets/js/editor.js:958 assets/js/editor.js:1092 assets/js/editor.js:1123 assets/js/editor.js:1150
+msgid "Text"
+msgstr "Testo"
+
+#: assets/js/editor.js:895 assets/js/editor.js:900 includes/class-khf-presets.php:745
+msgid "Contacts"
+msgstr "Contatti"
+
+#: assets/js/editor.js:895 assets/js/editor.js:1012
+msgid "Social"
+msgstr "Social"
+
+#: assets/js/editor.js:895 assets/js/editor.js:960
+msgid "Image"
+msgstr "Immagine"
+
+#: assets/js/editor.js:898
+msgid "About us"
+msgstr "Chi siamo"
+
+#: assets/js/editor.js:898
+msgid "A couple of lines about you: what you do, who you do it for and why."
+msgstr "Due righe su di te: cosa fai, per chi lo fai e perché."
+
+#: assets/js/editor.js:899
+msgid "Explore"
+msgstr "Esplora"
+
+#: assets/js/editor.js:943
+msgid "Columns (1-6)"
+msgstr "Colonne (1-6)"
+
+#: assets/js/editor.js:943
+msgid "Rows (1-6)"
+msgstr "Righe (1-6)"
+
+#: assets/js/editor.js:954
+msgid "Cell: row"
+msgstr "Cella: riga"
+
+#: assets/js/editor.js:954
+msgid ", column"
+msgstr ", colonna"
+
+#: assets/js/editor.js:956
+msgid "What it contains"
+msgstr "Cosa contiene"
+
+#: assets/js/editor.js:957
+msgid "Title / label"
+msgstr "Titolo / etichetta"
+
+#: assets/js/editor.js:958
+msgid "Write whatever you like. Bold, italic and links are allowed."
+msgstr "Scrivi quello che vuoi. Sono ammessi grassetto, corsivo e link."
+
+#: assets/js/editor.js:961 assets/js/editor.js:1162
+msgid "Link"
+msgstr "Link"
+
+#: assets/js/editor.js:963
+msgid "Font"
+msgstr "Carattere"
+
+#: assets/js/editor.js:964 assets/js/editor.js:1066
+msgid "0 = same as the footer."
+msgstr "0 = come il footer."
+
+#: assets/js/editor.js:966
+msgid "Text color"
+msgstr "Colore del testo"
+
+#: assets/js/editor.js:979
+msgid "Cells (tap to edit)"
+msgstr "Celle (tocca per modificare)"
+
+#: assets/js/editor.js:996
+msgid "Space between cells (px)"
+msgstr "Spazio tra le celle (px)"
+
+#: assets/js/editor.js:997
+msgid "Vertical alignment"
+msgstr "Allineamento verticale"
+
+#: assets/js/editor.js:997
+msgid "Top"
+msgstr "Alto"
+
+#: assets/js/editor.js:997
+msgid "Bottom"
+msgstr "Basso"
+
+#: assets/js/editor.js:998
+msgid "Big headline above the grid"
+msgstr "Titolo grande sopra la griglia"
+
+#: assets/js/editor.js:998
+msgid "The headline, phrase and button are written in Content."
+msgstr "Il titolo, la frase e il pulsante si scrivono in Contenuti."
+
+#: assets/js/editor.js:1000
+msgid "Cell style"
+msgstr "Aspetto delle celle"
+
+#: assets/js/editor.js:1001
+msgid "Card"
+msgstr "Scheda"
+
+#: assets/js/editor.js:1001
+msgid "Glass"
+msgstr "Vetro"
+
+#: assets/js/editor.js:1002
+msgid "Background color"
+msgstr "Colore di fondo"
+
+#: assets/js/editor.js:1002
+msgid "Use the picker's transparency to choose how much of the background shows."
+msgstr "Con la trasparenza del selettore scegli quanto si vede lo sfondo."
+
+#: assets/js/editor.js:1003
+msgid "Glass blur (px)"
+msgstr "Sfocatura del vetro (px)"
+
+#: assets/js/editor.js:1005
+msgid "Inner spacing (px)"
+msgstr "Spazio interno (px)"
+
+#: assets/js/editor.js:1007
+msgid "Cells"
+msgstr "Celle"
+
+#: assets/js/editor.js:1032
+msgid "L"
+msgstr "Sx"
+
+#: assets/js/editor.js:1032
+msgid "R"
+msgstr "Dx"
+
+#: assets/js/editor.js:1047
+msgid "Bar elements"
+msgstr "Elementi della barra"
+
+#: assets/js/editor.js:1048
+msgid "Turn the elements on and choose the zone (left, center, right), order and pixel shift, as in the header."
+msgstr "Accendi gli elementi e scegli zona (sinistra, centro, destra), ordine e spostamento in pixel, come nell'header."
+
+#: assets/js/editor.js:1052
+msgid "Spacing"
+msgstr "Spazi"
+
+#: assets/js/editor.js:1053
+msgid "Space between elements (px)"
+msgstr "Spazio tra gli elementi (px)"
+
+#: assets/js/editor.js:1055
+msgid "Choose the two menus in Content (Menu and Menu 2)."
+msgstr "Scegli i due menu in Contenuti (Menu e Menu 2)."
+
+#: assets/js/editor.js:1062 assets/js/editor.js:1098
+msgid "On hover"
+msgstr "Al passaggio"
+
+#: assets/js/editor.js:1063
+msgid "Link effect"
+msgstr "Effetto sui link"
+
+#: assets/js/editor.js:1065
+msgid "Link text"
+msgstr "Testo dei link"
+
+#: assets/js/editor.js:1069
+msgid "Space between inline items (px)"
+msgstr "Spazio tra le voci in riga (px)"
+
+#: assets/js/editor.js:1070
+msgid "Separator between inline items"
+msgstr "Separatore tra le voci in riga"
+
+#: assets/js/editor.js:1080 assets/js/editor.js:1091
+msgid "Arrow"
+msgstr "Freccia"
+
+#: assets/js/editor.js:1081
+msgid "\"Back to top\" arrow"
+msgstr "Freccia \"torna su\""
+
+#: assets/js/editor.js:1081
+msgid "As in the settings"
+msgstr "Come nelle impostazioni"
+
+#: assets/js/editor.js:1081
+msgid "Hidden"
+msgstr "Nascosta"
+
+#: assets/js/editor.js:1084
+msgid "Where it sits"
+msgstr "Dove sta"
+
+#: assets/js/editor.js:1084
+msgid "Fixed on the screen"
+msgstr "Fissa sullo schermo"
+
+#: assets/js/editor.js:1084
+msgid "Inside the footer"
+msgstr "Dentro il footer"
+
+#: assets/js/editor.js:1085
+msgid "Horizontal"
+msgstr "Orizzontale"
+
+#: assets/js/editor.js:1086
+msgid "When centered, this is the shift to the right (+) or left (−)."
+msgstr "Al centro è lo spostamento a destra (+) o sinistra (−)."
+
+#: assets/js/editor.js:1087
+msgid "Distance from the bottom (px)"
+msgstr "Distanza dal basso (px)"
+
+#: assets/js/editor.js:1088
+msgid "Appears after (px of scroll)"
+msgstr "Compare dopo (px di scroll)"
+
+#: assets/js/editor.js:1091
+msgid "Chevron"
+msgstr "Chevron"
+
+#: assets/js/editor.js:1091
+msgid "Double chevron"
+msgstr "Doppio chevron"
+
+#: assets/js/editor.js:1091 includes/class-khf-presets.php:54
+msgid "Triangle"
+msgstr "Triangolo"
+
+#: assets/js/editor.js:1092 includes/class-khf-presets.php:596
+msgid "Up"
+msgstr "Su"
+
+#: assets/js/editor.js:1097
+msgid "Border"
+msgstr "Bordo"
+
+#: assets/js/editor.js:1098
+msgid "Lifts up"
+msgstr "Si solleva"
+
+#: assets/js/editor.js:1098
+msgid "Rotates"
+msgstr "Gira"
+
+#: assets/js/editor.js:1098
+msgid "No movement"
+msgstr "Nessun movimento"
+
+#: assets/js/editor.js:1100
+msgid "With \"As in the settings\" the global arrow from the dashboard applies; with \"Hidden\" this footer shows none."
+msgstr "Con \"Come nelle impostazioni\" vale la freccia globale della bacheca; con \"Nascosta\" questo footer non ne mostra nessuna."
+
+#: assets/js/editor.js:1105
+msgid "Custom (name of a font from fonts.bunny.net)"
+msgstr "Personalizzato (nome di un font di fonts.bunny.net)"
+
+#: assets/js/editor.js:1109
+msgid "General font"
+msgstr "Carattere generale"
+
+#: assets/js/editor.js:1110
+msgid "Font name"
+msgstr "Nome del font"
+
+#: assets/js/editor.js:1110
+msgid "E.g. Space Grotesk"
+msgstr "Es. Space Grotesk"
+
+#: assets/js/editor.js:1111
+msgid "Logo and headings font"
+msgstr "Carattere di logo e titoli"
+
+#: assets/js/editor.js:1111
+msgid "Optional: if empty it uses the general one."
+msgstr "Facoltativo: se vuoto usa quello generale."
+
+#: assets/js/editor.js:1112
+msgid "Headings font name"
+msgstr "Nome del font dei titoli"
+
+#: assets/js/editor.js:1112
+msgid "E.g. Playfair Display"
+msgstr "Es. Playfair Display"
+
+#: assets/js/editor.js:1113
+msgid "Base text size (px)"
+msgstr "Dimensione base del testo (px)"
+
+#: assets/js/editor.js:1113
+msgid "0 = same as the theme. The size and weight of menu items are in \"Menu and images\"."
+msgstr "0 = come il tema. Dimensione e peso delle voci di menu sono in \"Menu e immagini\"."
+
+#: assets/js/editor.js:1115
+msgid "Fonts are loaded as set in the plugin settings (by default they are hosted on your site). \"System\" downloads nothing."
+msgstr "I caratteri si caricano come impostato nelle impostazioni del plugin (di default sono ospitati sul tuo sito). \"Sistema\" non scarica nulla."
+
+#: assets/js/editor.js:1122
+msgid "Empty = transparent."
+msgstr "Vuoto = trasparente."
+
+#: assets/js/editor.js:1122
+msgid "Empty = use the mood. You can use a gradient with several colors."
+msgstr "Vuoto = usa l'atmosfera. Puoi usare un gradiente con più colori."
+
+#: assets/js/editor.js:1126
+msgid "Background 2 (automatic gradient)"
+msgstr "Sfondo 2 (gradiente automatico)"
+
+#: assets/js/editor.js:1127
+msgid "Automatic gradient angle (°)"
+msgstr "Angolo del gradiente automatico (°)"
+
+#: assets/js/editor.js:1129
+msgid "Accent"
+msgstr "Accento"
+
+#: assets/js/editor.js:1130
+msgid "Background and text"
+msgstr "Sfondo e testo"
+
+#: assets/js/editor.js:1130
+msgid "Base background and text"
+msgstr "Sfondo e testo di base"
+
+#: assets/js/editor.js:1133
+msgid "Transparent header and on scroll"
+msgstr "Header trasparente e allo scroll"
+
+#: assets/js/editor.js:1134
+msgid "Transparent over the content"
+msgstr "Trasparente sopra il contenuto"
+
+#: assets/js/editor.js:1134
+msgid "The header takes no space and the hero shows underneath until you scroll."
+msgstr "L'header non occupa spazio e si vede l'hero sotto, finché non scorri."
+
+#: assets/js/editor.js:1135 includes/class-khf-fx.php:91
+msgid "Background at the top"
+msgstr "Sfondo in cima"
+
+#: assets/js/editor.js:1135
+msgid "Empty = transparent when overlaid."
+msgstr "Vuoto = trasparente se sovrapposto."
+
+#: assets/js/editor.js:1136 includes/class-khf-fx.php:93
+msgid "Text at the top"
+msgstr "Testo in cima"
+
+#: assets/js/editor.js:1136
+msgid "Color of the logo, menu and icon before scrolling."
+msgstr "Colore di logo, menu e icona prima dello scroll."
+
+#: assets/js/editor.js:1137
+msgid "Background after scroll"
+msgstr "Sfondo dopo lo scroll"
+
+#: assets/js/editor.js:1138
+msgid "Text after scroll"
+msgstr "Testo dopo lo scroll"
+
+#: assets/js/editor.js:1143
+msgid "Menu items"
+msgstr "Voci del menu"
+
+#: assets/js/editor.js:1144
+msgid "Item text"
+msgstr "Testo delle voci"
+
+#: assets/js/editor.js:1145
+msgid "Text on hover / active item"
+msgstr "Testo al passaggio / voce attiva"
+
+#: assets/js/editor.js:1146
+msgid "Pill background"
+msgstr "Sfondo della pillola"
+
+#: assets/js/editor.js:1146
+msgid "Used by the \"Pill\" effect."
+msgstr "Usato dall'effetto \"Pillola\"."
+
+#: assets/js/editor.js:1152
+msgid "Submenus and mobile menu"
+msgstr "Sottomenu e menu mobile"
+
+#: assets/js/editor.js:1155
+msgid "Mobile panel background"
+msgstr "Sfondo del pannello mobile"
+
+#: assets/js/editor.js:1156
+msgid "Mobile panel text"
+msgstr "Testo del pannello mobile"
+
+#: assets/js/editor.js:1161
+msgid "Links and headings"
+msgstr "Link e titoli"
+
+#: assets/js/editor.js:1163
+msgid "Link on hover"
+msgstr "Link al passaggio"
+
+#: assets/js/editor.js:1165
+msgid "Lines and borders"
+msgstr "Linee e bordi"
+
+#: assets/js/editor.js:1167
+msgid "Button and social links"
+msgstr "Pulsante e social"
+
+#: assets/js/editor.js:1168
+msgid "Button / social links background on hover"
+msgstr "Sfondo del pulsante / social al passaggio"
+
+#: assets/js/editor.js:1169
+msgid "Button / social links text on hover"
+msgstr "Testo del pulsante / social al passaggio"
+
+#: assets/js/editor.js:1188
+msgid "A specific page or post…"
+msgstr "Pagina o articolo specifico…"
+
+#: assets/js/editor.js:1188
+msgid "Home page"
+msgstr "Home page"
+
+#: assets/js/editor.js:1188 includes/class-khf-conditions.php:16
+msgid "Blog page"
+msgstr "Pagina del blog"
+
+#: assets/js/editor.js:1188
+msgid "Archives"
+msgstr "Archivi"
+
+#: assets/js/editor.js:1188 includes/class-khf-conditions.php:18
+msgid "Search results"
+msgstr "Risultati di ricerca"
+
+#: assets/js/editor.js:1188 includes/class-khf-conditions.php:19
+msgid "404 page"
+msgstr "Pagina 404"
+
+#: assets/js/editor.js:1194
+msgid "Change page…"
+msgstr "Cambia pagina…"
+
+#: assets/js/editor.js:1194
+msgid "Search by title or enter the ID…"
+msgstr "Cerca per titolo o inserisci l'ID…"
+
+#: assets/js/editor.js:1194
+msgid "Search page or post"
+msgstr "Cerca pagina o articolo"
+
+#: assets/js/editor.js:1202
+msgid "No results"
+msgstr "Nessun risultato"
+
+#: assets/js/editor.js:1221
+msgid "Where to see it"
+msgstr "Dove vederlo"
+
+#. translators: %s: elenco
+#: assets/js/editor.js:1226 includes/class-khf-conditions.php:93
+msgid "Entire site"
+msgstr "Intero sito"
+
+#: assets/js/editor.js:1229
+msgid "Only on some pages"
+msgstr "Solo in alcune pagine"
+
+#: assets/js/editor.js:1231
+msgid "\"Only on\" limits the template to those pages; \"Except on\" removes it from those pages."
+msgstr "\"Solo in\" limita il template a quelle pagine; \"Tranne in\" lo toglie da quelle pagine."
+
+#: assets/js/editor.js:1232
+msgid "The template shows on the whole site. Add \"Except on…\" to exclude pages, or choose \"Only on some pages\" to limit it."
+msgstr "Il template compare su tutto il sito. Aggiungi \"Tranne in…\" per escludere delle pagine, o scegli \"Solo in alcune pagine\" per limitarlo."
+
+#: assets/js/editor.js:1235
+msgid "Only on"
+msgstr "Solo in"
+
+#: assets/js/editor.js:1235
+msgid "Except on"
+msgstr "Tranne in"
+
+#: assets/js/editor.js:1238
+msgid "Where"
+msgstr "Dove"
+
+#: assets/js/editor.js:1240
+msgid "Delete the rule"
+msgstr "Elimina la regola"
+
+#: assets/js/editor.js:1248
+msgid "Add rule"
+msgstr "Aggiungi regola"
+
+#: assets/js/editor.js:1256
+msgid "Display rules"
+msgstr "Regole di visualizzazione"
+
+#: assets/js/editor.js:1258
+msgid "Priority"
+msgstr "Priorità"
+
+#: assets/js/editor.js:1258
+msgid "If several templates match, the one with the highest priority wins."
+msgstr "Se più template corrispondono, vince quello con priorità più alta."
+
+#: assets/js/editor.js:1285
+msgid "Collapse all"
+msgstr "Comprimi tutto"
+
+#: assets/js/editor.js:1286
+msgid "Expand all"
+msgstr "Espandi tutto"
+
+#: assets/js/editor.js:1302
+msgid "Tips"
+msgstr "Suggerimenti"
+
+#: assets/js/editor.js:1303
+msgid "Scroll the preview to see sticky, transparency and the footer coming in."
+msgstr "Scorri l'anteprima per vedere sticky, trasparenza e footer che entra."
+
+#: assets/js/editor.js:1304
+msgid "saves."
+msgstr "salva."
+
+#: assets/js/editor.js:1305
+msgid "Sections with class"
+msgstr "Sezioni con classe"
+
+#: assets/js/editor.js:1305
+msgid "turn on the adaptive colors."
+msgstr "attivano i colori adattivi."
+
+#: assets/js/editor.js:1321
+msgid "Saving…"
+msgstr "Salvo…"
+
+#: assets/js/editor.js:1335
+msgid "Template name"
+msgstr "Nome del template"
+
+#: assets/js/editor.js:1337 includes/class-khf-fx.php:27
+msgid "Desktop"
+msgstr "Desktop"
+
+#: assets/js/editor.js:1337 includes/class-khf-fx.php:28
+msgid "Tablet"
+msgstr "Tablet"
+
+#: assets/js/editor.js:1337 includes/class-khf-fx.php:29
+msgid "Mobile"
+msgstr "Mobile"
+
+#: assets/js/editor.js:1342
+msgid "An inactive template does not show on the site"
+msgstr "Un template spento non compare sul sito"
+
+#: assets/js/editor.js:1346
+msgid "Save and open a page of the site with this template"
+msgstr "Salva e apri una pagina del sito con questo template"
+
+#: assets/js/editor.js:1348
+msgid "On the site"
+msgstr "Sul sito"
+
+#: assets/js/editor.js:1353 assets/js/editor.js:1388
+msgid "Back to the dashboard"
+msgstr "Torna alla bacheca"
+
+#: assets/js/editor.js:1388
+msgid "Could not open the template:"
+msgstr "Impossibile aprire il template:"
+
+#: includes/class-khf-admin.php:42
+msgid "Dashboard"
+msgstr "Bacheca"
+
+#: includes/class-khf-admin.php:141
+msgid "Insufficient permissions."
+msgstr "Permessi insufficienti."
+
+#: includes/class-khf-admin.php:144
+msgid "Loading the editor…"
+msgstr "Caricamento dell'editor…"
+
+#: includes/class-khf-admin.php:147
+msgid "Loading…"
+msgstr "Caricamento…"
+
+#: includes/class-khf-admin.php:168
+msgid "Hide the Kaos header"
+msgstr "Nascondi l'header Kaos"
+
+#: includes/class-khf-admin.php:169
+msgid "Hide the Kaos footer"
+msgstr "Nascondi il footer Kaos"
+
+#: includes/class-khf-adminbar.php:44
+msgid "header"
+msgstr "Intestazione"
+
+#: includes/class-khf-adminbar.php:44
+msgid "footer"
+msgstr "piè di pagina"
+
+#. translators: %s: header o footer
+#: includes/class-khf-adminbar.php:47
+#, php-format
+msgid "No %s here: the \"Where to show it\" rules exclude it"
+msgstr "Nessun %s qui: le regole \"Dove mostrarlo\" lo escludono"
+
+#. translators: %s: header o footer
+#: includes/class-khf-adminbar.php:51
+#, php-format
+msgid "No %s here: the template is turned off (turn it on in the editor)"
+msgstr "Nessun %s qui: il template è spento (attivalo nell'editor)"
+
+#: includes/class-khf-adminbar.php:69
+msgid "Edit header"
+msgstr "Modifica header"
+
+#: includes/class-khf-adminbar.php:69
+msgid "Edit footer"
+msgstr "Modifica footer"
+
+#: includes/class-khf-adminbar.php:97
+msgid "All templates"
+msgstr "Tutti i template"
+
+#: includes/class-khf-conditions.php:15
+msgid "Home page (static or latest posts)"
+msgstr "Home page (statica o articoli)"
+
+#: includes/class-khf-conditions.php:17
+msgid "Archives (categories, tags, authors…)"
+msgstr "Archivi (categorie, tag, autori…)"
+
+#. translators: %s: content type name
+#: includes/class-khf-conditions.php:26
+#, php-format
+msgid "All content: %s"
+msgstr "Tutti i contenuti: %s"
+
+#. translators: %s: elenco
+#: includes/class-khf-conditions.php:93
+#, php-format
+msgid "Only: %s"
+msgstr "Solo: %s"
+
+#. translators: %s: elenco
+#: includes/class-khf-conditions.php:95
+#, php-format
+msgid "except: %s"
+msgstr "tranne: %s"
+
+#: includes/class-khf-cpt.php:22
+msgid "Header & Footer"
+msgstr "Header & Footer"
+
+#: includes/class-khf-cpt.php:23
+msgid "Header/Footer templates"
+msgstr "Template Header/Footer"
+
+#: includes/class-khf-elementor.php:45
+msgid "Yes"
+msgstr "Sì"
+
+#: includes/class-khf-elementor.php:45
+msgid "No"
+msgstr "No"
+
+#: includes/class-khf-elementor.php:63
+msgid "Kaos Sticky"
+msgstr "Kaos Sticky"
+
+#: includes/class-khf-elementor.php:71
+msgid "Enable scroll effects"
+msgstr "Attiva effetti di scroll"
+
+#: includes/class-khf-fx.php:33
+msgid "Unchanged"
+msgstr "Invariato"
+
+#: includes/class-khf-fx.php:34
+msgid "All black"
+msgstr "Tutto nero"
+
+#: includes/class-khf-fx.php:35
+msgid "All white"
+msgstr "Tutto bianco"
+
+#: includes/class-khf-fx.php:40
+msgid "Behavior"
+msgstr "Comportamento"
+
+#: includes/class-khf-fx.php:44
+msgid "Sticky mode"
+msgstr "Modalità sticky"
+
+#: includes/class-khf-fx.php:47
+msgid "None (scrolls with the page)"
+msgstr "Nessuna (scorre con la pagina)"
+
+#: includes/class-khf-fx.php:48
+msgid "Always fixed at the top"
+msgstr "Sempre fisso in alto"
+
+#: includes/class-khf-fx.php:49
+msgid "Smart: hides on scroll down, returns on scroll up"
+msgstr "Smart: sparisce scendendo, torna salendo"
+
+#: includes/class-khf-fx.php:54
+msgid "Active on"
+msgstr "Attivo su"
+
+#: includes/class-khf-fx.php:60
+msgid "Scroll threshold (px)"
+msgstr "Soglia di scroll (px)"
+
+#: includes/class-khf-fx.php:64
+msgid "After how many pixels the effects kick in (class .is-stuck)."
+msgstr "Dopo quanti pixel scattano gli effetti (classe .is-stuck)."
+
+#: includes/class-khf-fx.php:68
+msgid "Overlaid on the content"
+msgstr "Sovrapposto al contenuto"
+
+#: includes/class-khf-fx.php:69
+msgid "Transparent over the hero until you scroll"
+msgstr "Trasparente sopra l'hero finché non scorri"
+
+#: includes/class-khf-fx.php:74
+msgid "Stack"
+msgstr "Impila"
+
+#: includes/class-khf-fx.php:75
+msgid "Placed below the other sticky elements"
+msgstr "Posizionati sotto gli altri elementi sticky"
+
+#: includes/class-khf-fx.php:81
+msgid "Sticky until…"
+msgstr "Sticky fino a…"
+
+#: includes/class-khf-fx.php:83
+msgid "CSS selector (e.g. #contacts): when the page scrolls past that element the header leaves the stage."
+msgstr "Selettore CSS (es. #contatti): quando la pagina supera quell'elemento l'header esce di scena."
+
+#: includes/class-khf-fx.php:92
+msgid "Background on scroll"
+msgstr "Sfondo allo scroll"
+
+#: includes/class-khf-fx.php:94
+msgid "Text on scroll"
+msgstr "Testo allo scroll"
+
+#: includes/class-khf-fx.php:97
+msgid "Adaptive colors"
+msgstr "Colori adattivi"
+
+#: includes/class-khf-fx.php:98
+msgid "Changes the text depending on the section under the header"
+msgstr "Cambia il testo in base alla sezione sotto l'header"
+
+#: includes/class-khf-fx.php:100
+msgid "Give your sections the class khf-on-dark (dark background) or khf-on-light (light background)."
+msgstr "Dai alle sezioni la classe khf-on-dark (sfondo scuro) o khf-on-light (sfondo chiaro)."
+
+#: includes/class-khf-fx.php:102
+msgid "Text on a dark section"
+msgstr "Testo su sezione scura"
+
+#: includes/class-khf-fx.php:103
+msgid "Text on a light section"
+msgstr "Testo su sezione chiara"
+
+#: includes/class-khf-fx.php:104
+msgid "Opacity at the top (%)"
+msgstr "Opacità in cima (%)"
+
+#: includes/class-khf-fx.php:105
+msgid "Opacity on scroll (%)"
+msgstr "Opacità allo scroll (%)"
+
+#: includes/class-khf-fx.php:109
+msgid "Border, shadow and shape"
+msgstr "Bordo, ombra e forma"
+
+#: includes/class-khf-fx.php:113
+msgid "Shadow on scroll"
+msgstr "Ombra allo scroll"
+
+#: includes/class-khf-fx.php:119
+msgid "Strong"
+msgstr "Marcata"
+
+#: includes/class-khf-fx.php:122
+msgid "Bottom border (px)"
+msgstr "Bordo inferiore (px)"
+
+#: includes/class-khf-fx.php:123
+msgid "Border color"
+msgstr "Colore bordo"
+
+#: includes/class-khf-fx.php:124
+msgid "Side margin on scroll (px)"
+msgstr "Margine laterale allo scroll (px)"
+
+#: includes/class-khf-fx.php:124
+msgid "With a margin, a top distance and a radius the header becomes a floating \"island\"."
+msgstr "Con margine, distanza dall'alto e raggio l'header diventa una \"isola\" fluttuante."
+
+#: includes/class-khf-fx.php:125
+msgid "Distance from the top (px)"
+msgstr "Distanza dall'alto (px)"
+
+#: includes/class-khf-fx.php:126
+msgid "Corner radius (px)"
+msgstr "Raggio angoli (px)"
+
+#: includes/class-khf-fx.php:130
+msgid "Size and logo"
+msgstr "Dimensioni e logo"
+
+#: includes/class-khf-fx.php:132
+msgid "Final height on scroll (px)"
+msgstr "Altezza finale allo scroll (px)"
+
+#: includes/class-khf-fx.php:132
+msgid "0 = no shrinking. It reduces the vertical padding until the given height is reached."
+msgstr "0 = nessun rimpicciolimento. Riduce il padding verticale fino a raggiungere l'altezza indicata."
+
+#: includes/class-khf-fx.php:133
+msgid "Logo selector"
+msgstr "Selettore del logo"
+
+#: includes/class-khf-fx.php:133
+msgid "Empty = automatic detection (WordPress, Elementor, Divi logos)."
+msgstr "Vuoto = rilevamento automatico (logo di WordPress, Elementor, Divi)."
+
+#: includes/class-khf-fx.php:134
+msgid "Logo scale on scroll (%)"
+msgstr "Scala logo allo scroll (%)"
+
+#: includes/class-khf-fx.php:135
+msgid "Logo at the top"
+msgstr "Logo in cima"
+
+#: includes/class-khf-fx.php:136
+msgid "Logo on scroll"
+msgstr "Logo allo scroll"
+
+#: includes/class-khf-fx.php:137
+msgid "Logo tint at the top"
+msgstr "Tinta logo in cima"
+
+#: includes/class-khf-fx.php:138
+msgid "Logo tint on scroll"
+msgstr "Tinta logo allo scroll"
+
+#: includes/class-khf-fx.php:142
+msgid "Glass and blur"
+msgstr "Vetro e sfocatura"
+
+#: includes/class-khf-fx.php:144
+msgid "Blur (px)"
+msgstr "Sfocatura (px)"
+
+#: includes/class-khf-fx.php:144
+msgid "To be visible, the background on scroll must be semi-transparent."
+msgstr "Perché si veda, lo sfondo allo scroll deve essere semitrasparente."
+
+#: includes/class-khf-fx.php:145
+msgid "Saturation (%)"
+msgstr "Saturazione (%)"
+
+#: includes/class-khf-fx.php:146
+msgid "Brightness (%)"
+msgstr "Luminosità (%)"
+
+#: includes/class-khf-fx.php:147
+msgid "Grayscale (%)"
+msgstr "Scala di grigi (%)"
+
+#: includes/class-khf-fx.php:150
+msgid "Liquid glass"
+msgstr "Liquid glass"
+
+#: includes/class-khf-fx.php:151
+msgid "Glass with reflections, shine and depth"
+msgstr "Vetro con riflessi, lucentezza e profondità"
+
+#: includes/class-khf-fx.php:154
+msgid "Glass tint"
+msgstr "Tinta del vetro"
+
+#: includes/class-khf-fx.php:154
+msgid "Color with transparency; empty = light white."
+msgstr "Colore con trasparenza; vuoto = bianco leggero."
+
+#: includes/class-khf-fx.php:155
+msgid "Edge reflection"
+msgstr "Riflesso sui bordi"
+
+#: includes/class-khf-fx.php:156
+msgid "Shine"
+msgstr "Lucentezza"
+
+#: includes/class-khf-fx.php:157
+msgid "Grain"
+msgstr "Grana"
+
+#: includes/class-khf-fx.php:158
+msgid "Depth (shadow)"
+msgstr "Profondità (ombra)"
+
+#: includes/class-khf-fx.php:159
+msgid "Liquid refraction"
+msgstr "Rifrazione liquida"
+
+#: includes/class-khf-fx.php:159
+msgid "Distorts what is behind it like thick glass. Chromium browsers only (Chrome, Edge, Opera)."
+msgstr "Deforma ciò che sta dietro come un vetro spesso. Solo browser Chromium (Chrome, Edge, Opera)."
+
+#: includes/class-khf-fx.php:160
+msgid "Also at the top"
+msgstr "Anche in cima"
+
+#: includes/class-khf-fx.php:160
+msgid "Apply the glass before scrolling too"
+msgstr "Applica il vetro anche prima dello scroll"
+
+#: includes/class-khf-fx.php:164
+msgid "Animations"
+msgstr "Animazioni"
+
+#: includes/class-khf-fx.php:168
+msgid "Exit / re-entry"
+msgstr "Uscita / rientro"
+
+#: includes/class-khf-fx.php:171
+msgid "Slide"
+msgstr "Scorrimento"
+
+#: includes/class-khf-fx.php:172 includes/class-khf-fx.php:185
+msgid "Fade"
+msgstr "Dissolvenza"
+
+#: includes/class-khf-fx.php:173 includes/class-khf-fx.php:187
+msgid "Zoom"
+msgstr "Zoom"
+
+#: includes/class-khf-fx.php:174
+msgid "Blur"
+msgstr "Sfocatura"
+
+#: includes/class-khf-fx.php:175
+msgid "Flip"
+msgstr "Ribaltamento"
+
+#: includes/class-khf-fx.php:181
+msgid "Entrance when it becomes sticky"
+msgstr "Entrata quando diventa sticky"
+
+#: includes/class-khf-fx.php:186
+msgid "Soft drop"
+msgstr "Caduta morbida"
+
+#: includes/class-khf-fx.php:193
+msgid "Easing"
+msgstr "Curva"
+
+#: includes/class-khf-fx.php:196
+msgid "Smooth"
+msgstr "Morbida"
+
+#: includes/class-khf-fx.php:197
+msgid "Snappy"
+msgstr "Decisa"
+
+#: includes/class-khf-fx.php:198
+msgid "Elastic"
+msgstr "Elastica"
+
+#: includes/class-khf-fx.php:205
+msgid "Reading progress"
+msgstr "Avanzamento lettura"
+
+#: includes/class-khf-fx.php:209
+msgid "Progress bar"
+msgstr "Barra di progresso"
+
+#: includes/class-khf-fx.php:213
+msgid "On the header edge"
+msgstr "Sul bordo dell'header"
+
+#: includes/class-khf-fx.php:214
+msgid "On the top edge of the screen"
+msgstr "Sul bordo superiore dello schermo"
+
+#: includes/class-khf-fx.php:217
+msgid "Bar color"
+msgstr "Colore barra"
+
+#: includes/class-khf-fx.php:218
+msgid "Bar thickness (px)"
+msgstr "Spessore barra (px)"
+
+#: includes/class-khf-fx.php:429 includes/class-khf-presets.php:598
+msgid "Back to top"
+msgstr "Torna su"
+
+#: includes/class-khf-presets.php:16
+msgid "Midnight"
+msgstr "Mezzanotte"
+
+#: includes/class-khf-presets.php:18
+msgid "Antique rose"
+msgstr "Rosa antico"
+
+#: includes/class-khf-presets.php:19
+msgid "Cream & gold"
+msgstr "Crema & oro"
+
+#: includes/class-khf-presets.php:20
+msgid "Monochrome"
+msgstr "Monocromo"
+
+#: includes/class-khf-presets.php:21
+msgid "Lavender"
+msgstr "Lavanda"
+
+#: includes/class-khf-presets.php:23
+msgid "Coral"
+msgstr "Corallo"
+
+#: includes/class-khf-presets.php:24
+msgid "Wine"
+msgstr "Vino"
+
+#: includes/class-khf-presets.php:25
+msgid "Sand"
+msgstr "Sabbia"
+
+#: includes/class-khf-presets.php:26
+msgid "Graphite"
+msgstr "Grafite"
+
+#: includes/class-khf-presets.php:28
+msgid "Mint"
+msgstr "Menta"
+
+#: includes/class-khf-presets.php:29
+msgid "Sky"
+msgstr "Cielo"
+
+#: includes/class-khf-presets.php:30
+msgid "Peach"
+msgstr "Pesca"
+
+#: includes/class-khf-presets.php:31
+msgid "Olive"
+msgstr "Oliva"
+
+#: includes/class-khf-presets.php:32
+msgid "Ink"
+msgstr "Inchiostro"
+
+#: includes/class-khf-presets.php:33
+msgid "Black gold"
+msgstr "Oro nero"
+
+#: includes/class-khf-presets.php:34
+msgid "Cherry"
+msgstr "Ciliegia"
+
+#: includes/class-khf-presets.php:36
+msgid "Dawn"
+msgstr "Alba"
+
+#: includes/class-khf-presets.php:48
+msgid "Wave"
+msgstr "Onda"
+
+#: includes/class-khf-presets.php:49
+msgid "Layered waves"
+msgstr "Onde sovrapposte"
+
+#: includes/class-khf-presets.php:50
+msgid "Curve (smile)"
+msgstr "Curva (sorriso)"
+
+#: includes/class-khf-presets.php:51
+msgid "Arch"
+msgstr "Arco"
+
+#: includes/class-khf-presets.php:52
+msgid "Diagonal"
+msgstr "Diagonale"
+
+#: includes/class-khf-presets.php:53
+msgid "Reverse diagonal"
+msgstr "Diagonale inversa"
+
+#: includes/class-khf-presets.php:55
+msgid "Zigzag"
+msgstr "Zigzag"
+
+#: includes/class-khf-presets.php:56
+msgid "Clouds"
+msgstr "Nuvole"
+
+#: includes/class-khf-presets.php:63
+msgid "Color change"
+msgstr "Cambio colore"
+
+#: includes/class-khf-presets.php:64 includes/class-khf-presets.php:137
+msgid "Sliding underline"
+msgstr "Sottolineatura che scorre"
+
+#: includes/class-khf-presets.php:65 includes/class-khf-presets.php:138
+msgid "Underline from the center"
+msgstr "Sottolineatura dal centro"
+
+#: includes/class-khf-presets.php:66
+msgid "Arrow ↗ in front"
+msgstr "Freccia ↗ davanti"
+
+#: includes/class-khf-presets.php:67
+msgid "Slide to the right"
+msgstr "Scorrimento a destra"
+
+#: includes/class-khf-presets.php:68 includes/class-khf-presets.php:144
+msgid "Dim the other items"
+msgstr "Attenua le altre voci"
+
+#: includes/class-khf-presets.php:69 includes/class-khf-presets.php:147
+msgid "Glow"
+msgstr "Alone luminoso"
+
+#: includes/class-khf-presets.php:70 includes/class-khf-presets.php:145
+msgid "Scale up"
+msgstr "Ingrandimento"
+
+#: includes/class-khf-presets.php:71 includes/class-khf-presets.php:150
+msgid "No effect"
+msgstr "Nessun effetto"
+
+#: includes/class-khf-presets.php:95
+msgid "Same as the theme"
+msgstr "Come il tema"
+
+#: includes/class-khf-presets.php:96
+msgid "System (fast, no download)"
+msgstr "Sistema (veloce, nessun download)"
+
+#: includes/class-khf-presets.php:97
+msgid "Classic serif"
+msgstr "Serif classico"
+
+#: includes/class-khf-presets.php:98
+msgid "Monospace"
+msgstr "Monospazio"
+
+#: includes/class-khf-presets.php:118
+msgid "Columns (brand, menu, contacts)"
+msgstr "Colonne (brand, menu, contatti)"
+
+#: includes/class-khf-presets.php:119
+msgid "Big emotional call to action"
+msgstr "Grande invito all'azione emozionale"
+
+#: includes/class-khf-presets.php:120
+msgid "Minimal on one line"
+msgstr "Minimale su una riga"
+
+#: includes/class-khf-presets.php:121
+msgid "Custom grid (choose rows and columns)"
+msgstr "Griglia personalizzata (righe e colonne a scelta)"
+
+#: includes/class-khf-presets.php:125
+msgid "Classic (logo on the left, menu on the right)"
+msgstr "Classico (logo a sinistra, menu a destra)"
+
+#: includes/class-khf-presets.php:126
+msgid "Split (menu 1 on the left, logo in the center, menu 2 on the right)"
+msgstr "Diviso (menu 1 a sinistra, logo al centro, menu 2 a destra)"
+
+#: includes/class-khf-presets.php:127
+msgid "Custom (you decide the arrangement)"
+msgstr "Personalizzato (decidi tu la disposizione)"
+
+#: includes/class-khf-presets.php:128
+msgid "Centered (logo above, menu below)"
+msgstr "Centrato (logo sopra, menu sotto)"
+
+#: includes/class-khf-presets.php:129
+msgid "Minimal (hamburger + full-screen menu)"
+msgstr "Minimale (hamburger + menu a schermo intero)"
+
+#: includes/class-khf-presets.php:130
+msgid "Floating (glass pill)"
+msgstr "Fluttuante (pillola in vetro)"
+
+#: includes/class-khf-presets.php:136
+msgid "Pill (soft background)"
+msgstr "Pillola (sfondo morbido)"
+
+#: includes/class-khf-presets.php:139
+msgid "Line above"
+msgstr "Linea sopra"
+
+#: includes/class-khf-presets.php:140
+msgid "Sliding fill"
+msgstr "Riempimento che scorre"
+
+#: includes/class-khf-presets.php:141
+msgid "Brackets [ ]"
+msgstr "Parentesi [ ]"
+
+#: includes/class-khf-presets.php:142
+msgid "Dot"
+msgstr "Punto"
+
+#: includes/class-khf-presets.php:143
+msgid "Text sliding vertically"
+msgstr "Testo che scorre in verticale"
+
+#: includes/class-khf-presets.php:146
+msgid "Letter spacing"
+msgstr "Spaziatura lettere"
+
+#: includes/class-khf-presets.php:148
+msgid "Strikethrough"
+msgstr "Barrato"
+
+#: includes/class-khf-presets.php:149
+msgid "Arrow ↗ in front of the item"
+msgstr "Freccia ↗ davanti alla voce"
+
+#: includes/class-khf-presets.php:156
+msgid "Three lines"
+msgstr "Tre linee"
+
+#: includes/class-khf-presets.php:157
+msgid "Two lines"
+msgstr "Due linee"
+
+#: includes/class-khf-presets.php:158
+msgid "Three asymmetric lines"
+msgstr "Tre linee asimmetriche"
+
+#: includes/class-khf-presets.php:159
+msgid "Three dots"
+msgstr "Tre puntini"
+
+#: includes/class-khf-presets.php:160
+msgid "Dot grid"
+msgstr "Griglia di puntini"
+
+#: includes/class-khf-presets.php:161
+msgid "Plus"
+msgstr "Più"
+
+#: includes/class-khf-presets.php:344
+msgid "Maps"
+msgstr "Mappe"
+
+#: includes/class-khf-presets.php:344
+msgid "Google Maps"
+msgstr "Google Maps"
+
+#: includes/class-khf-presets.php:361
+msgid "Open the menu"
+msgstr "Apri il menu"
+
+#: includes/class-khf-presets.php:451 includes/class-khf-presets.php:507
+msgid "Main menu"
+msgstr "Menu principale"
+
+#: includes/class-khf-presets.php:716
+msgid "Let's create something beautiful, together."
+msgstr "Creiamo qualcosa di bellissimo, insieme."
+
+#: includes/class-khf-preview.php:48
+msgid "Preview not allowed."
+msgstr "Anteprima non autorizzata."
+
+#: includes/class-khf-renderer.php:512
+msgid "Empty template: press \"Edit with Elementor\" to design it."
+msgstr "Template vuoto: premi \"Modifica con Elementor\" per disegnarlo."
+
+#: includes/class-khf-rest.php:60
+msgid "Template not found."
+msgstr "Template non trovato."
+
+#: includes/class-khf-rest.php:69
+msgid "(untitled)"
+msgstr "(senza titolo)"
+
+#: includes/class-khf-rest.php:142
+msgid "New footer"
+msgstr "Nuovo footer"
+
+#: includes/class-khf-rest.php:142
+msgid "New header"
+msgstr "Nuovo header"
+
+#: includes/class-khf-rest.php:189
+msgid "(copy)"
+msgstr "(copia)"
+
+#: includes/class-khf-rest.php:219
+msgid "The file is not a valid KaosH&F template."
+msgstr "Il file non è un template KaosH&F valido."
+
+#. Plugin Name of the plugin
+#: kaos-header-footer.php
+msgid "Kaos Header & Footer"
+msgstr "Kaos Header & Footer"
+
+#. Description of the plugin
+#: kaos-header-footer.php
+msgid "Headers and footers for Elementor: emotional presets or layouts designed in Elementor, scroll effects (sticky, smart, transparent, glass, floating island…) and a \"reveal\" footer."
+msgstr "Header e footer per Elementor: preset emozionali o layout disegnati con Elementor, effetti di scroll (sticky, smart, trasparente, vetro, isola fluttuante…) e footer \"reveal\"."
+
+#: templates/preview.php:13
+msgid "Demo content: it only shows how the header and footer behave while you scroll the page. Scroll to see sticky, transparency, adaptive colors and the footer coming in."
+msgstr "Contenuto dimostrativo: serve solo a mostrare come si comportano header e footer mentre scorri la pagina. Scorri per vedere sticky, trasparenza, colori adattivi e il footer che entra."
+
+#: templates/preview.php:40
+msgid "Page content"
+msgstr "Contenuto della pagina"
+
+#: templates/preview.php:43
+msgid "An opening that moves you"
+msgstr "Un'apertura che emoziona"
+
+#. translators: %d: numero sezione
+#: templates/preview.php:52
+#, php-format
+msgid "Section %d"
+msgstr "Sezione %d"
+

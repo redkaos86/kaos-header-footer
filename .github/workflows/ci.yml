@@ -1,0 +1,145 @@
+name: Checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+  schedule:
+    # Every Monday at 6:00 UTC: catches new PHP/WordPress versions and updated rules.
+    - cron: '0 6 * * 1'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  syntax:
+    name: PHP ${{ matrix.php }} syntax
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        php: ['7.4', '8.0', '8.1', '8.2', '8.3', '8.4', '8.5']
+    steps:
+      - uses: actions/checkout@v5
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          coverage: none
+          tools: none
+      - name: Syntax check
+        run: find . -name '*.php' -not -path './vendor/*' -print0 | xargs -0 -n1 -P4 php -l
+
+  javascript:
+    name: JavaScript syntax
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 'lts/*'
+      - name: Syntax check
+        run: for f in assets/js/*.js; do node --check "$f"; done
+
+  translations:
+    name: Complete Italian translation
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          coverage: none
+          tools: wp-cli
+      - name: gettext tools
+        run: sudo apt-get install -y -qq gettext > /dev/null
+      - name: Every string in the code has an Italian translation
+        run: |
+          wp i18n make-pot . /tmp/kaos-header-footer.pot --slug=kaos-header-footer --domain=kaos-header-footer --exclude=vendor,node_modules,tests,bin,dist,branding --skip-audit
+          msgcmp languages/kaos-header-footer-it_IT.po /tmp/kaos-header-footer.pot
+          msgfmt --check-format -o /dev/null languages/kaos-header-footer-it_IT.po
+
+  standards:
+    name: Coding and security standards (PHPCS)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          coverage: none
+          tools: composer
+      - run: composer install --no-progress --prefer-dist
+      - name: PHPCS
+        run: vendor/bin/phpcs --report-full --report-summary
+
+  wordpress:
+    name: WordPress ${{ matrix.wp }} / PHP ${{ matrix.php }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { wp: '6.5', php: '7.4' }
+          - { wp: 'latest', php: '7.4' }
+          - { wp: 'latest', php: '8.3' }
+          - { wp: 'latest', php: '8.5' }
+          - { wp: 'nightly', php: '8.5' }
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: wordpress
+        ports: ['3306:3306']
+        options: --health-cmd="mysqladmin ping -proot" --health-interval=5s --health-timeout=5s --health-retries=20
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          path: kaos-header-footer
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          coverage: none
+          extensions: mysqli, curl, gd, mbstring, zip
+          tools: wp-cli
+      - name: Install WordPress ${{ matrix.wp }}
+        run: |
+          mkdir wp && cd wp
+          wp core download --version=${{ matrix.wp }} --locale=it_IT --skip-content || wp core download --version=${{ matrix.wp }} --skip-content
+          wp config create --dbname=wordpress --dbuser=root --dbpass=root --dbhost=127.0.0.1 --skip-check
+          wp config set WP_DEBUG true --raw
+          wp core install --url=http://localhost --title=Test --admin_user=admin --admin_password=admin --admin_email=admin@example.com --skip-email
+          mkdir -p wp-content/plugins
+          cp -r ../kaos-header-footer wp-content/plugins/kaos-header-footer
+          wp core version
+      - name: Activate Elementor and the plugin
+        working-directory: wp
+        run: |
+          wp plugin install elementor --activate
+          wp plugin activate kaos-header-footer
+      - name: Check that the plugin loads
+        working-directory: wp
+        run: |
+          wp eval 'foreach ( array( "KHF_Fx", "KHF_Renderer", "KHF_Fonts", "KHF_Options" ) as $c ) { if ( ! class_exists( $c ) ) { WP_CLI::error( "Missing class " . $c ); } } WP_CLI::success( "Classes loaded" );'
+
+  plugin-check:
+    name: Plugin Check for WordPress.org (informative)
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v5
+      - name: Build the WordPress.org zip (the one you upload)
+        run: |
+          node bin/build-wporg.js
+          mkdir -p dist/wporg
+          unzip -q dist/kaos-header-footer-wporg-*.zip -d dist/wporg
+          test ! -e dist/wporg/kaos-header-footer/languages
+          ! grep -rn "load_plugin_textdomain" dist/wporg/kaos-header-footer --include=*.php
+      - uses: wordpress/plugin-check-action@v1
+        with:
+          build-dir: dist/wporg/kaos-header-footer

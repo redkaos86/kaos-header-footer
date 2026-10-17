@@ -1,0 +1,16 @@
+/vendor/
+/node_modules/
+/dist/
+/build/
+# Logo sources and proposals stay local.
+/branding/
+composer.lock
+*.zip
+*.log
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+*.key
+*.pem

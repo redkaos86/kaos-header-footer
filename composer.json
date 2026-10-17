@@ -1,0 +1,26 @@
+{
+	"name": "drkaos/kaos-header-footer",
+	"description": "Headers and footers for Elementor: emotional presets or layouts designed in Elementor, with sticky, glass and reveal effects.",
+	"type": "wordpress-plugin",
+	"license": "GPL-2.0-or-later",
+	"require": {
+		"php": ">=7.4"
+	},
+	"require-dev": {
+		"dealerdirect/phpcodesniffer-composer-installer": "^1.0",
+		"wp-coding-standards/wpcs": "^3.1",
+		"phpcompatibility/phpcompatibility-wp": "^2.1"
+	},
+	"config": {
+		"allow-plugins": {
+			"dealerdirect/phpcodesniffer-composer-installer": true
+		},
+		"sort-packages": true
+	},
+	"scripts": {
+		"phpcs": "phpcs",
+		"lint": [
+			"@phpcs"
+		]
+	}
+}
