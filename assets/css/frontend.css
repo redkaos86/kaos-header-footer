@@ -258,7 +258,9 @@ html.khf-js .khf-footer.is-in .khf-rv{opacity:1;transform:none}
 .khf-cell__img{display:block}.khf-cell__img img{display:block;max-width:100%;height:auto;border-radius:var(--khf-cr,0)}
 .khf-cell--cta,.khf-cell--logo{display:flex;flex-wrap:wrap}
 .khf-cells--card .khf-cell:not(.khf-cell--empty){padding:var(--khf-cpad,22px);border-radius:var(--khf-cr,18px);background:var(--khf-ctint,color-mix(in srgb,var(--khf-fg) 8%,transparent));border:1px solid color-mix(in srgb,var(--khf-fg) 16%,transparent)}
-.khf-cells--glass .khf-cell:not(.khf-cell--empty){padding:var(--khf-cpad,22px);border-radius:var(--khf-cr,18px);background:var(--khf-ctint,rgba(255,255,255,.12));-webkit-backdrop-filter:blur(var(--khf-cblur,16px)) saturate(1.7);backdrop-filter:blur(var(--khf-cblur,16px)) saturate(1.7);box-shadow:inset 0 1px 0 rgba(255,255,255,.45),inset 0 0 0 1px rgba(255,255,255,.14),0 22px 44px -22px rgba(0,0,0,.45)}
+/* The glass lives on its own layer (::before): hovering the links inside never repaints the blur, which avoids seams and flicker. */
+.khf-cells--glass .khf-cell:not(.khf-cell--empty){position:relative;isolation:isolate;padding:var(--khf-cpad,22px);border-radius:var(--khf-cr,18px);box-shadow:0 22px 44px -22px rgba(0,0,0,.45)}
+.khf-cells--glass .khf-cell:not(.khf-cell--empty)::before{content:"";position:absolute;inset:0;z-index:-1;border-radius:inherit;pointer-events:none;background:var(--khf-ctint,rgba(255,255,255,.12));-webkit-backdrop-filter:blur(var(--khf-cblur,16px)) saturate(1.7);backdrop-filter:blur(var(--khf-cblur,16px)) saturate(1.7);box-shadow:inset 0 1px 0 rgba(255,255,255,.45),inset 0 0 0 1px rgba(255,255,255,.14)}
 .khf-big+.khf-cells{margin-top:clamp(8px,2vw,24px)}
 .khf-cells+.khf-fbottom,.khf-fgrid+.khf-fbottom,.khf-big+.khf-fbottom{margin-top:clamp(32px,5vw,64px)}
 @media(max-width:900px){.khf-cells{grid-template-columns:repeat(2,minmax(0,1fr))!important}}

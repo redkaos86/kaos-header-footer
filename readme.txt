@@ -5,7 +5,7 @@ Requires at least: 6.8
 Tested up to: 7.1
 Requires PHP: 7.4
 Requires Plugins: elementor
-Stable tag: 0.9.2
+Stable tag: 0.9.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -96,6 +96,9 @@ Yes. The interface is in English with a complete Italian translation, and the st
 
 == Changelog ==
 
+= 0.9.3 =
+* Footer cells with the glass style: the frosted glass is now drawn on its own layer, so hovering the links inside no longer causes dark bands or flicker on some browsers and graphics cards.
+
 = 0.9.2 =
 * The editor preview now updates reliably when you change the layout or any setting: the draft is sent straight to the preview page instead of being stored first, which could be skipped by some hosts and caches.
 
@@ -118,6 +121,9 @@ Yes. The interface is in English with a complete Italian translation, and the st
 * Footer parity with the header: custom grid, top dividers, bottom bar, link effects, back-to-top arrow and an admin bar shortcut.
 
 == Upgrade Notice ==
+
+= 0.9.3 =
+Fixes dark bands on footer glass cells when hovering links.
 
 = 0.9.2 =
 Fixes the editor preview not following the changes on some sites.
