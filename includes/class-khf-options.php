@@ -4,10 +4,10 @@ defined( 'ABSPATH' ) || exit;
 /**
  * Default values, reading and sanitization of the options (per template and global).
  */
-class KHF_Options {
+class KAOSHF_Options {
 
-	const META_KEY     = '_khf_opts';
-	const SETTINGS_KEY = 'khf_settings';
+	const META_KEY     = '_kaoshf_opts';
+	const SETTINGS_KEY = 'kaoshf_settings';
 
 	public static function defaults() {
 		return array(
@@ -21,9 +21,9 @@ class KHF_Options {
 			'cond_rules'    => array(),
 			'priority'      => 10,
 
-			// Scroll effects (schema in KHF_Fx).
+			// Scroll effects (schema in KAOSHF_Fx).
 			'fx'            => array_merge(
-				KHF_Fx::defaults(),
+				KAOSHF_Fx::defaults(),
 				array(
 					'mode'   => 'fixed',
 					'shadow' => 'medium',
@@ -253,7 +253,7 @@ class KHF_Options {
 				'ff'    => 'custom' === $font ? '' : $font,
 				'fs'    => max( 0, min( 90, (int) ( $c['fs'] ?? 0 ) ) ),
 				'fw'    => self::enum( (string) ( $c['fw'] ?? '' ), array( '', '300', '400', '500', '600', '700', '800' ), '' ),
-				'c'     => KHF_Fx::color( $c['c'] ?? '' ),
+				'c'     => KAOSHF_Fx::color( $c['c'] ?? '' ),
 			);
 		}
 		return $out;
@@ -277,7 +277,7 @@ class KHF_Options {
 	}
 
 	private static function font_ok( $value ) {
-		return in_array( $value, array_merge( array_keys( KHF_Presets::fonts() ), array( 'custom' ) ), true ) ? $value : '';
+		return in_array( $value, array_merge( array_keys( KAOSHF_Presets::fonts() ), array( 'custom' ) ), true ) ? $value : '';
 	}
 
 	private static function font_name( $value ) {
@@ -300,9 +300,9 @@ class KHF_Options {
 
 		$o['type']          = self::enum( $raw['type'] ?? '', array( 'header', 'footer' ), $d['type'] );
 		$o['source']        = self::enum( $raw['source'] ?? '', array( 'preset', 'builder' ), $d['source'] );
-		$o['preset_header'] = self::enum( $raw['preset_header'] ?? '', array_keys( KHF_Presets::presets( 'header' ) ), $d['preset_header'] );
-		$o['preset_footer'] = self::enum( $raw['preset_footer'] ?? '', array_keys( KHF_Presets::presets( 'footer' ) ), $d['preset_footer'] );
-		$o['mood']          = self::enum( $raw['mood'] ?? '', array_keys( KHF_Presets::moods() ), $d['mood'] );
+		$o['preset_header'] = self::enum( $raw['preset_header'] ?? '', array_keys( KAOSHF_Presets::presets( 'header' ) ), $d['preset_header'] );
+		$o['preset_footer'] = self::enum( $raw['preset_footer'] ?? '', array_keys( KAOSHF_Presets::presets( 'footer' ) ), $d['preset_footer'] );
+		$o['mood']          = self::enum( $raw['mood'] ?? '', array_keys( KAOSHF_Presets::moods() ), $d['mood'] );
 		$o['footer_fx']     = self::enum( $raw['footer_fx'] ?? '', array( 'none', 'zoom-in', 'zoom-out', 'zoom-top', 'zoom-bottom', 'zoom-left', 'zoom-right', 'fade-up' ), $d['footer_fx'] );
 		$o['footer_m_al']   = self::enum( $raw['footer_m_al'] ?? '', array( 'l', 'c', 'r' ), $d['footer_m_al'] );
 		$o['footer_mode']   = self::enum( $raw['footer_mode'] ?? '', array( 'normal', 'reveal', 'reveal-parallax' ), $d['footer_mode'] );
@@ -311,11 +311,11 @@ class KHF_Options {
 			$o[ $k ] = empty( $raw[ $k ] ) ? 0 : 1;
 		}
 
-		$o['fx']            = KHF_Fx::sanitize( $raw['fx'] ?? array() );
+		$o['fx']            = KAOSHF_Fx::sanitize( $raw['fx'] ?? array() );
 		$o['logo_h']        = max( 16, min( 200, (int) ( $raw['logo_h'] ?? $d['logo_h'] ) ) );
 		$o['grad_angle']    = max( 0, min( 360, (int) ( $raw['grad_angle'] ?? $d['grad_angle'] ) ) );
-		$o['menu_fx']       = self::enum( $raw['menu_fx'] ?? '', array_keys( KHF_Presets::menu_effects() ), $d['menu_fx'] );
-		$o['burger']        = self::enum( $raw['burger'] ?? '', array_keys( KHF_Presets::burgers() ), $d['burger'] );
+		$o['menu_fx']       = self::enum( $raw['menu_fx'] ?? '', array_keys( KAOSHF_Presets::menu_effects() ), $d['menu_fx'] );
+		$o['burger']        = self::enum( $raw['burger'] ?? '', array_keys( KAOSHF_Presets::burgers() ), $d['burger'] );
 		$o['burger_shape']  = self::enum( $raw['burger_shape'] ?? '', array( 'none', 'circle', 'rounded', 'square' ), $d['burger_shape'] );
 		$o['hover_img']     = self::enum( $raw['hover_img'] ?? '', array( 'none', 'panel', 'cursor' ), $d['hover_img'] );
 		$o['mfx_ms']        = max( 100, min( 1200, (int) ( $raw['mfx_ms'] ?? $d['mfx_ms'] ) ) );
@@ -392,10 +392,10 @@ class KHF_Options {
 		$o['headline_al']  = self::enum( (string) ( $raw['headline_al'] ?? 'l' ), array( 'l', 'c', 'r' ), 'l' );
 		$hff               = self::font_ok( $raw['headline_ff'] ?? '' );
 		$o['headline_ff']  = 'custom' === $hff ? '' : $hff;
-		$o['divider']      = self::enum( $raw['divider'] ?? '', array_keys( KHF_Presets::dividers() ), $d['divider'] );
+		$o['divider']      = self::enum( $raw['divider'] ?? '', array_keys( KAOSHF_Presets::dividers() ), $d['divider'] );
 		$o['divider_h']    = max( 10, min( 320, (int) ( $raw['divider_h'] ?? $d['divider_h'] ) ) );
 		$o['divider_op']   = max( 0, min( 100, (int) ( $raw['divider_op'] ?? $d['divider_op'] ) ) );
-		$o['divider_c']    = KHF_Fx::color( $raw['divider_c'] ?? '' );
+		$o['divider_c']    = KAOSHF_Fx::color( $raw['divider_c'] ?? '' );
 		$o['grid_cols']    = max( 1, min( 6, (int) ( $raw['grid_cols'] ?? $d['grid_cols'] ) ) );
 		$o['grid_rows']    = max( 1, min( 6, (int) ( $raw['grid_rows'] ?? $d['grid_rows'] ) ) );
 		$o['grid_gap']     = max( 0, min( 120, (int) ( $raw['grid_gap'] ?? $d['grid_gap'] ) ) );
@@ -404,11 +404,11 @@ class KHF_Options {
 		$o['cell_r']       = max( 0, min( 60, (int) ( $raw['cell_r'] ?? $d['cell_r'] ) ) );
 		$o['cell_pad']     = max( 0, min( 80, (int) ( $raw['cell_pad'] ?? $d['cell_pad'] ) ) );
 		$o['cell_blur']    = max( 0, min( 60, (int) ( $raw['cell_blur'] ?? $d['cell_blur'] ) ) );
-		$o['cell_tint']    = KHF_Fx::paint( $raw['cell_tint'] ?? '' );
+		$o['cell_tint']    = KAOSHF_Fx::paint( $raw['cell_tint'] ?? '' );
 		$o['grid_cells']   = self::cells( $raw['grid_cells'] ?? array() );
 		$o['bar_gap']      = max( 0, min( 200, (int) ( $raw['bar_gap'] ?? $d['bar_gap'] ) ) );
 		$o['bar_layout']   = self::bar( $raw['bar_layout'] ?? array() );
-		$o['fmenu_fx']     = self::enum( $raw['fmenu_fx'] ?? '', array_keys( KHF_Presets::footer_link_effects() ), $d['fmenu_fx'] );
+		$o['fmenu_fx']     = self::enum( $raw['fmenu_fx'] ?? '', array_keys( KAOSHF_Presets::footer_link_effects() ), $d['fmenu_fx'] );
 		$o['btt_mode']     = self::enum( $raw['btt_mode'] ?? '', array( 'global', 'custom', 'off' ), $d['btt_mode'] );
 		$o['fb_place']     = self::enum( $raw['fb_place'] ?? '', array( 'fixed', 'footer' ), $d['fb_place'] );
 		$o['fb_pos']       = self::enum( $raw['fb_pos'] ?? '', array( 'l', 'c', 'r' ), $d['fb_pos'] );
@@ -421,7 +421,7 @@ class KHF_Options {
 		$o['fb_after']     = max( 0, min( 5000, (int) ( $raw['fb_after'] ?? $d['fb_after'] ) ) );
 		$o['fb_text']      = sanitize_text_field( $raw['fb_text'] ?? '' );
 		foreach ( array( 'fb_bg', 'fb_fg', 'fb_bd' ) as $k ) {
-			$o[ $k ] = 'fb_bg' === $k ? KHF_Fx::paint( $raw[ $k ] ?? '' ) : KHF_Fx::color( $raw[ $k ] ?? '' );
+			$o[ $k ] = 'fb_bg' === $k ? KAOSHF_Fx::paint( $raw[ $k ] ?? '' ) : KAOSHF_Fx::color( $raw[ $k ] ?? '' );
 		}
 		$o['priority']      = max( 0, min( 999, (int) ( $raw['priority'] ?? $d['priority'] ) ) );
 		$o['height']        = max( 40, min( 220, (int) ( $raw['height'] ?? $d['height'] ) ) );
@@ -450,10 +450,10 @@ class KHF_Options {
 			);
 		}
 
-		$o['color_bg']  = KHF_Fx::paint( $raw['color_bg'] ?? '' );
-		$o['color_bg2'] = KHF_Fx::paint( $raw['color_bg2'] ?? '' );
+		$o['color_bg']  = KAOSHF_Fx::paint( $raw['color_bg'] ?? '' );
+		$o['color_bg2'] = KAOSHF_Fx::paint( $raw['color_bg2'] ?? '' );
 		foreach ( array( 'color_fg', 'color_accent', 'c_menu', 'c_menu_h', 'c_pill', 'c_cta_bg', 'c_cta_fg', 'c_burger', 'c_sub_bg', 'c_sub_fg', 'c_panel_bg', 'c_panel_fg', 'c_link', 'c_link_h', 'c_heading', 'c_line', 'menu_fx_c', 'c_burger_bg', 'c_sep', 'c_mega_head', 'c_mega_line' ) as $k ) {
-			$o[ $k ] = in_array( $k, array( 'c_pill', 'c_cta_bg', 'c_sub_bg', 'c_panel_bg', 'c_burger_bg' ), true ) ? KHF_Fx::paint( $raw[ $k ] ?? '' ) : KHF_Fx::color( $raw[ $k ] ?? '' );
+			$o[ $k ] = in_array( $k, array( 'c_pill', 'c_cta_bg', 'c_sub_bg', 'c_panel_bg', 'c_burger_bg' ), true ) ? KAOSHF_Fx::paint( $raw[ $k ] ?? '' ) : KAOSHF_Fx::color( $raw[ $k ] ?? '' );
 		}
 
 		foreach ( array( 'logo_text', 'cta_text', 'tagline', 'phone', 'address', 'copyright' ) as $k ) {

@@ -4,7 +4,7 @@ defined( 'ABSPATH' ) || exit;
 /**
  * REST API used by the dashboard and the editor.
  */
-class KHF_Rest {
+class KAOSHF_Rest {
 
 	const NS = 'kaos-hf/v1';
 
@@ -13,7 +13,7 @@ class KHF_Rest {
 	}
 
 	public static function can() {
-		return current_user_can( KHF_Admin::capability() );
+		return current_user_can( KAOSHF_Admin::capability() );
 	}
 
 	public static function routes() {
@@ -56,30 +56,30 @@ class KHF_Rest {
 
 	private static function post( $request ) {
 		$post = get_post( (int) $request['id'] );
-		if ( ! $post || KHF_CPT::POST_TYPE !== $post->post_type || ! current_user_can( 'edit_post', $post->ID ) ) {
-			return new WP_Error( 'khf_not_found', __( 'Template not found.', 'kaos-header-footer' ), array( 'status' => 404 ) );
+		if ( ! $post || KAOSHF_CPT::POST_TYPE !== $post->post_type || ! current_user_can( 'edit_post', $post->ID ) ) {
+			return new WP_Error( 'kaoshf_not_found', __( 'Template not found.', 'kaos-header-footer' ), array( 'status' => 404 ) );
 		}
 		return $post;
 	}
 
 	private static function card( $post ) {
-		$o = KHF_Options::get( $post->ID );
+		$o = KAOSHF_Options::get( $post->ID );
 		return array(
 			'id'         => $post->ID,
 			'title'      => '' !== $post->post_title ? $post->post_title : __( '(untitled)', 'kaos-header-footer' ),
 			'type'       => $o['type'],
 			'source'     => $o['source'],
 			'status'     => 'publish' === $post->post_status ? 'publish' : 'draft',
-			'summary'    => KHF_Conditions::summary( $o ),
+			'summary'    => KAOSHF_Conditions::summary( $o ),
 			'modified'   => get_post_modified_time( 'c', true, $post ),
-			'thumbUrl'   => KHF_Preview::url( $post->ID, false, true ),
-			'liveUrl'    => KHF_Preview::url( $post->ID ),
-			'elementor'  => KHF_Integrations::edit_url( $post->ID ),
+			'thumbUrl'   => KAOSHF_Preview::url( $post->ID, false, true ),
+			'liveUrl'    => KAOSHF_Preview::url( $post->ID ),
+			'elementor'  => KAOSHF_Integrations::edit_url( $post->ID ),
 		);
 	}
 
 	private static function detail( $post ) {
-		$o = KHF_Options::get( $post->ID );
+		$o = KAOSHF_Options::get( $post->ID );
 		return self::card( $post ) + array(
 			'opts'    => $o,
 			'logoUrl' => $o['logo_id'] ? (string) wp_get_attachment_image_url( $o['logo_id'], 'medium' ) : '',
@@ -89,7 +89,7 @@ class KHF_Rest {
 	private static function insert( $title, $opts, $status = 'publish' ) {
 		$id = wp_insert_post(
 			array(
-				'post_type'   => KHF_CPT::POST_TYPE,
+				'post_type'   => KAOSHF_CPT::POST_TYPE,
 				'post_status' => $status,
 				'post_title'  => $title,
 			),
@@ -98,7 +98,7 @@ class KHF_Rest {
 		if ( is_wp_error( $id ) ) {
 			return $id;
 		}
-		update_post_meta( $id, KHF_Options::META_KEY, $opts );
+		update_post_meta( $id, KAOSHF_Options::META_KEY, $opts );
 		if ( 'builder' === $opts['source'] ) {
 			update_post_meta( $id, '_elementor_edit_mode', 'builder' );
 		}
@@ -112,7 +112,7 @@ class KHF_Rest {
 	public static function index() {
 		$posts = get_posts(
 			array(
-				'post_type'      => KHF_CPT::POST_TYPE,
+				'post_type'      => KAOSHF_CPT::POST_TYPE,
 				'post_status'    => array( 'publish', 'draft' ),
 				'posts_per_page' => 200,
 				'orderby'        => 'modified',
@@ -129,14 +129,14 @@ class KHF_Rest {
 
 	public static function create( $request ) {
 		$body = (array) $request->get_json_params();
-		$opts = KHF_Options::defaults();
+		$opts = KAOSHF_Options::defaults();
 
 		$opts['type']   = 'footer' === ( $body['type'] ?? '' ) ? 'footer' : 'header';
-		$opts['source'] = 'builder' === ( $body['source'] ?? '' ) && KHF_Integrations::active() ? 'builder' : 'preset';
+		$opts['source'] = 'builder' === ( $body['source'] ?? '' ) && KAOSHF_Integrations::active() ? 'builder' : 'preset';
 		if ( 'footer' === $opts['type'] ) {
 			$opts['fx']['mode'] = 'none';
 		}
-		$opts = KHF_Options::sanitize( $opts );
+		$opts = KAOSHF_Options::sanitize( $opts );
 
 		$title = sanitize_text_field( $body['title'] ?? '' );
 		$post  = self::insert( '' !== $title ? $title : ( 'footer' === $opts['type'] ? __( 'New footer', 'kaos-header-footer' ) : __( 'New header', 'kaos-header-footer' ) ), $opts, 'draft' );
@@ -160,14 +160,14 @@ class KHF_Rest {
 		wp_update_post( $update );
 
 		if ( isset( $body['opts'] ) && is_array( $body['opts'] ) ) {
-			$opts = KHF_Options::sanitize( $body['opts'] );
-			update_post_meta( $post->ID, KHF_Options::META_KEY, $opts );
-			KHF_Fonts::prepare_for( $opts );
+			$opts = KAOSHF_Options::sanitize( $body['opts'] );
+			update_post_meta( $post->ID, KAOSHF_Options::META_KEY, $opts );
+			KAOSHF_Fonts::prepare_for( $opts );
 			if ( 'builder' === $opts['source'] ) {
 				update_post_meta( $post->ID, '_elementor_edit_mode', 'builder' );
 			}
 		}
-		delete_transient( KHF_Preview::draft_key( $post->ID ) );
+		delete_transient( KAOSHF_Preview::draft_key( $post->ID ) );
 
 		return self::detail( get_post( $post->ID ) );
 	}
@@ -186,7 +186,7 @@ class KHF_Rest {
 		if ( is_wp_error( $post ) ) {
 			return $post;
 		}
-		$copy = self::insert( $post->post_title . ' ' . __( '(copy)', 'kaos-header-footer' ), KHF_Options::get( $post->ID ), 'draft' );
+		$copy = self::insert( $post->post_title . ' ' . __( '(copy)', 'kaos-header-footer' ), KAOSHF_Options::get( $post->ID ), 'draft' );
 		if ( is_wp_error( $copy ) ) {
 			return $copy;
 		}
@@ -209,17 +209,17 @@ class KHF_Rest {
 			return $post;
 		}
 		$body = (array) $request->get_json_params();
-		set_transient( KHF_Preview::draft_key( $post->ID ), KHF_Options::sanitize( (array) ( $body['opts'] ?? array() ) ), HOUR_IN_SECONDS );
-		return array( 'url' => KHF_Preview::url( $post->ID, true ) );
+		set_transient( KAOSHF_Preview::draft_key( $post->ID ), KAOSHF_Options::sanitize( (array) ( $body['opts'] ?? array() ) ), HOUR_IN_SECONDS );
+		return array( 'url' => KAOSHF_Preview::url( $post->ID, true ) );
 	}
 
 	public static function import( $request ) {
 		$body = (array) $request->get_json_params();
 		if ( empty( $body['khf'] ) || ! is_array( $body['opts'] ?? null ) ) {
-			return new WP_Error( 'khf_import', __( 'The file is not a valid KaosH&F template.', 'kaos-header-footer' ), array( 'status' => 400 ) );
+			return new WP_Error( 'kaoshf_import', __( 'The file is not a valid KaosH&F template.', 'kaos-header-footer' ), array( 'status' => 400 ) );
 		}
-		$opts = KHF_Options::sanitize( $body['opts'] );
-		if ( 'builder' === $opts['source'] && ! KHF_Integrations::active() ) {
+		$opts = KAOSHF_Options::sanitize( $body['opts'] );
+		if ( 'builder' === $opts['source'] && ! KAOSHF_Integrations::active() ) {
 			$opts['source'] = 'preset';
 		}
 		$post = self::insert( sanitize_text_field( $body['title'] ?? __( 'Template imported', 'kaos-header-footer' ) ), $opts, 'draft' );
@@ -229,7 +229,7 @@ class KHF_Rest {
 	/** Search for pages, posts and other content for the display rules. */
 	public static function search( $request ) {
 		$q     = sanitize_text_field( (string) $request->get_param( 'q' ) );
-		$types = array_values( array_diff( get_post_types( array( 'public' => true ) ), array( KHF_CPT::POST_TYPE, 'attachment' ) ) );
+		$types = array_values( array_diff( get_post_types( array( 'public' => true ) ), array( KAOSHF_CPT::POST_TYPE, 'attachment' ) ) );
 		$args  = array(
 			'post_type'      => $types,
 			'post_status'    => 'publish',
@@ -260,12 +260,12 @@ class KHF_Rest {
 	/* ------------------------------------------------------------------ */
 
 	public static function get_settings() {
-		return KHF_Options::settings();
+		return KAOSHF_Options::settings();
 	}
 
 	public static function save_settings( $request ) {
-		$clean = KHF_Options::sanitize_settings( (array) $request->get_json_params() );
-		update_option( KHF_Options::SETTINGS_KEY, $clean );
+		$clean = KAOSHF_Options::sanitize_settings( (array) $request->get_json_params() );
+		update_option( KAOSHF_Options::SETTINGS_KEY, $clean );
 		return $clean;
 	}
 }

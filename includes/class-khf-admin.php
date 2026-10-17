@@ -4,19 +4,19 @@ defined( 'ABSPATH' ) || exit;
 /**
  * Admin page (dashboard and editor) and the "hide on this page" option.
  */
-class KHF_Admin {
+class KAOSHF_Admin {
 
 	const SLUG = 'kaos-hf';
 
 	public static function capability() {
-		return apply_filters( 'khf_capability', 'manage_options' );
+		return apply_filters( 'kaoshf_capability', 'manage_options' );
 	}
 
 	public static function init() {
 		add_action( 'admin_menu', array( __CLASS__, 'menu' ) );
 		add_action( 'admin_enqueue_scripts', array( __CLASS__, 'enqueue' ) );
 		add_filter( 'admin_body_class', array( __CLASS__, 'body_class' ) );
-		add_filter( 'plugin_action_links_' . plugin_basename( KHF_FILE ), array( __CLASS__, 'action_links' ) );
+		add_filter( 'plugin_action_links_' . plugin_basename( KAOSHF_FILE ), array( __CLASS__, 'action_links' ) );
 		add_action( 'add_meta_boxes', array( __CLASS__, 'add_boxes' ) );
 		add_action( 'save_post', array( __CLASS__, 'save_off' ), 10, 2 );
 	}
@@ -34,7 +34,7 @@ class KHF_Admin {
 	}
 
 	public static function menu() {
-		$icon = 'data:image/svg+xml;base64,' . base64_encode( (string) file_get_contents( KHF_DIR . 'assets/img/menu-icon.svg' ) ); // phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions, WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
+		$icon = 'data:image/svg+xml;base64,' . base64_encode( (string) file_get_contents( KAOSHF_DIR . 'assets/img/menu-icon.svg' ) ); // phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions, WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
 		add_menu_page( 'KaosH&F', 'KaosH&F', self::capability(), self::SLUG, array( __CLASS__, 'page' ), $icon, 58 );
 	}
 
@@ -69,15 +69,15 @@ class KHF_Admin {
 
 	private static function conditions() {
 		$out = array();
-		foreach ( KHF_Conditions::available() as $key => $label ) {
+		foreach ( KAOSHF_Conditions::available() as $key => $label ) {
 			$out[] = array( 'key' => (string) $key, 'label' => $label );
 		}
 		return $out;
 	}
 
 	private static function ver( $rel ) {
-		$file = KHF_DIR . $rel;
-		return is_readable( $file ) ? (string) filemtime( $file ) : KHF_VERSION;
+		$file = KAOSHF_DIR . $rel;
+		return is_readable( $file ) ? (string) filemtime( $file ) : KAOSHF_VERSION;
 	}
 
 	public static function enqueue( $hook ) {
@@ -86,52 +86,52 @@ class KHF_Admin {
 		}
 
 		$config = array(
-			'restUrl'   => esc_url_raw( rest_url( KHF_Rest::NS ) ),
+			'restUrl'   => esc_url_raw( rest_url( KAOSHF_Rest::NS ) ),
 			'nonce'     => wp_create_nonce( 'wp_rest' ),
 			'adminUrl'  => admin_url( 'admin.php?page=' . self::SLUG ),
-			'version'   => KHF_VERSION,
-			'markUrl'   => KHF_URL . 'assets/img/mark-white.svg?v=' . self::ver( 'assets/img/mark-white.svg' ),
-			'logoUrl'   => KHF_URL . 'assets/img/logo-white.svg?v=' . self::ver( 'assets/img/logo-white.svg' ),
-			'elementor' => KHF_Integrations::active(),
+			'version'   => KAOSHF_VERSION,
+			'markUrl'   => KAOSHF_URL . 'assets/img/mark-white.svg?v=' . self::ver( 'assets/img/mark-white.svg' ),
+			'logoUrl'   => KAOSHF_URL . 'assets/img/logo-white.svg?v=' . self::ver( 'assets/img/logo-white.svg' ),
+			'elementor' => KAOSHF_Integrations::active(),
 		);
 
-		wp_enqueue_style( 'khf-admin', KHF_URL . 'assets/css/admin.css', array(), self::ver( 'assets/css/admin.css' ) );
+		wp_enqueue_style( 'khf-admin', KAOSHF_URL . 'assets/css/admin.css', array(), self::ver( 'assets/css/admin.css' ) );
 
 		if ( self::is_editor() ) {
 			wp_enqueue_media();
-			$settings = KHF_Options::settings();
+			$settings = KAOSHF_Options::settings();
 			$config  += array(
 				'templateId' => absint( $_GET['edit'] ), // phpcs:ignore WordPress.Security.NonceVerification.Recommended
-				'schema'     => KHF_Fx::schema(),
+				'schema'     => KAOSHF_Fx::schema(),
 				'presets'    => array(
-					'header' => KHF_Presets::presets( 'header' ),
-					'footer' => KHF_Presets::presets( 'footer' ),
+					'header' => KAOSHF_Presets::presets( 'header' ),
+					'footer' => KAOSHF_Presets::presets( 'footer' ),
 				),
-				'moods'      => KHF_Presets::moods(),
+				'moods'      => KAOSHF_Presets::moods(),
 				'menus'      => self::menus(),
 				'conditions' => self::conditions(),
 				'menuItems'  => self::menu_items(),
-				'menuFx'     => KHF_Presets::menu_effects(),
-				'dividers'   => KHF_Presets::dividers(),
-				'fmenuFx'    => KHF_Presets::footer_link_effects(),
+				'menuFx'     => KAOSHF_Presets::menu_effects(),
+				'dividers'   => KAOSHF_Presets::dividers(),
+				'fmenuFx'    => KAOSHF_Presets::footer_link_effects(),
 				'barDefaults' => array(
-					'columns' => KHF_Presets::bar_defaults( 'columns' ),
-					'cta-big' => KHF_Presets::bar_defaults( 'cta-big' ),
-					'minimal' => KHF_Presets::bar_defaults( 'minimal' ),
-					'grid'    => KHF_Presets::bar_defaults( 'grid' ),
+					'columns' => KAOSHF_Presets::bar_defaults( 'columns' ),
+					'cta-big' => KAOSHF_Presets::bar_defaults( 'cta-big' ),
+					'minimal' => KAOSHF_Presets::bar_defaults( 'minimal' ),
+					'grid'    => KAOSHF_Presets::bar_defaults( 'grid' ),
 				),
 				'fonts'      => array_map( function ( $f ) {
 					return $f[0];
-				}, KHF_Presets::fonts() ),
-				'burgers'    => KHF_Presets::burgers(),
+				}, KAOSHF_Presets::fonts() ),
+				'burgers'    => KAOSHF_Presets::burgers(),
 				'bp'         => array( 'tablet' => (int) $settings['bp_tablet'], 'mobile' => (int) $settings['bp_mobile'] ),
 			);
-			wp_enqueue_script( 'khf-editor', KHF_URL . 'assets/js/editor.js', array( 'wp-i18n' ), self::ver( 'assets/js/editor.js' ), true );
-			wp_set_script_translations( 'khf-editor', 'kaos-header-footer', KHF_DIR . 'languages' );
+			wp_enqueue_script( 'khf-editor', KAOSHF_URL . 'assets/js/editor.js', array( 'wp-i18n' ), self::ver( 'assets/js/editor.js' ), true );
+			wp_set_script_translations( 'khf-editor', 'kaos-header-footer', KAOSHF_DIR . 'languages' );
 			wp_add_inline_script( 'khf-editor', 'window.KhfConfig = ' . wp_json_encode( $config ) . ';', 'before' );
 		} else {
-			wp_enqueue_script( 'khf-list', KHF_URL . 'assets/js/admin-list.js', array( 'wp-i18n' ), self::ver( 'assets/js/admin-list.js' ), true );
-			wp_set_script_translations( 'khf-list', 'kaos-header-footer', KHF_DIR . 'languages' );
+			wp_enqueue_script( 'khf-list', KAOSHF_URL . 'assets/js/admin-list.js', array( 'wp-i18n' ), self::ver( 'assets/js/admin-list.js' ), true );
+			wp_set_script_translations( 'khf-list', 'kaos-header-footer', KAOSHF_DIR . 'languages' );
 			wp_add_inline_script( 'khf-list', 'window.KhfConfig = ' . wp_json_encode( $config ) . ';', 'before' );
 		}
 	}
@@ -153,7 +153,7 @@ class KHF_Admin {
 
 	public static function add_boxes() {
 		foreach ( get_post_types( array( 'public' => true ) ) as $pt ) {
-			if ( ! in_array( $pt, array( KHF_CPT::POST_TYPE, 'attachment' ), true ) ) {
+			if ( ! in_array( $pt, array( KAOSHF_CPT::POST_TYPE, 'attachment' ), true ) ) {
 				add_meta_box( 'khf-off', 'KaosH&F', array( __CLASS__, 'render_off_box' ), $pt, 'side', 'low' );
 			}
 		}
@@ -164,19 +164,19 @@ class KHF_Admin {
 	}
 
 	public static function render_off_box( $post ) {
-		wp_nonce_field( 'khf_off', 'khf_off_nonce' );
-		echo '<p>' . self::check_meta( '_khf_off_header', $post->ID, __( 'Hide the Kaos header', 'kaos-header-footer' ) ) . '</p>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-		echo '<p>' . self::check_meta( '_khf_off_footer', $post->ID, __( 'Hide the Kaos footer', 'kaos-header-footer' ) ) . '</p>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		wp_nonce_field( 'kaoshf_off', 'kaoshf_off_nonce' );
+		echo '<p>' . self::check_meta( '_kaoshf_off_header', $post->ID, __( 'Hide the Kaos header', 'kaos-header-footer' ) ) . '</p>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		echo '<p>' . self::check_meta( '_kaoshf_off_footer', $post->ID, __( 'Hide the Kaos footer', 'kaos-header-footer' ) ) . '</p>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 
 	public static function save_off( $post_id, $post ) {
 		if ( ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) || wp_is_post_revision( $post_id ) || ! current_user_can( 'edit_post', $post_id ) ) {
 			return;
 		}
-		if ( ! isset( $_POST['khf_off_nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['khf_off_nonce'] ) ), 'khf_off' ) ) {
+		if ( ! isset( $_POST['kaoshf_off_nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['kaoshf_off_nonce'] ) ), 'kaoshf_off' ) ) {
 			return;
 		}
-		foreach ( array( '_khf_off_header', '_khf_off_footer' ) as $key ) {
+		foreach ( array( '_kaoshf_off_header', '_kaoshf_off_footer' ) as $key ) {
 			if ( empty( $_POST[ $key ] ) ) {
 				delete_post_meta( $post_id, $key );
 			} else {

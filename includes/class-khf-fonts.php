@@ -10,7 +10,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-class KHF_Fonts {
+class KAOSHF_Fonts {
 
 	const DIR = 'kaos-hf-fonts';
 
@@ -52,7 +52,7 @@ class KHF_Fonts {
 	}
 
 	public static function mode() {
-		$s = KHF_Options::settings();
+		$s = KAOSHF_Options::settings();
 		return in_array( $s['font_mode'], array( 'local', 'bunny', 'google' ), true ) ? $s['font_mode'] : 'local';
 	}
 
@@ -69,7 +69,7 @@ class KHF_Fonts {
 	/**
 	 * Fonts used by a list of templates: family => sorted weights.
 	 *
-	 * @param array $templates Template options (as returned by KHF_Options::get()).
+	 * @param array $templates Template options (as returned by KAOSHF_Options::get()).
 	 * @return array
 	 */
 	public static function collect( $templates ) {
@@ -92,14 +92,14 @@ class KHF_Fonts {
 					$base[] = (int) $o[ $k ];
 				}
 			}
-			list( , $name ) = KHF_Presets::font_source( $o['headline_ff'] ?? '', '' );
+			list( , $name ) = KAOSHF_Presets::font_source( $o['headline_ff'] ?? '', '' );
 			$add( $name, $base );
 			foreach ( (array) ( $o['grid_cells'] ?? array() ) as $cell ) {
-				list( , $name ) = KHF_Presets::font_source( $cell['ff'] ?? '', '' );
+				list( , $name ) = KAOSHF_Presets::font_source( $cell['ff'] ?? '', '' );
 				$add( $name, array_merge( $base, empty( $cell['fw'] ) ? array() : array( (int) $cell['fw'] ) ) );
 			}
 			foreach ( array( array( 'font_family', 'font_custom' ), array( 'font_head', 'font_head_custom' ) ) as $pair ) {
-				list( , $name ) = KHF_Presets::font_source( $o[ $pair[0] ] ?? '', $o[ $pair[1] ] ?? '' );
+				list( , $name ) = KAOSHF_Presets::font_source( $o[ $pair[0] ] ?? '', $o[ $pair[1] ] ?? '' );
 				$add( $name, $base );
 			}
 		}

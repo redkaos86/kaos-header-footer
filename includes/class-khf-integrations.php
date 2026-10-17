@@ -4,7 +4,7 @@ defined( 'ABSPATH' ) || exit;
 /**
  * Enables Elementor on the templates post type.
  */
-class KHF_Integrations {
+class KAOSHF_Integrations {
 
 	public static function init() {
 		// Elementor reads the "elementor_cpt_support" option to decide where to show the editor.
@@ -24,8 +24,8 @@ class KHF_Integrations {
 		if ( ! is_array( $value ) ) {
 			$value = array( 'post', 'page' );
 		}
-		if ( ! in_array( KHF_CPT::POST_TYPE, $value, true ) ) {
-			$value[] = KHF_CPT::POST_TYPE;
+		if ( ! in_array( KAOSHF_CPT::POST_TYPE, $value, true ) ) {
+			$value[] = KAOSHF_CPT::POST_TYPE;
 		}
 		return $value;
 	}

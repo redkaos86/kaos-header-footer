@@ -5,11 +5,11 @@ use Elementor\Controls_Manager;
 
 /**
  * "Kaos Sticky" panel in the Advanced tab of Elementor sections and containers.
- * The controls are generated from the KHF_Fx schema: no field is written twice.
+ * The controls are generated from the KAOSHF_Fx schema: no field is written twice.
  */
-class KHF_Elementor {
+class KAOSHF_Elementor {
 
-	const PREFIX = 'khf_';
+	const PREFIX = 'kaoshf_';
 
 	public static function init() {
 		// Id of the "Advanced" section per element type: in containers it is called section_layout.
@@ -26,7 +26,7 @@ class KHF_Elementor {
 	/** Converts a schema field definition into the arguments of an Elementor control. */
 	private static function control_args( $def, $when ) {
 		$cond = array( self::PREFIX . 'on' => 'yes' );
-		$all  = KHF_Fx::fields();
+		$all  = KAOSHF_Fx::fields();
 		foreach ( $when as $dep => $values ) {
 			$is_check = isset( $all[ $dep ] ) && 'check' === $all[ $dep ]['type'];
 			$cond[ self::PREFIX . $dep ] = $is_check ? 'yes' : $values;
@@ -58,7 +58,7 @@ class KHF_Elementor {
 
 	public static function controls( $element ) {
 		$element->start_controls_section(
-			'khf_fx_section',
+			'kaoshf_fx_section',
 			array(
 				'label' => __( 'Kaos Sticky', 'kaos-header-footer' ),
 				'tab'   => Controls_Manager::TAB_ADVANCED,
@@ -75,7 +75,7 @@ class KHF_Elementor {
 			)
 		);
 
-		foreach ( KHF_Fx::schema() as $key => $group ) {
+		foreach ( KAOSHF_Fx::schema() as $key => $group ) {
 			$element->add_control(
 				self::PREFIX . 'h_' . $key,
 				array(
@@ -94,7 +94,7 @@ class KHF_Elementor {
 	}
 
 	public static function before_render( $element ) {
-		if ( ! KHF_Fx::enabled() || class_exists( '\Elementor\Plugin' ) && \Elementor\Plugin::$instance->editor->is_edit_mode() ) {
+		if ( ! KAOSHF_Fx::enabled() || class_exists( '\Elementor\Plugin' ) && \Elementor\Plugin::$instance->editor->is_edit_mode() ) {
 			return;
 		}
 		$settings = $element->get_settings_for_display();
@@ -103,7 +103,7 @@ class KHF_Elementor {
 		}
 
 		$raw = array();
-		foreach ( KHF_Fx::fields() as $key => $def ) {
+		foreach ( KAOSHF_Fx::fields() as $key => $def ) {
 			$v = $settings[ self::PREFIX . $key ] ?? null;
 			if ( null === $v ) {
 				continue;
@@ -116,12 +116,12 @@ class KHF_Elementor {
 			$raw[ $key ] = $v;
 		}
 
-		$cfg = KHF_Fx::config( KHF_Fx::sanitize( $raw ) );
-		if ( ! KHF_Fx::has_effects( $cfg ) ) {
+		$cfg = KAOSHF_Fx::config( KAOSHF_Fx::sanitize( $raw ) );
+		if ( ! KAOSHF_Fx::has_effects( $cfg ) ) {
 			return;
 		}
 
 		$element->add_render_attribute( '_wrapper', 'data-khf-fx', wp_json_encode( $cfg ) );
-		KHF_Fx::request();
+		KAOSHF_Fx::request();
 	}
 }

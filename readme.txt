@@ -1,7 +1,7 @@
 === Kaos Header & Footer ===
 Contributors: drkaos86
 Tags: header, footer, elementor, sticky header, scroll effects
-Requires at least: 6.5
+Requires at least: 6.8
 Tested up to: 7.1
 Requires PHP: 7.4
 Requires Plugins: elementor

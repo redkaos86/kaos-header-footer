@@ -4,7 +4,7 @@ defined( 'ABSPATH' ) || exit;
 /**
  * Emotional palettes ("mood") and markup of the header/footer presets.
  */
-class KHF_Presets {
+class KAOSHF_Presets {
 
 	/** hbg/hfg = header, fbg/fbg2/ffg = footer (gradiente), accent condiviso. */
 	/** hbg/hfg = header, fbg/fbg2/ffg = footer (gradiente), accent condiviso. */

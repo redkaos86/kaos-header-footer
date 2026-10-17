@@ -4,7 +4,7 @@ defined( 'ABSPATH' ) || exit;
 /**
  * Front end: picks the active template, hides the theme header/footer and prints them.
  */
-class KHF_Renderer {
+class KAOSHF_Renderer {
 
 	/** @var array<string,array|null> */
 	private static $active = array(
@@ -38,13 +38,13 @@ class KHF_Renderer {
 		if ( is_admin() || is_feed() || is_embed() || is_robots() || is_trackback() ) {
 			return;
 		}
-		if ( apply_filters( 'khf_skip', self::is_builder_preview() ) || is_singular( KHF_CPT::POST_TYPE ) ) {
+		if ( apply_filters( 'kaoshf_skip', self::is_builder_preview() ) || is_singular( KAOSHF_CPT::POST_TYPE ) ) {
 			return;
 		}
 
 		$ids = get_posts(
 			array(
-				'post_type'      => KHF_CPT::POST_TYPE,
+				'post_type'      => KAOSHF_CPT::POST_TYPE,
 				'post_status'    => 'publish',
 				'posts_per_page' => -1,
 				'fields'         => 'ids',
@@ -55,9 +55,9 @@ class KHF_Renderer {
 		);
 
 		foreach ( $ids as $id ) {
-			$o    = KHF_Options::get( $id );
+			$o    = KAOSHF_Options::get( $id );
 			$kind = $o['type'];
-			if ( ! KHF_Conditions::matches( $o ) ) {
+			if ( ! KAOSHF_Conditions::matches( $o ) ) {
 				continue;
 			}
 			$cur = self::$active[ $kind ];
@@ -71,21 +71,21 @@ class KHF_Renderer {
 		if ( is_singular() ) {
 			$qid = get_queried_object_id();
 			foreach ( array( 'header', 'footer' ) as $kind ) {
-				if ( get_post_meta( $qid, '_khf_off_' . $kind, true ) ) {
+				if ( get_post_meta( $qid, '_kaoshf_off_' . $kind, true ) ) {
 					self::$active[ $kind ] = null;
 				}
 			}
 		}
 
 		if ( self::$active['footer'] && 'custom' === self::$active['footer']['opts']['btt_mode'] ) {
-			KHF_Fx::request();
+			KAOSHF_Fx::request();
 		}
 
-		if ( self::$active['header'] && KHF_Fx::enabled() ) {
+		if ( self::$active['header'] && KAOSHF_Fx::enabled() ) {
 			$cfg                           = self::header_fx( self::$active['header']['opts'] );
 			self::$active['header']['fx']  = $cfg;
-			if ( KHF_Fx::has_effects( $cfg ) ) {
-				KHF_Fx::request();
+			if ( KAOSHF_Fx::has_effects( $cfg ) ) {
+				KAOSHF_Fx::request();
 			}
 		}
 	}
@@ -106,7 +106,7 @@ class KHF_Renderer {
 			}
 			if ( 'floating' === $o['preset_header'] ) {
 				// The "pill" has its own glass: the outer element stays transparent.
-			} elseif ( $fx['blur'] > 0 && '' === $fx['bg1'] && empty( $fx['glass'] ) && ! KHF_Fx::is_gradient( $o['color_bg'] ) ) {
+			} elseif ( $fx['blur'] > 0 && '' === $fx['bg1'] && empty( $fx['glass'] ) && ! KAOSHF_Fx::is_gradient( $o['color_bg'] ) ) {
 				$extra['bg1'] = 'color-mix(in srgb,var(--khf-bg) 82%,transparent)';
 			}
 			$fx['shrink'] = 0; // The presets handle the height with their own measures.
@@ -117,7 +117,7 @@ class KHF_Renderer {
 				}
 			}
 		}
-		return KHF_Fx::config( $fx, $extra );
+		return KAOSHF_Fx::config( $fx, $extra );
 	}
 
 	/** Preview: forces a template (even a draft) ignoring the display rules. */
@@ -132,13 +132,13 @@ class KHF_Renderer {
 		self::$active[ $opts['type'] ] = array( 'id' => $id, 'opts' => $opts );
 
 		if ( 'footer' === $opts['type'] && 'custom' === $opts['btt_mode'] ) {
-			KHF_Fx::request();
+			KAOSHF_Fx::request();
 		}
 		if ( 'header' === $opts['type'] ) {
 			$cfg                          = self::header_fx( $opts );
 			self::$active['header']['fx'] = $cfg;
-			if ( KHF_Fx::has_effects( $cfg ) ) {
-				KHF_Fx::request();
+			if ( KAOSHF_Fx::has_effects( $cfg ) ) {
+				KAOSHF_Fx::request();
 			}
 		}
 	}
@@ -160,13 +160,13 @@ class KHF_Renderer {
 		if ( ! self::$active['header'] && ! self::$active['footer'] ) {
 			return;
 		}
-		$s    = KHF_Options::settings();
+		$s    = KAOSHF_Options::settings();
 		$min  = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
-		$css  = file_exists( KHF_DIR . "assets/css/frontend{$min}.css" ) ? $min : '';
-		$js   = file_exists( KHF_DIR . "assets/js/hf{$min}.js" ) ? $min : '';
+		$css  = file_exists( KAOSHF_DIR . "assets/css/frontend{$min}.css" ) ? $min : '';
+		$js   = file_exists( KAOSHF_DIR . "assets/js/hf{$min}.js" ) ? $min : '';
 
-		wp_enqueue_style( 'khf-frontend', KHF_URL . "assets/css/frontend{$css}.css", array(), KHF_VERSION );
-		wp_enqueue_script( 'khf-hf', KHF_URL . "assets/js/hf{$js}.js", array(), KHF_VERSION, array( 'in_footer' => true, 'strategy' => 'defer' ) );
+		wp_enqueue_style( 'khf-frontend', KAOSHF_URL . "assets/css/frontend{$css}.css", array(), KAOSHF_VERSION );
+		wp_enqueue_script( 'khf-hf', KAOSHF_URL . "assets/js/hf{$js}.js", array(), KAOSHF_VERSION, array( 'in_footer' => true, 'strategy' => 'defer' ) );
 		self::enqueue_fonts();
 		wp_add_inline_script( 'khf-hf', 'window.khfHf=' . wp_json_encode( array( 'content' => $s['content_selector'] ) ) . ';', 'before' );
 	}
@@ -179,7 +179,7 @@ class KHF_Renderer {
 				$templates[] = self::$active[ $kind ]['opts'];
 			}
 		}
-		$url = KHF_Fonts::stylesheet_url( KHF_Fonts::collect( $templates ), self::$forced );
+		$url = KAOSHF_Fonts::stylesheet_url( KAOSHF_Fonts::collect( $templates ), self::$forced );
 		if ( '' !== $url ) {
 			// phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
 			wp_enqueue_style( 'khf-fonts', $url, array(), null );
@@ -223,7 +223,7 @@ class KHF_Renderer {
 		if ( ! $h && ! $f ) {
 			return;
 		}
-		$s   = KHF_Options::settings();
+		$s   = KAOSHF_Options::settings();
 		$css = ':root{--khf-z:' . (int) $s['z_index'] . '}';
 
 		if ( $h ) {
@@ -232,7 +232,7 @@ class KHF_Renderer {
 				$css .= $sel . '{display:none!important}';
 			}
 			if ( 'preset' === $h['opts']['source'] ) {
-				$file = KHF_DIR . 'assets/css/mobile.css';
+				$file = KAOSHF_DIR . 'assets/css/mobile.css';
 				// phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
 				$mobile = is_readable( $file ) ? (string) file_get_contents( $file ) : '';
 				$css   .= 'minimal' === $h['opts']['preset_header']
@@ -288,21 +288,21 @@ class KHF_Renderer {
 			echo self::render( 'footer' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			$fo = self::$active['footer']['opts'];
 			if ( 'custom' === $fo['btt_mode'] && 'fixed' === $fo['fb_place'] ) {
-				echo KHF_Presets::btt( $fo ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				echo KAOSHF_Presets::btt( $fo ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			}
 		}
 	}
 
 	/** Variabili CSS (colori/dimensioni) dell'elemento. */
 	private static function vars( $kind, $o ) {
-		$moods = KHF_Presets::moods();
+		$moods = KAOSHF_Presets::moods();
 		$mood  = $moods[ $o['mood'] ] ?? reset( $moods );
 		$v     = array();
 
 		if ( 'header' === $kind ) {
 			$builder = 'builder' === $o['source'];
 			$bg      = $o['color_bg'] ? $o['color_bg'] : ( $builder ? 'transparent' : $mood['hbg'] );
-			$solid   = KHF_Fx::is_gradient( $bg ) ? $mood['hbg'] : ( 'transparent' === $bg ? '#ffffff' : $bg );
+			$solid   = KAOSHF_Fx::is_gradient( $bg ) ? $mood['hbg'] : ( 'transparent' === $bg ? '#ffffff' : $bg );
 			$fg      = $o['color_fg'] ? $o['color_fg'] : $mood['hfg'];
 			$accent  = $o['color_accent'] ? $o['color_accent'] : $mood['accent'];
 			$v       = array(
@@ -310,7 +310,7 @@ class KHF_Renderer {
 				'--khf-bg-solid'  => $solid,
 				'--khf-fg'        => $fg,
 				'--khf-accent'    => $accent,
-				'--khf-accent-fg' => KHF_Presets::contrast( $accent ),
+				'--khf-accent-fg' => KAOSHF_Presets::contrast( $accent ),
 				'--khf-h'         => (int) $o['height'] . 'px',
 				'--khf-hs'        => (int) $o['height_shrunk'] . 'px',
 			);
@@ -318,16 +318,16 @@ class KHF_Renderer {
 			$builder = 'builder' === $o['source'];
 			$bg      = $o['color_bg'] ? $o['color_bg'] : ( $builder ? 'transparent' : $mood['fbg'] );
 			$bg2     = $o['color_bg2'] ? $o['color_bg2'] : ( $builder ? $bg : $mood['fbg2'] );
-			$custom  = KHF_Fx::is_gradient( $bg ); // gradiente scelto dall'utente: sostituisce quello automatico.
+			$custom  = KAOSHF_Fx::is_gradient( $bg ); // gradiente scelto dall'utente: sostituisce quello automatico.
 			$fg      = $o['color_fg'] ? $o['color_fg'] : $mood['ffg'];
 			$accent  = $o['color_accent'] ? $o['color_accent'] : $mood['accent'];
 			$v       = array(
 				'--khf-bg'        => $custom ? $mood['fbg'] : $bg,
-				'--khf-bg2'       => KHF_Fx::is_gradient( $bg2 ) ? $mood['fbg2'] : $bg2,
+				'--khf-bg2'       => KAOSHF_Fx::is_gradient( $bg2 ) ? $mood['fbg2'] : $bg2,
 				'--khf-fbg'       => $custom ? $bg : 'linear-gradient(' . (int) $o['grad_angle'] . 'deg,' . $bg . ',' . $bg2 . ')',
 				'--khf-fg'        => $fg,
 				'--khf-accent'    => $accent,
-				'--khf-accent-fg' => KHF_Presets::contrast( $accent ),
+				'--khf-accent-fg' => KAOSHF_Presets::contrast( $accent ),
 				'--khf-cpad'      => (int) $o['cell_pad'] . 'px',
 				'--khf-cr'        => (int) $o['cell_r'] . 'px',
 				'--khf-cblur'     => (int) $o['cell_blur'] . 'px',
@@ -341,7 +341,7 @@ class KHF_Renderer {
 			if ( '' !== $o['headline_fw'] ) {
 				$v['--khf-hfw'] = (int) $o['headline_fw'];
 			}
-			list( $hstack ) = KHF_Presets::font_source( $o['headline_ff'], '' );
+			list( $hstack ) = KAOSHF_Presets::font_source( $o['headline_ff'], '' );
 			if ( '' !== $hstack ) {
 				$v['--khf-hff'] = $hstack;
 			}
@@ -365,8 +365,8 @@ class KHF_Renderer {
 			}
 		}
 		$v['--khf-logo-h'] = (int) $o['logo_h'] . 'px';
-		list( $stack ) = KHF_Presets::font_source( $o['font_family'], $o['font_custom'] );
-		list( $head )  = KHF_Presets::font_source( $o['font_head'], $o['font_head_custom'] );
+		list( $stack ) = KAOSHF_Presets::font_source( $o['font_family'], $o['font_custom'] );
+		list( $head )  = KAOSHF_Presets::font_source( $o['font_head'], $o['font_head_custom'] );
 		if ( '' !== $stack ) {
 			$v['--khf-ff'] = $stack;
 		}
@@ -473,7 +473,7 @@ class KHF_Renderer {
 
 			// Scroll effects: classes and modes are already in the markup, so the first paint is correct.
 			$cfg = $t['fx'] ?? null;
-			if ( $cfg && KHF_Fx::has_effects( $cfg ) ) {
+			if ( $cfg && KAOSHF_Fx::has_effects( $cfg ) ) {
 				$classes[]          = 'khf-fx';
 				$attrs['data-mode'] = $cfg['mode'];
 				$attrs['data-khf-fx'] = wp_json_encode( $cfg );
@@ -515,7 +515,7 @@ class KHF_Renderer {
 				? '<div class="khf-footer__inner khf-builder">' . $content . '</div>'
 				: '<div class="khf-builder">' . $content . '</div>';
 		} else {
-			$inner = 'header' === $kind ? KHF_Presets::render_header( $o ) : KHF_Presets::render_footer( $o );
+			$inner = 'header' === $kind ? KAOSHF_Presets::render_header( $o ) : KAOSHF_Presets::render_footer( $o );
 		}
 
 		$html = '<' . $tag . ' id="khf-' . esc_attr( $kind ) . '" class="' . esc_attr( implode( ' ', $classes ) ) . '" style="' . esc_attr( self::vars( $kind, $o ) ) . '"';

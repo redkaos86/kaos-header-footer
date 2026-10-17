@@ -5,9 +5,9 @@ defined( 'ABSPATH' ) || exit;
  * Post type that holds the templates. It has no menu of its own: it is managed from the KaosH&F dashboard;
  * it can still be edited with Elementor.
  */
-class KHF_CPT {
+class KAOSHF_CPT {
 
-	const POST_TYPE = 'khf_template';
+	const POST_TYPE = 'kaoshf_template';
 
 	public static function init() {
 		add_action( 'init', array( __CLASS__, 'register' ) );
@@ -37,7 +37,7 @@ class KHF_CPT {
 	}
 
 	public static function noindex( $robots ) {
-		if ( is_singular( self::POST_TYPE ) || isset( $_GET['khf_preview'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		if ( is_singular( self::POST_TYPE ) || isset( $_GET['kaoshf_preview'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 			$robots['noindex']  = true;
 			$robots['nofollow'] = true;
 		}

@@ -8,7 +8,7 @@ defined( 'ABSPATH' ) || exit;
  * JSON config passed to the front end, the Elementor panel, the template box
  * and the selector-based rules (Divi or any other theme).
  */
-class KHF_Fx {
+class KAOSHF_Fx {
 
 	private static $wanted      = false;
 	private static $css_printed = false;
@@ -366,17 +366,17 @@ class KHF_Fx {
 		if ( is_admin() || is_feed() ) {
 			return;
 		}
-		$s = KHF_Options::settings();
+		$s = KAOSHF_Options::settings();
 		if ( ! empty( $s['btt'] ) || ! empty( $s['anchor'] ) || ! empty( $s['smooth'] ) ) {
 			self::$wanted = true;
 		}
 	}
 
 	private static function asset( $name, $ext ) {
-		$min = KHF_DIR . 'assets/' . $ext . '/' . $name . '.min.' . $ext;
-		$src = KHF_DIR . 'assets/' . $ext . '/' . $name . '.' . $ext;
+		$min = KAOSHF_DIR . 'assets/' . $ext . '/' . $name . '.min.' . $ext;
+		$src = KAOSHF_DIR . 'assets/' . $ext . '/' . $name . '.' . $ext;
 		$use = ( ! ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) && is_readable( $min ) ) ? $min : $src;
-		return array( $use, KHF_URL . 'assets/' . $ext . '/' . basename( $use ) );
+		return array( $use, KAOSHF_URL . 'assets/' . $ext . '/' . basename( $use ) );
 	}
 
 	/** The CSS is small: we print it inline, with no extra request. */
@@ -387,7 +387,7 @@ class KHF_Fx {
 		self::$css_printed = true;
 		list( $file )      = self::asset( 'fx', 'css' );
 		$css               = is_readable( $file ) ? (string) file_get_contents( $file ) : ''; // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
-		$z                 = (int) KHF_Options::settings()['z_index'];
+		$z                 = (int) KAOSHF_Options::settings()['z_index'];
 		echo '<style id="khf-fx-css">:root{--khf-z:' . $z . '}' . wp_strip_all_tags( $css ) . "</style>\n"; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 
@@ -396,9 +396,9 @@ class KHF_Fx {
 			return;
 		}
 		list( , $url ) = self::asset( 'fx', 'js' );
-		wp_enqueue_script( 'khf-fx', $url, array(), KHF_VERSION, array( 'in_footer' => true, 'strategy' => 'defer' ) );
+		wp_enqueue_script( 'khf-fx', $url, array(), KAOSHF_VERSION, array( 'in_footer' => true, 'strategy' => 'defer' ) );
 
-		$s     = KHF_Options::settings();
+		$s     = KAOSHF_Options::settings();
 		$conf = array(
 			'bp'    => array( (int) $s['bp_tablet'], (int) $s['bp_mobile'] ),
 			'tools' => array(
@@ -414,8 +414,8 @@ class KHF_Fx {
 
 	/** "Back to top" button (global settings). */
 	public static function print_tools() {
-		$s = KHF_Options::settings();
-		if ( empty( $s['btt'] ) || KHF_Renderer::footer_controls_btt() ) {
+		$s = KAOSHF_Options::settings();
+		if ( empty( $s['btt'] ) || KAOSHF_Renderer::footer_controls_btt() ) {
 			return;
 		}
 		$style = sprintf(

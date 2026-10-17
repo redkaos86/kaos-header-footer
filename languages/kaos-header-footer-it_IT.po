@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kaos Header & Footer 0.9.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/kaos-header-footer\n"
-"POT-Creation-Date: 2026-10-17 07:24+0000\n"
-"PO-Revision-Date: 2026-10-17 07:24+0000\n"
+"POT-Creation-Date: 2026-10-17 08:24+0000\n"
+"PO-Revision-Date: 2026-10-17 08:24+0000\n"
 "Last-Translator: DrKaos\n"
 "Language-Team: it_IT\n"
 "Language: it_IT\n"
@@ -2707,6 +2707,11 @@ msgstr "Kaos Header & Footer"
 #: kaos-header-footer.php
 msgid "Headers and footers for Elementor: emotional presets or layouts designed in Elementor, scroll effects (sticky, smart, transparent, glass, floating island…) and a \"reveal\" footer."
 msgstr "Header e footer per Elementor: preset emozionali o layout disegnati con Elementor, effetti di scroll (sticky, smart, trasparente, vetro, isola fluttuante…) e footer \"reveal\"."
+
+#. Author of the plugin
+#: kaos-header-footer.php
+msgid "DrKaos"
+msgstr "DrKaos"
 
 #: templates/preview.php:13
 msgid "Demo content: it only shows how the header and footer behave while you scroll the page. Scroll to see sticky, transparency, adaptive colors and the footer coming in."

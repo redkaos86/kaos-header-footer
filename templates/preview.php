@@ -7,8 +7,8 @@
 
 defined( 'ABSPATH' ) || exit;
 
-$thumb  = ! empty( $GLOBALS['khf_preview_thumb'] );
-$kind   = $GLOBALS['khf_preview_kind'] ?? 'header';
+$thumb  = ! empty( $GLOBALS['kaoshf_preview_thumb'] );
+$kind   = $GLOBALS['kaoshf_preview_kind'] ?? 'header';
 $blocks = $thumb ? 1 : 6;
 $lorem  = __( 'Demo content: it only shows how the header and footer behave while you scroll the page. Scroll to see sticky, transparency, adaptive colors and the footer coming in.', 'kaos-header-footer' );
 ?>

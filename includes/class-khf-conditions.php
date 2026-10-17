@@ -7,7 +7,7 @@ defined( 'ABSPATH' ) || exit;
  * The template shows everywhere, unless "Only on…" rules exist: in that case it shows only
  * where one of them matches. "Except on…" rules always remove it.
  */
-class KHF_Conditions {
+class KAOSHF_Conditions {
 
 	/** Generic selectable targets: key => label (the specific page is handled separately). */
 	public static function available() {
@@ -19,7 +19,7 @@ class KHF_Conditions {
 			'404'     => __( '404 page', 'kaos-header-footer' ),
 		);
 		foreach ( get_post_types( array( 'public' => true ), 'objects' ) as $pt ) {
-			if ( KHF_CPT::POST_TYPE === $pt->name || 'attachment' === $pt->name ) {
+			if ( KAOSHF_CPT::POST_TYPE === $pt->name || 'attachment' === $pt->name ) {
 				continue;
 			}
 			/* translators: %s: content type name */

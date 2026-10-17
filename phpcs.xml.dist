@@ -17,7 +17,7 @@
 	<!-- Warnings are shown but do not fail the check: only errors do. -->
 	<config name="ignore_warnings_on_exit" value="1"/>
 
-	<config name="minimum_wp_version" value="6.5"/>
+	<config name="minimum_wp_version" value="6.8"/>
 	<config name="testVersion" value="7.4-"/>
 
 	<rule ref="WordPress-Extra">
@@ -34,7 +34,7 @@
 	<rule ref="WordPress.WP.I18n">
 		<properties>
 			<property name="text_domain" type="array">
-				<element value="kaos-hf"/>
+				<element value="kaos-header-footer"/>
 			</property>
 		</properties>
 	</rule>
@@ -42,8 +42,8 @@
 	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
 		<properties>
 			<property name="prefixes" type="array">
-				<element value="khf"/>
-				<element value="KHF"/>
+				<element value="kaoshf"/>
+				<element value="KAOSHF"/>
 			</property>
 		</properties>
 	</rule>

@@ -45,7 +45,7 @@ fs.rmSync(path.join(dir, 'languages'), { recursive: true, force: true });
 const php = path.join(dir, 'kaos-header-footer.php');
 fs.writeFileSync(php, fs.readFileSync(php, 'utf8').replace(/^add_action\(\s*'init',\s*function \(\) \{\s*load_plugin_textdomain\([^;]*\);\s*\},\s*0\s*\);\r?\n/m, ''));
 const admin = path.join(dir, 'includes', 'class-khf-admin.php');
-fs.writeFileSync(admin, fs.readFileSync(admin, 'utf8').replace(/(wp_set_script_translations\( '[\w-]+', 'kaos-header-footer'), KHF_DIR \. 'languages' \)/g, '$1 )'));
+fs.writeFileSync(admin, fs.readFileSync(admin, 'utf8').replace(/(wp_set_script_translations\( '[\w-]+', 'kaos-header-footer'), KAOSHF_DIR \. 'languages' \)/g, '$1 )'));
 
 for (const [file, re] of [['kaos-header-footer.php', /load_plugin_textdomain/], ['includes/class-khf-admin.php', /'languages'/]]) {
 	if (re.test(fs.readFileSync(path.join(dir, file), 'utf8'))) {

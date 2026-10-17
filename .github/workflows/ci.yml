@@ -84,7 +84,7 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - { wp: '6.5', php: '7.4' }
+          - { wp: '6.8', php: '7.4' }
           - { wp: 'latest', php: '7.4' }
           - { wp: 'latest', php: '8.3' }
           - { wp: 'latest', php: '8.5' }
@@ -125,7 +125,7 @@ jobs:
       - name: Check that the plugin loads
         working-directory: wp
         run: |
-          wp eval 'foreach ( array( "KHF_Fx", "KHF_Renderer", "KHF_Fonts", "KHF_Options" ) as $c ) { if ( ! class_exists( $c ) ) { WP_CLI::error( "Missing class " . $c ); } } WP_CLI::success( "Classes loaded" );'
+          wp eval 'foreach ( array( "KAOSHF_Fx", "KAOSHF_Renderer", "KAOSHF_Fonts", "KAOSHF_Options" ) as $c ) { if ( ! class_exists( $c ) ) { WP_CLI::error( "Missing class " . $c ); } } WP_CLI::success( "Classes loaded" );'
 
   plugin-check:
     name: Plugin Check for WordPress.org (informative)

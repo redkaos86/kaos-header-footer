@@ -6,7 +6,7 @@ Header e footer per Elementor: preset emozionali oppure layout disegnati con Ele
 
 ## Requisiti
 
-- WordPress 6.5 o successivo
+- WordPress 6.8 o successivo
 - PHP 7.4 o successivo
 - Elementor (versione gratuita)
 
