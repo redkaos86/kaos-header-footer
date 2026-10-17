@@ -101,7 +101,6 @@ Yes. The interface is in English with a complete Italian translation, and the st
 * The "reveal" footer no longer shows at the sides of the content with themes that have a narrow content column, such as Hello Elementor.
 * GeneratePress: the theme footer is now hidden when a KaosH&F footer is active.
 * If the font download fails, it is retried at most every 30 minutes instead of on every page view.
-* Updates from GitHub, signed, outside WordPress.org.
 
 = 0.9.0 =
 * Fonts are now hosted on your own site by default, so visitors never contact a third party. Bunny Fonts and Google Fonts remain available in the settings.
