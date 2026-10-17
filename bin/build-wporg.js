@@ -43,11 +43,11 @@ const dir = path.join(tmp, 'kaos-header-footer');
 // No bundled translations: they arrive from translate.wordpress.org.
 fs.rmSync(path.join(dir, 'languages'), { recursive: true, force: true });
 const php = path.join(dir, 'kaos-header-footer.php');
-fs.writeFileSync(php, fs.readFileSync(php, 'utf8').replace(/^add_action\(\s*'init',\s*function \(\) \{\s*load_plugin_textdomain\([^;]*\);\s*\},\s*0\s*\);\r?\n/m, ''));
+fs.writeFileSync(php, fs.readFileSync(php, 'utf8').replace(/^ \* Domain Path:.*\r?\n/m, '').replace(/^add_action\(\s*'init',\s*function \(\) \{\s*load_plugin_textdomain\([^;]*\);\s*\},\s*0\s*\);\r?\n/m, ''));
 const admin = path.join(dir, 'includes', 'class-khf-admin.php');
 fs.writeFileSync(admin, fs.readFileSync(admin, 'utf8').replace(/(wp_set_script_translations\( '[\w-]+', 'kaos-header-footer'), KAOSHF_DIR \. 'languages' \)/g, '$1 )'));
 
-for (const [file, re] of [['kaos-header-footer.php', /load_plugin_textdomain/], ['includes/class-khf-admin.php', /'languages'/]]) {
+for (const [file, re] of [['kaos-header-footer.php', /load_plugin_textdomain|Domain Path/], ['includes/class-khf-admin.php', /'languages'/]]) {
 	if (re.test(fs.readFileSync(path.join(dir, file), 'utf8'))) {
 		throw new Error('Cleanup failed in ' + file);
 	}

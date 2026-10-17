@@ -101,7 +101,7 @@ class KAOSHF_Admin {
 			wp_enqueue_media();
 			$settings = KAOSHF_Options::settings();
 			$config  += array(
-				'templateId' => absint( $_GET['edit'] ), // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+				'templateId' => isset( $_GET['edit'] ) ? absint( $_GET['edit'] ) : 0, // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 				'schema'     => KAOSHF_Fx::schema(),
 				'presets'    => array(
 					'header' => KAOSHF_Presets::presets( 'header' ),
