@@ -349,7 +349,7 @@ class KAOSHF_Fx {
 
 	public static function init() {
 		add_action( 'wp', array( __CLASS__, 'queue_global' ) );
-		add_action( 'wp_head', array( __CLASS__, 'print_css' ), 98 );
+		add_action( 'wp_enqueue_scripts', array( __CLASS__, 'enqueue_css' ), 98 );
 		add_action( 'wp_footer', array( __CLASS__, 'print_tools' ), 4 );
 		add_action( 'wp_footer', array( __CLASS__, 'enqueue_script' ), 5 );
 	}
@@ -357,8 +357,8 @@ class KAOSHF_Fx {
 	/** Requests loading of CSS and JS; it also works when the element is already in the body. */
 	public static function request() {
 		self::$wanted = true;
-		if ( did_action( 'wp_head' ) ) {
-			self::print_css();
+		if ( did_action( 'wp_enqueue_scripts' ) ) {
+			self::enqueue_css();
 		}
 	}
 
@@ -379,16 +379,15 @@ class KAOSHF_Fx {
 		return array( $use, KAOSHF_URL . 'assets/' . $ext . '/' . basename( $use ) );
 	}
 
-	/** The CSS is small: we print it inline, with no extra request. */
-	public static function print_css() {
+	/** Loads the effects stylesheet (and the stacking order variable) with the enqueue API. */
+	public static function enqueue_css() {
 		if ( ! self::$wanted || self::$css_printed ) {
 			return;
 		}
 		self::$css_printed = true;
-		list( $file )      = self::asset( 'fx', 'css' );
-		$css               = is_readable( $file ) ? (string) file_get_contents( $file ) : ''; // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
-		$z                 = (int) KAOSHF_Options::settings()['z_index'];
-		echo '<style id="khf-fx-css">:root{--khf-z:' . $z . '}' . wp_strip_all_tags( $css ) . "</style>\n"; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		list( , $url )     = self::asset( 'fx', 'css' );
+		wp_enqueue_style( 'khf-fx', $url, array(), KAOSHF_VERSION );
+		wp_add_inline_style( 'khf-fx', ':root{--khf-z:' . (int) KAOSHF_Options::settings()['z_index'] . '}' );
 	}
 
 	public static function enqueue_script() {

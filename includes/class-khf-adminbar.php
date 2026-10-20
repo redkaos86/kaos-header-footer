@@ -9,8 +9,8 @@ class KAOSHF_Adminbar {
 
 	public static function init() {
 		add_action( 'admin_bar_menu', array( __CLASS__, 'menu' ), 91 );
-		add_action( 'wp_head', array( __CLASS__, 'css' ) );
-		add_action( 'admin_head', array( __CLASS__, 'css' ) );
+		add_action( 'wp_enqueue_scripts', array( __CLASS__, 'css' ) );
+		add_action( 'admin_enqueue_scripts', array( __CLASS__, 'css' ) );
 	}
 
 	private static function allowed() {
@@ -102,7 +102,8 @@ class KAOSHF_Adminbar {
 		if ( ! self::allowed() ) {
 			return;
 		}
-		$icon = esc_url( KAOSHF_URL . 'assets/img/mark-white.svg' );
-		echo '<style>#wp-admin-bar-khf>.ab-item::before{content:"";display:inline-block;width:20px;height:20px;margin-right:6px;vertical-align:middle;background:url(' . $icon . ') center/contain no-repeat;top:0}#wp-admin-bar-khf>.ab-item{display:flex;align-items:center}</style>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		$icon = esc_url_raw( KAOSHF_URL . 'assets/img/mark-white.svg' );
+		// "admin-bar" is the admin bar's own stylesheet: the rule is added right after it.
+		wp_add_inline_style( 'admin-bar', '#wpadminbar #wp-admin-bar-khf>.ab-item::before{content:"";display:inline-block;width:20px;height:20px;margin-right:6px;vertical-align:middle;background:url(' . $icon . ') center/contain no-repeat;top:0}#wpadminbar #wp-admin-bar-khf>.ab-item{display:flex;align-items:center}' );
 	}
 }

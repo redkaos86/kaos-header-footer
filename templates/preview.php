@@ -11,6 +11,23 @@ $kaoshf_thumb  = ! empty( $GLOBALS['kaoshf_preview_thumb'] );
 $kaoshf_kind   = $GLOBALS['kaoshf_preview_kind'] ?? 'header';
 $kaoshf_blocks = $kaoshf_thumb ? 1 : 6;
 $kaoshf_lorem  = __( 'Demo content: it only shows how the header and footer behave while you scroll the page. Scroll to see sticky, transparency, adaptive colors and the footer coming in.', 'kaos-header-footer' );
+
+// Styles of the demo page, added through the enqueue API before wp_head() prints the styles.
+$kaoshf_css = 'html,body{margin:0}'
+	. 'body.khf-preview{background:#fff;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color:#1b1d21}'
+	. '.khf-demo{display:block;padding:clamp(48px,8vw,110px) clamp(20px,6vw,80px);min-height:60vh}'
+	. '.khf-demo h2{margin:0 0 .5em;font-size:clamp(1.6rem,4vw,3rem);line-height:1.1}'
+	. '.khf-demo p{max-width:56ch;margin:0;font-size:1.05rem;line-height:1.7;opacity:.8}'
+	. '.khf-demo--hero{min-height:92vh;display:flex;flex-direction:column;justify-content:center;color:#fff;background:linear-gradient(135deg,#1b1d21,#2a1559 60%,#5c00e6)}'
+	. '.khf-demo--alt{background:#f3f4f6}'
+	. '.khf-demo--dark{background:#1b1d21;color:#fff}';
+if ( $kaoshf_thumb ) {
+	$kaoshf_css .= '.khf-demo{min-height:0;padding-top:140px}.khf-demo--hero{min-height:620px}'
+		. 'html{overflow:hidden}*{animation-duration:0s!important;transition-duration:0s!important}';
+}
+wp_register_style( 'khf-preview', false, array(), KAOSHF_VERSION );
+wp_enqueue_style( 'khf-preview' );
+wp_add_inline_style( 'khf-preview', $kaoshf_css );
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -18,20 +35,6 @@ $kaoshf_lorem  = __( 'Demo content: it only shows how the header and footer beha
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<?php wp_head(); ?>
-	<style>
-		html,body{margin:0}
-		body.khf-preview{background:#fff;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color:#1b1d21}
-		.khf-demo{display:block;padding:clamp(48px,8vw,110px) clamp(20px,6vw,80px);min-height:60vh}
-		.khf-demo h2{margin:0 0 .5em;font-size:clamp(1.6rem,4vw,3rem);line-height:1.1}
-		.khf-demo p{max-width:56ch;margin:0;font-size:1.05rem;line-height:1.7;opacity:.8}
-		.khf-demo--hero{min-height:92vh;display:flex;flex-direction:column;justify-content:center;color:#fff;background:linear-gradient(135deg,#1b1d21,#2a1559 60%,#5c00e6)}
-		.khf-demo--alt{background:#f3f4f6}
-		.khf-demo--dark{background:#1b1d21;color:#fff}
-		<?php if ( $kaoshf_thumb ) : ?>
-		.khf-demo{min-height:0;padding-top:140px}.khf-demo--hero{min-height:620px}
-		html{overflow:hidden}*{animation-duration:0s!important;transition-duration:0s!important}
-		<?php endif; ?>
-	</style>
 </head>
 <body <?php body_class( 'khf-preview' ); ?>>
 <?php wp_body_open(); ?>

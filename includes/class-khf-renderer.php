@@ -18,7 +18,8 @@ class KAOSHF_Renderer {
 	public static function init() {
 		add_action( 'wp', array( __CLASS__, 'resolve' ) );
 		add_action( 'wp_enqueue_scripts', array( __CLASS__, 'enqueue' ) );
-		add_action( 'wp_head', array( __CLASS__, 'print_head' ), 99 );
+		// Late, so the dynamic CSS still comes after the theme's own styles.
+		add_action( 'wp_enqueue_scripts', array( __CLASS__, 'enqueue_dynamic' ), 100 );
 		add_action( 'wp_body_open', array( __CLASS__, 'print_header' ), 5 );
 		add_action( 'wp_footer', array( __CLASS__, 'print_footer' ), 5 );
 		add_filter( 'body_class', array( __CLASS__, 'body_class' ) );
@@ -216,7 +217,8 @@ class KAOSHF_Renderer {
 		return $sel . ', ' . ( 'header' === $kind ? $common_header : $common_footer );
 	}
 
-	public static function print_head() {
+	/** Adds the "js" class to <html> and the CSS that depends on the settings, through the enqueue API. */
+	public static function enqueue_dynamic() {
 		$h = self::$active['header'];
 		$f = self::$active['footer'];
 		if ( ! $h && ! $f ) {
@@ -245,8 +247,14 @@ class KAOSHF_Renderer {
 			$css .= $sel . '{display:none!important}';
 		}
 
-		echo "<script>document.documentElement.classList.add('khf-js');</script>\n";
-		echo '<style id="khf-dynamic">' . wp_strip_all_tags( $css ) . "</style>\n"; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		// Handles without a file: they only carry the inline code.
+		wp_register_script( 'khf-boot', false, array(), KAOSHF_VERSION, false );
+		wp_enqueue_script( 'khf-boot' );
+		wp_add_inline_script( 'khf-boot', "document.documentElement.classList.add('khf-js');" );
+
+		wp_register_style( 'khf-dynamic', false, array(), KAOSHF_VERSION );
+		wp_enqueue_style( 'khf-dynamic' );
+		wp_add_inline_style( 'khf-dynamic', wp_strip_all_tags( $css ) );
 	}
 
 	public static function body_class( $classes ) {
@@ -281,7 +289,9 @@ class KAOSHF_Renderer {
 		if ( self::$active['header'] && ! self::$header_printed && ! did_action( 'wp_body_open' ) ) {
 			self::$header_printed = true;
 			echo self::render( 'header', true ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-			echo "<script>(function(){var e=document.getElementById('khf-header');if(e){document.body.insertBefore(e,document.body.firstChild);}})();</script>\n";
+			wp_register_script( 'khf-top', false, array(), KAOSHF_VERSION, true );
+			wp_enqueue_script( 'khf-top' );
+			wp_add_inline_script( 'khf-top', "(function(){var e=document.getElementById('khf-header');if(e){document.body.insertBefore(e,document.body.firstChild);}})();" );
 		}
 		if ( self::$active['footer'] ) {
 			echo self::render( 'footer' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped

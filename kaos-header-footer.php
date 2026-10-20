@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       KaosH&F
  * Description:       Headers and footers for Elementor: emotional presets or layouts designed in Elementor, scroll effects (sticky, smart, transparent, glass, floating island…) and a "reveal" footer.
- * Version:           0.9.3
+ * Version:           0.9.4
  * Requires at least: 6.8
  * Requires PHP:      7.4
  * Requires Plugins:  elementor
@@ -15,7 +15,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'KAOSHF_VERSION', '0.9.3' );
+define( 'KAOSHF_VERSION', '0.9.4' );
 define( 'KAOSHF_FILE', __FILE__ );
 define( 'KAOSHF_DIR', plugin_dir_path( __FILE__ ) );
 define( 'KAOSHF_URL', plugin_dir_url( __FILE__ ) );
