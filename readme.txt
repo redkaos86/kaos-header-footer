@@ -5,7 +5,7 @@ Requires at least: 6.8
 Tested up to: 7.1
 Requires PHP: 7.4
 Requires Plugins: elementor
-Stable tag: 0.9.4
+Stable tag: 0.9.5
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -96,6 +96,10 @@ Yes. The interface is in English with a complete Italian translation, and the st
 
 == Changelog ==
 
+= 0.9.5 =
+* Full-screen menu: the text alignment (left, center, right) now applies on every screen size, not only on phones.
+* Full-screen menu: the address now shows with the contacts, and opens the maps when it is clickable.
+
 = 0.9.4 =
 * Styles and scripts are now added through the WordPress enqueue functions instead of being printed directly in the page.
 
@@ -124,6 +128,9 @@ Yes. The interface is in English with a complete Italian translation, and the st
 * Footer parity with the header: custom grid, top dividers, bottom bar, link effects, back-to-top arrow and an admin bar shortcut.
 
 == Upgrade Notice ==
+
+= 0.9.5 =
+Adds text alignment for the full-screen menu and shows the address in it.
 
 = 0.9.4 =
 Code cleanup: styles and scripts now use the WordPress enqueue functions.

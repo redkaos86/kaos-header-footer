@@ -457,6 +457,7 @@ class KAOSHF_Renderer {
 						$classes[] = 'khf-hm-bleed';
 					}
 				}
+				$classes[] = 'khf-da-' . $o['panel_al'];
 				$classes[] = 'khf-ma-' . $o['panel_m_al'];
 				if ( 'panel' === $o['hover_img'] && 'bg' === $o['panel_m_img'] ) {
 					$classes[] = 'khf-mi-bg';

@@ -876,6 +876,7 @@
 				{ path: 'c_panel_fg', type: 'color', label: __( 'Window text', 'kaos-header-footer' ) }
 			]),
 			section(__( 'Full-screen menu content', 'kaos-header-footer' ), [
+				{ path: 'panel_al', type: 'seg', label: __( 'Text alignment', 'kaos-header-footer' ), options: [['l', __( 'Left', 'kaos-header-footer' )], ['c', __( 'Center', 'kaos-header-footer' )], ['r', __( 'Right', 'kaos-header-footer' )]] },
 				{ path: 'panel_t_menu', type: 'text', label: __( 'Small title above the menu', 'kaos-header-footer' ), placeholder: __( 'Discover the pages', 'kaos-header-footer' ) },
 				{ path: 'panel_fs', type: 'number', label: __( 'Item size (px)', 'kaos-header-footer' ), min: 0, max: 90, help: __( '0 = large, based on the screen.', 'kaos-header-footer' ) },
 				{ path: 'panel_fw', type: 'select', label: __( 'Item weight', 'kaos-header-footer' ), options: [['', __( 'Default', 'kaos-header-footer' )], ['300', __( 'Light', 'kaos-header-footer' )], ['400', __( 'Normal', 'kaos-header-footer' )], ['500', __( 'Medium', 'kaos-header-footer' )], ['600', __( 'Semi-bold', 'kaos-header-footer' )], ['700', __( 'Bold', 'kaos-header-footer' )]] },

@@ -152,6 +152,7 @@ class KAOSHF_Options {
 			'hover_img_pos'   => 'left',
 			'hover_img_w'     => 40,
 			'hover_img_bleed' => 1,
+			'panel_al'        => 'l',
 			'panel_m_al'      => 'c',
 			'panel_m_img'     => 'bg',
 			'menu_cols'       => 1,
@@ -322,6 +323,7 @@ class KAOSHF_Options {
 		$o['burger_size']   = max( 28, min( 80, (int) ( $raw['burger_size'] ?? $d['burger_size'] ) ) );
 		$o['burger_w']      = max( 1, min( 8, (int) ( $raw['burger_w'] ?? $d['burger_w'] ) ) );
 		$o['hover_img_size'] = max( 120, min( 600, (int) ( $raw['hover_img_size'] ?? $d['hover_img_size'] ) ) );
+		$o['panel_al']      = self::enum( $raw['panel_al'] ?? '', array( 'l', 'c', 'r' ), $d['panel_al'] );
 		$o['panel_m_al']    = self::enum( $raw['panel_m_al'] ?? '', array( 'l', 'c', 'r' ), $d['panel_m_al'] );
 		$o['panel_m_img']   = self::enum( $raw['panel_m_img'] ?? '', array( 'bg', 'none' ), $d['panel_m_img'] );
 		$o['panel_mode']    = self::enum( $raw['panel_mode'] ?? '', array( 'full', 'custom' ), $d['panel_mode'] );

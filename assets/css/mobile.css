@@ -55,6 +55,15 @@
 .khf-header.khf-hm-bleed.khf-hm-right:not(.khf-pn-custom) .khf-nav{padding-right:calc(var(--khf-mwid,40%) + clamp(24px,6vw,96px))}
 .khf-header:not(.khf-hm-bleed).khf-hm-left.is-open .khf-nav{flex-direction:row-reverse}
 .khf-nav__post .khf-nav__label:not(:first-child){margin-top:14px}
+.khf-header.khf-da-l .khf-nav__main,.khf-header.khf-da-l .khf-nav__post{align-items:flex-start;text-align:left}
+.khf-header.khf-da-l .khf-menu{align-items:flex-start;justify-items:start;justify-content:start}
+.khf-header.khf-da-l .khf-nav__contacts,.khf-header.khf-da-l .khf-nav__post .khf-socials{justify-content:flex-start}
+.khf-header.khf-da-c .khf-nav__main,.khf-header.khf-da-c .khf-nav__post{align-items:center;text-align:center}
+.khf-header.khf-da-c .khf-menu{align-items:center;justify-items:center;justify-content:center}
+.khf-header.khf-da-c .khf-nav__contacts,.khf-header.khf-da-c .khf-nav__post .khf-socials{justify-content:center}
+.khf-header.khf-da-r .khf-nav__main,.khf-header.khf-da-r .khf-nav__post{align-items:flex-end;text-align:right}
+.khf-header.khf-da-r .khf-menu{align-items:flex-end;justify-items:end;justify-content:end}
+.khf-header.khf-da-r .khf-nav__contacts,.khf-header.khf-da-r .khf-nav__post .khf-socials{justify-content:flex-end}
 
 @media(max-width:700px){
 .khf-header.is-open .khf-nav{padding-left:clamp(24px,8vw,80px)!important;padding-right:clamp(24px,8vw,80px)!important;flex-direction:column;justify-content:center}
@@ -70,5 +79,6 @@
 .khf-header.khf-ma-r .khf-menu{align-items:flex-end;justify-items:end;justify-content:end}
 .khf-header.khf-ma-r .khf-nav__contacts,.khf-header.khf-ma-r .khf-nav__post .khf-socials{justify-content:flex-end}
 .khf-header.khf-ma-l .khf-nav__main,.khf-header.khf-ma-l .khf-nav__post{align-items:flex-start;text-align:left}
-.khf-header.khf-ma-l .khf-menu{justify-items:start}
+.khf-header.khf-ma-l .khf-menu{align-items:flex-start;justify-items:start;justify-content:start}
+.khf-header.khf-ma-l .khf-nav__contacts,.khf-header.khf-ma-l .khf-nav__post .khf-socials{justify-content:flex-start}
 }

@@ -406,6 +406,14 @@ class KAOSHF_Presets {
 		if ( '' !== $o['phone'] ) {
 			$contacts .= ( $contacts ? '<span class="khf-sepdot" aria-hidden="true">|</span>' : '' ) . '<a href="' . esc_url( 'tel:' . preg_replace( '/[^0-9+]/', '', $o['phone'] ), array( 'tel' ) ) . '">' . esc_html( $o['phone'] ) . '</a>';
 		}
+		if ( '' !== $o['address'] ) {
+			if ( ! empty( $o['address_map'] ) ) {
+				$map       = '' !== $o['address_url'] ? $o['address_url'] : 'https://www.google.com/maps/search/?api=1&query=' . rawurlencode( $o['address'] );
+				$contacts .= ( $contacts ? '<span class="khf-sepdot" aria-hidden="true">|</span>' : '' ) . '<a class="khf-addr" href="' . esc_url( $map, array( 'http', 'https' ) ) . '" data-q="' . esc_attr( $o['address'] ) . '" data-l-maps="' . esc_attr__( 'Maps', 'kaos-header-footer' ) . '" data-l-google="' . esc_attr__( 'Google Maps', 'kaos-header-footer' ) . '" data-l-cancel="' . esc_attr__( 'Cancel', 'kaos-header-footer' ) . '" target="_blank" rel="noopener">' . esc_html( $o['address'] ) . '</a>';
+			} else {
+				$contacts .= ( $contacts ? '<span class="khf-sepdot" aria-hidden="true">|</span>' : '' ) . '<span>' . esc_html( $o['address'] ) . '</span>';
+			}
+		}
 		if ( $contacts ) {
 			$html .= ( '' !== $o['panel_t_contact'] ? '<p class="khf-nav__label">' . esc_html( $o['panel_t_contact'] ) . '</p>' : '' ) . '<p class="khf-nav__contacts">' . $contacts . '</p>';
 		}
