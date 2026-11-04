@@ -4,6 +4,12 @@ Headers and footers for Elementor: emotional presets or layouts designed in Elem
 
 Header e footer per Elementor: preset emozionali oppure layout disegnati con Elementor, con effetti di scroll (sticky, smart, trasparente, vetro liquido, isola fluttuante) e footer "reveal".
 
+## Installazione
+
+Dalla directory di WordPress.org: https://wordpress.org/plugins/kaos-header-footer/ (Plugin → Aggiungi nuovo, cerca "KaosH&F").
+
+In alternativa lo zip firmato di ogni versione è nelle [release di GitHub](https://github.com/redkaos86/kaos-header-footer/releases): da lì il plugin si aggiorna da solo.
+
 ## Requisiti
 
 - WordPress 6.8 o successivo
