@@ -1982,7 +1982,7 @@ msgstr "Nascondi il footer Kaos"
 
 #: includes/class-khf-adminbar.php:44
 msgid "header"
-msgstr "Intestazione"
+msgstr "intestazione"
 
 #: includes/class-khf-adminbar.php:44
 msgid "footer"
@@ -2040,7 +2040,7 @@ msgstr "tranne: %s"
 
 #: includes/class-khf-cpt.php:22
 msgid "Header & Footer"
-msgstr "Header & Footer"
+msgstr "Header e Footer"
 
 #: includes/class-khf-cpt.php:23
 msgid "Header/Footer templates"
@@ -2404,7 +2404,7 @@ msgstr "Rosa antico"
 
 #: includes/class-khf-presets.php:19
 msgid "Cream & gold"
-msgstr "Crema & oro"
+msgstr "Crema e oro"
 
 #: includes/class-khf-presets.php:20
 msgid "Monochrome"

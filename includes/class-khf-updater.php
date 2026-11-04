@@ -154,7 +154,73 @@ class KAOSHF_Updater {
 	}
 
 	/**
-	 * "View details" window with the release notes.
+	 * Splits a readme.txt into its "== Section ==" blocks (the text before the first one is under "header").
+	 *
+	 * @return array Section name => text.
+	 */
+	private static function readme_sections( $file ) {
+		// phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
+		$text = is_readable( $file ) ? (string) file_get_contents( $file ) : '';
+		$out  = array();
+		if ( '' === $text ) {
+			return $out;
+		}
+		$name = 'header';
+		foreach ( preg_split( '/\r\n|\r|\n/', $text ) as $line ) {
+			if ( preg_match( '/^==\s*(.+?)\s*==$/', $line, $m ) && 0 !== strpos( $line, '===' ) ) {
+				$name = $m[1];
+				continue;
+			}
+			$out[ $name ] = ( $out[ $name ] ?? '' ) . $line . "\n";
+		}
+		return $out;
+	}
+
+	/** Inline readme formatting: **bold**, `code` and links. */
+	private static function readme_inline( $line ) {
+		$line = esc_html( $line );
+		$line = preg_replace( '/\*\*(.+?)\*\*/', '<strong>$1</strong>', $line );
+		$line = preg_replace( '/`(.+?)`/', '<code>$1</code>', $line );
+		return make_clickable( $line );
+	}
+
+	/** readme.txt block (paragraphs, lists, "= title =" headings) to HTML. */
+	private static function readme_html( $text ) {
+		$html = '';
+		$list = '';
+		foreach ( preg_split( '/\r\n|\r|\n/', (string) $text ) as $line ) {
+			$line = rtrim( $line );
+			$tag  = '';
+			$item = '';
+			if ( preg_match( '/^\*\s+(.+)$/', $line, $m ) ) {
+				$tag  = 'ul';
+				$item = $m[1];
+			} elseif ( preg_match( '/^\d+\.\s+(.+)$/', $line, $m ) ) {
+				$tag  = 'ol';
+				$item = $m[1];
+			}
+			if ( $list && $list !== $tag ) {
+				$html .= '</' . $list . '>';
+				$list  = '';
+			}
+			if ( $tag ) {
+				if ( ! $list ) {
+					$html .= '<' . $tag . '>';
+					$list  = $tag;
+				}
+				$html .= '<li>' . self::readme_inline( $item ) . '</li>';
+			} elseif ( preg_match( '/^=\s*(.+?)\s*=$/', $line, $m ) ) {
+				$html .= '<h4>' . esc_html( $m[1] ) . '</h4>';
+			} elseif ( '' !== trim( $line ) ) {
+				$html .= '<p>' . self::readme_inline( $line ) . '</p>';
+			}
+		}
+		return $html . ( $list ? '</' . $list . '>' : '' );
+	}
+
+	/**
+	 * "View details" window: description, installation, FAQ, screenshots and changelog taken from the
+	 * readme.txt of the plugin (the Italian one, if the site language is Italian), plus the banner.
 	 */
 	public static function info( $result, $action, $args ) {
 		if ( 'plugin_information' !== $action || empty( $args->slug ) || 'kaos-header-footer' !== $args->slug ) {
@@ -164,18 +230,62 @@ class KAOSHF_Updater {
 		if ( ! $rel ) {
 			return $result;
 		}
+
+		$en   = self::readme_sections( KAOSHF_DIR . 'readme.txt' );
+		$tr   = self::readme_sections( KAOSHF_DIR . 'languages/readme-' . determine_locale() . '.txt' );
+		$pick = function ( $name ) use ( $en, $tr ) {
+			return isset( $tr[ $name ] ) ? $tr[ $name ] : ( $en[ $name ] ?? '' );
+		};
+
+		$raw      = 'https://raw.githubusercontent.com/' . self::REPO . '/v' . $rel['version'] . '/.wordpress-org/';
+		$captions = array();
+		foreach ( preg_split( '/\r\n|\r|\n/', $pick( 'Screenshots' ) ) as $line ) {
+			if ( preg_match( '/^(\d+)\.\s+(.+)$/', $line, $m ) ) {
+				$captions[ (int) $m[1] ] = $m[2];
+			}
+		}
+		$shots = '';
+		foreach ( $captions as $n => $caption ) {
+			$url    = esc_url( $raw . 'screenshot-' . $n . '.png' );
+			$shots .= '<li><a href="' . $url . '"><img src="' . $url . '" alt="' . esc_attr( $caption ) . '"></a><p>' . esc_html( $caption ) . '</p></li>';
+		}
+
+		$desc = self::readme_html( $pick( 'Description' ) );
+		if ( '' !== $pick( 'External services' ) ) {
+			$desc .= '<h3>' . esc_html( 0 === strpos( determine_locale(), 'it_' ) ? 'Servizi esterni' : 'External services' ) . '</h3>' . self::readme_html( $pick( 'External services' ) );
+		}
+		$short = trim( preg_replace( '/^=== .* ===$/m', '', $pick( 'header' ) ) );
+		$short = trim( (string) preg_replace( '/^(Contributors|Tags|Requires at least|Tested up to|Requires PHP|Requires Plugins|Stable tag|License|License URI|Donate link):.*$/m', '', $short ) );
+
+		$sections = array(
+			'description'  => ( '' !== $short ? '<p><strong>' . esc_html( $short ) . '</strong></p>' : '' ) . $desc,
+			'installation' => self::readme_html( $pick( 'Installation' ) ),
+			'faq'          => self::readme_html( $pick( 'Frequently Asked Questions' ) ),
+			'screenshots'  => $shots ? '<ol>' . $shots . '</ol>' : '',
+			'changelog'    => $pick( 'Changelog' ) ? self::readme_html( $pick( 'Changelog' ) ) : wpautop( esc_html( $rel['notes'] ) ),
+		);
+
+		$tested = '';
+		if ( preg_match( '/^Tested up to:\s*(.+)$/mi', $en['header'] ?? '', $m ) ) {
+			$tested = trim( $m[1] );
+		}
+
 		return (object) array(
 			'name'          => 'KaosH&F',
 			'slug'          => 'kaos-header-footer',
 			'version'       => $rel['version'],
-			'author'        => 'DrKaos',
+			'author'        => '<a href="https://github.com/redkaos86">DrKaos</a>',
+			'homepage'      => 'https://github.com/' . self::REPO,
 			'requires'      => '6.8',
 			'requires_php'  => '7.4',
+			'tested'        => $tested,
 			'last_updated'  => $rel['date'],
 			'download_link' => self::package_url( $rel ),
-			'sections'      => array(
-				'changelog' => wpautop( esc_html( $rel['notes'] ) ),
+			'banners'       => array(
+				'low'  => $raw . 'banner-772x250.png',
+				'high' => $raw . 'banner-1544x500.png',
 			),
+			'sections'      => array_filter( $sections ),
 		);
 	}
 

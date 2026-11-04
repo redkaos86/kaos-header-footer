@@ -5,7 +5,7 @@ Requires at least: 6.8
 Tested up to: 7.1
 Requires PHP: 7.4
 Requires Plugins: elementor
-Stable tag: 0.9.5
+Stable tag: 0.9.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -22,7 +22,7 @@ KaosH&F builds the header and the footer of your site in two ways: pick an emoti
 * Scroll effects: fixed or smart sticky (hides when you scroll down), transparent over the hero, shrinking, a different logo after the scroll, colors that adapt to the section underneath, liquid glass, a reading progress bar and animated entrances and exits.
 * More than a dozen hover effects for the menu, a mega menu, dropdown styles, separators and 7 burger icon styles.
 * A full-screen menu you can size and place, with images or short videos that change as you hover the items, plus contacts, social links and a legal link.
-* Text alignment and background image for the full-screen menu on smartphones.
+* Text alignment (left, center, right) and background image for the full-screen menu.
 
 **Footers**
 
@@ -96,6 +96,10 @@ Yes. The interface is in English with a complete Italian translation, and the st
 
 == Changelog ==
 
+= 0.9.6 =
+* Italian translation: corrected "Header e Footer", "Crema e oro" and "intestazione".
+* The "View details" window of the plugin list now shows the description, installation, FAQ, screenshots and changelog, with the banner, and in Italian when the site language is Italian.
+
 = 0.9.5 =
 * Full-screen menu: the text alignment (left, center, right) now applies on every screen size, not only on phones.
 * Full-screen menu: the address now shows with the contacts, and opens the maps when it is clickable.
@@ -128,6 +132,9 @@ Yes. The interface is in English with a complete Italian translation, and the st
 * Footer parity with the header: custom grid, top dividers, bottom bar, link effects, back-to-top arrow and an admin bar shortcut.
 
 == Upgrade Notice ==
+
+= 0.9.6 =
+Complete "View details" window and Italian translation fixes.
 
 = 0.9.5 =
 Adds text alignment for the full-screen menu and shows the address in it.
