@@ -316,7 +316,8 @@ class KAOSHF_Presets {
 
 	private static function copyright( $o ) {
 		$text = '' !== $o['copyright'] ? $o['copyright'] : '© {year} ' . get_bloginfo( 'name' );
-		return '<p class="khf-copy">' . esc_html( str_replace( '{year}', gmdate( 'Y' ), $text ) ) . '</p>';
+		$text = wp_kses( str_replace( '{year}', gmdate( 'Y' ), $text ), KAOSHF_Options::copyright_tags() );
+		return '<p class="khf-copy">' . wp_targeted_link_rel( $text ) . '</p>';
 	}
 
 	private static function cta( $o, $class ) {

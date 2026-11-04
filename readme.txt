@@ -5,7 +5,7 @@ Requires at least: 6.8
 Tested up to: 7.1
 Requires PHP: 7.4
 Requires Plugins: elementor
-Stable tag: 0.9.6
+Stable tag: 0.9.7
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -96,6 +96,9 @@ Yes. The interface is in English with a complete Italian translation, and the st
 
 == Changelog ==
 
+= 0.9.7 =
+* The copyright line of the footer now accepts links (and bold, italic and line breaks), so you can link your privacy and cookie policy pages.
+
 = 0.9.6 =
 * Italian translation: corrected "Header e Footer", "Crema e oro" and "intestazione".
 * The "View details" window of the plugin list now shows the description, installation, FAQ, screenshots and changelog, with the banner, and in Italian when the site language is Italian.
@@ -132,6 +135,9 @@ Yes. The interface is in English with a complete Italian translation, and the st
 * Footer parity with the header: custom grid, top dividers, bottom bar, link effects, back-to-top arrow and an admin bar shortcut.
 
 == Upgrade Notice ==
+
+= 0.9.7 =
+Links are now clickable in the footer copyright line.
 
 = 0.9.6 =
 Complete "View details" window and Italian translation fixes.

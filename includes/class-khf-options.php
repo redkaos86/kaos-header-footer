@@ -203,6 +203,21 @@ class KAOSHF_Options {
 		);
 	}
 
+	/** Tags allowed in the copyright line: links and basic emphasis. */
+	public static function copyright_tags() {
+		return array(
+			'a'      => array(
+				'href'   => true,
+				'target' => true,
+				'rel'    => true,
+				'title'  => true,
+			),
+			'br'     => array(),
+			'em'     => array(),
+			'strong' => array(),
+		);
+	}
+
 	public static function get( $post_id ) {
 		$saved = get_post_meta( $post_id, self::META_KEY, true );
 		$saved = is_array( $saved ) ? $saved : array();
@@ -458,9 +473,10 @@ class KAOSHF_Options {
 			$o[ $k ] = in_array( $k, array( 'c_pill', 'c_cta_bg', 'c_sub_bg', 'c_panel_bg', 'c_burger_bg' ), true ) ? KAOSHF_Fx::paint( $raw[ $k ] ?? '' ) : KAOSHF_Fx::color( $raw[ $k ] ?? '' );
 		}
 
-		foreach ( array( 'logo_text', 'cta_text', 'tagline', 'phone', 'address', 'copyright' ) as $k ) {
+		foreach ( array( 'logo_text', 'cta_text', 'tagline', 'phone', 'address' ) as $k ) {
 			$o[ $k ] = sanitize_text_field( $raw[ $k ] ?? '' );
 		}
+		$o['copyright'] = trim( wp_kses( $raw['copyright'] ?? '', self::copyright_tags() ) );
 		$o['address_url'] = esc_url_raw( (string) ( $raw['address_url'] ?? '' ), array( 'http', 'https' ) );
 		$o['email']    = sanitize_email( $raw['email'] ?? '' );
 		$o['cta_url']  = esc_url_raw( $raw['cta_url'] ?? '' );

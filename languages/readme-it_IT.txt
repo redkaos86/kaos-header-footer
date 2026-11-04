@@ -87,6 +87,9 @@ Sì. L'interfaccia è in inglese con una traduzione italiana completa, e le stri
 
 == Changelog ==
 
+= 0.9.7 =
+* La riga del copyright del footer ora accetta link (e grassetto, corsivo e a capo), così puoi collegare le pagine di privacy e cookie policy.
+
 = 0.9.6 =
 * Traduzione italiana: corrette "Header e Footer", "Crema e oro" e "intestazione".
 * La finestra "Visualizza dettagli" dell'elenco dei plugin ora mostra descrizione, installazione, FAQ, screenshot e changelog, con il banner, e in italiano quando il sito è in italiano.
